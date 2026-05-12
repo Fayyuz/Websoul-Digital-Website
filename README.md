@@ -1,20 +1,39 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Websoul Digital Website
 
-# Run and deploy your AI Studio app
+Premium corporate website for Websoul Digital, an Australian-owned digital and cyber consultancy.
 
-This contains everything you need to run your app locally.
+## Stack
+- **Framework**: Next.js 14 (App Router)
+- **Styling**: Tailwind CSS
+- **Icons**: Lucide React
+- **Language**: TypeScript
 
-View your app in AI Studio: https://ai.studio/apps/948e3f7c-db94-448e-a64c-0e920d37d299
+## Key Capabilities
+- **Trust Services**: Workforce integrity and screening.
+- **Digital Consultancy**: ICT strategy and cloud transformation.
+- **DISP Advisory**: Security maturity and governance.
 
-## Run Locally
+## Local Development
 
-**Prerequisites:**  Node.js
+```bash
+npm run dev
+```
 
+## Deployment
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+### Google Cloud Run
+This project includes a `Dockerfile` optimized for Cloud Run.
+
+1. Build the image:
+   ```bash
+   gcloud builds submit --tag gcr.io/[PROJECT-ID]/websoul-digital
+   ```
+2. Deploy to Cloud Run:
+   ```bash
+   gcloud run deploy websoul-digital --image gcr.io/[PROJECT-ID]/websoul-digital --platform managed
+   ```
+
+### Firebase App Hosting
+The project is compatible with Next.js 14 SSR/SSG.
+1. Initialize Firebase: `firebase init hosting`
+2. Follow prompts for Next.js App Hosting.
