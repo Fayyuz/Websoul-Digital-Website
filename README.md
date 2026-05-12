@@ -1,86 +1,77 @@
-# Websoul Digital | Production Repository
+# Websoul Digital Website
 
-This repository contains the source for the Websoul Digital corporate website—a premium, sovereign Australian consultancy providing Trust Services, Digital Delivery, and DISP Advisory.
+Premium corporate website for Websoul Digital, an Australian-owned digital and cyber consultancy.
 
-**Domain:** [websoul.com.au](https://websoul.com.au)  
+**Domain:** websoul.com.au  
 **Location:** Canberra, ACT, Australia
 
-## Specification
+## Tech Stack
 
-- **Framework:** Next.js 14 (App Router)
-- **Engine:** React 18 / TypeScript
-- **Styling:** Tailwind CSS (Custom Monochrome Architecture)
-- **Icons:** Lucide React
-- **Validation:** Zod / React Hook Form
-- **Deployment:** Google Cloud Run (Containerized Standalone)
-
-## Architectural Ethos
-
-The website is designed to the standard of a Tier-One global consultancy. It prioritizes:
-- **Trust-Oriented Hierarchy:** Logical service partitioning and clear value propositions.
-- **Sovereign Positioning:** Explicit alignment with Australian secure-domain requirements.
-- **Operational Reality:** No broken links, placeholder phone numbers, or overclaims.
+- **Framework**: Next.js 14 (App Router)
+- **Engine**: React 18 / TypeScript
+- **Styling**: Tailwind CSS (Custom Monochrome Architecture)
+- **Icons**: Lucide React
+- **Validation**: Zod / React Hook Form
+- **Deployment**: Google Cloud Run (Containerized Standalone)
 
 ## Core Capabilities
 
-1.  **Trust Services:** Advanced workforce integrity frameworks and personnel readiness.
-2.  **Digital Delivery:** Secure-by-design engineering and ICT transformation.
-3.  **DISP Advisory:** Strategic pathways for organisational security maturity.
+1. **Trust Services**: Workforce integrity frameworks and personnel readiness
+2. **Digital Consultancy**: Secure-by-design engineering and ICT transformation
+3. **DISP Advisory**: Strategic pathways for organisational security maturity
+4. **Essential Eight ML2**: ISM-aligned cyber assurance
 
 ## Local Development
 
 ```bash
-# Install dependencies
 npm install
-
-# Start development server
 npm run dev
 ```
 
 ## Production Quality Gates
 
-Before deployment, ensure all quality gates pass:
-
 ```bash
-# Run linting, typechecking, and build
-npm run check
+npm run check  # Runs lint, typecheck, and build
 ```
 
 ## Deployment: Google Cloud Run
 
-This project is optimized for **Google Cloud Run** using the Next.js **standalone** build output for minimal image size and maximum performance.
+This project is optimized for Google Cloud Run using Next.js standalone output.
 
-### 1. Environment Configuration
-Ensure `.env` in your deployment environment contains:
-- `NEXT_PUBLIC_FORMSPREE_ENDPOINT`: Your Formspree endpoint ID.
+### Environment Configuration
 
-### 2. Containerization
-The repository includes a production-grade `Dockerfile`.
+Set in Cloud Run environment variables:
+
+`NEXT_PUBLIC_FORMSPREE_ENDPOINT`: Your Formspree endpoint ID
+
+### Deploy
 
 ```bash
-# Build the container
-docker build -t gcr.io/[PROJECT_ID]/websoul-website .
+# Build container
+docker build -t gcr.io/[PROJECT-ID]/websoul-website .
 
 # Push to Artifact Registry
-docker push gcr.io/[PROJECT_ID]/websoul-website
+docker push gcr.io/[PROJECT-ID]/websoul-website
 
-# Deploy to Cloud Run
-# Ensure to expose port 3000
+# Deploy to Cloud Run (port 8080)
+gcloud run deploy websoul-website \
+  --image gcr.io/[PROJECT-ID]/websoul-website \
+  --port 8080 \
+  --platform managed
 ```
 
-## Integrated Components
+## Accessibility
 
-- **Contact:** Functional Formspree integration with Zod validation.
-- **Insights:** Living content architecture for industry leadership.
-- **Case Studies:** Anonymized, evidence-led past performance.
-- **Security:** Responsible disclosure protocol for high-trust operations.
+- WCAG 2.1 AA compliant
+- Keyboard navigable
+- Screen reader friendly
+- Reduced motion support
+- Skip to content link
 
-## Legal Identity
+## Legal
 
 Websoul Digital Pty Ltd  
 ABN 44 656 760 146  
 hello@websoul.com.au
 
----
-
-© 2026 Websoul Digital. All rights reserved. Proprietary and Confidential.
+© 2026 Websoul Digital. All rights reserved.

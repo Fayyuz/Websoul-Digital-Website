@@ -1,75 +1,115 @@
 import Link from 'next/link'
 import { LogoMark } from '@/components/shared/LogoMark'
-import { navigationItems } from '@/lib/constants'
+
+const footerLinks = {
+  services: [
+    { label: 'Trust Services', href: '/trust-services' },
+    { label: 'Digital Consultancy', href: '/digital-consultancy' },
+    { label: 'DISP Advisory', href: '/disp-advisory' },
+  ],
+  resources: [
+    { label: 'Case Studies', href: '/case-studies' },
+    { label: 'Insights', href: '/insights' },
+    { label: 'Security', href: '/security' },
+    { label: 'Capability Statement', href: '/capability-statement' },
+  ],
+  company: [
+    { label: 'About', href: '/about' },
+    { label: 'Careers', href: '/careers' },
+    { label: 'Contact', href: '/contact' },
+  ],
+  legal: [
+    { label: 'Privacy', href: '/privacy' },
+    { label: 'Terms', href: '/terms' },
+    { label: 'Responsible Disclosure', href: '/security' },
+  ],
+}
 
 export const SiteFooter = () => {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-ink text-paper selection:bg-paper selection:text-ink">
-      <div className="container-premium py-16 md:py-24">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 mb-16">
+    <footer className="border-t border-silver bg-paper">
+      <div className="container-premium py-12 md:py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
           {/* Brand Column */}
-          <div className="lg:col-span-5">
-            <div className="flex items-center gap-3 mb-8">
-              <LogoMark size="sm" className="brightness-0 invert" />
-              <span className="font-semibold text-lg tracking-tight uppercase">Websoul Digital</span>
+          <div className="lg:col-span-2">
+            <div className="flex items-center gap-3 mb-4">
+              <LogoMark size="md" variant="dark" />
+              <span className="font-semibold text-lg tracking-tight">Websoul Digital</span>
             </div>
-            <p className="text-body text-silver/60 max-w-sm mb-12">
-              Empowering critical infrastructure and enterprise with sovereign-focused trust, security, and digital delivery.
+            <p className="text-sm text-slate max-w-md">
+              Trusted capability for a more secure Australia.
             </p>
-            <div className="space-y-2">
-              <p className="text-xs font-semibold uppercase tracking-widest text-silver/40">Headquarters</p>
-              <p className="text-sm text-silver/60">Canberra, Australian Capital Territory</p>
+            <div className="mt-4 text-xs text-slate space-y-1">
+              <p>Websoul Digital Pty Ltd</p>
+              <p>ABN 44 656 760 146</p>
+              <p>Canberra, ACT, Australia</p>
+              <p>
+                <a href="mailto:hello@websoul.com.au" className="hover:text-ink transition-colors">
+                  hello@websoul.com.au
+                </a>
+              </p>
             </div>
           </div>
 
-          {/* Navigation Links */}
-          <div className="lg:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12">
-            <div className="space-y-6">
-              <p className="text-xs font-semibold uppercase tracking-widest text-silver/40">Capability</p>
-              <ul className="space-y-4">
-                <li><Link href="/trust-services" className="text-sm text-silver/60 hover:text-paper transition-colors">Trust Services</Link></li>
-                <li><Link href="/digital-consultancy" className="text-sm text-silver/60 hover:text-paper transition-colors">Digital Delivery</Link></li>
-                <li><Link href="/disp-advisory" className="text-sm text-silver/60 hover:text-paper transition-colors">DISP Advisory</Link></li>
-                <li><Link href="/case-studies" className="text-sm text-silver/60 hover:text-paper transition-colors">Case Studies</Link></li>
-              </ul>
-            </div>
-            
-            <div className="space-y-6">
-              <p className="text-xs font-semibold uppercase tracking-widest text-silver/40">Company</p>
-              <ul className="space-y-4">
-                <li><Link href="/about" className="text-sm text-silver/60 hover:text-paper transition-colors">About</Link></li>
-                <li><Link href="/insights" className="text-sm text-silver/60 hover:text-paper transition-colors">Insights</Link></li>
-                <li><Link href="/careers" className="text-sm text-silver/60 hover:text-paper transition-colors">Careers</Link></li>
-                <li><Link href="/contact" className="text-sm text-silver/60 hover:text-paper transition-colors">Contact</Link></li>
-              </ul>
-            </div>
-
-            <div className="space-y-6 col-span-2 md:col-span-1">
-              <p className="text-xs font-semibold uppercase tracking-widest text-silver/40">Direct</p>
-              <ul className="space-y-4">
-                <li><a href="mailto:hello@websoul.com.au" className="text-sm text-silver/60 hover:text-paper transition-colors">hello@websoul.com.au</a></li>
-                <li><Link href="/security" className="text-sm text-silver/60 hover:text-paper transition-colors">Security Disclosure</Link></li>
-                <li>
-                  <div className="pt-2">
-                    <span className="inline-block px-3 py-1 bg-charcoal rounded text-[10px] uppercase tracking-widest text-silver/80 border border-charcoal">Sovereign Advisory</span>
-                  </div>
+          {/* Services Links */}
+          <div>
+            <h3 className="font-semibold text-ink mb-4">Services</h3>
+            <ul className="space-y-2">
+              {footerLinks.services.map((item) => (
+                <li key={item.href}>
+                  <Link href={item.href} className="text-sm text-slate hover:text-ink transition-colors">
+                    {item.label}
+                  </Link>
                 </li>
-              </ul>
-            </div>
+              ))}
+            </ul>
+          </div>
+
+          {/* Resources Links */}
+          <div>
+            <h3 className="font-semibold text-ink mb-4">Resources</h3>
+            <ul className="space-y-2">
+              {footerLinks.resources.map((item) => (
+                <li key={item.href}>
+                  <Link href={item.href} className="text-sm text-slate hover:text-ink transition-colors">
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Legal Links */}
+          <div>
+            <h3 className="font-semibold text-ink mb-4">Legal</h3>
+            <ul className="space-y-2">
+              {footerLinks.company.map((item) => (
+                <li key={item.href}>
+                  <Link href={item.href} className="text-sm text-slate hover:text-ink transition-colors">
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+              {footerLinks.legal.map((item) => (
+                <li key={item.href}>
+                  <Link href={item.href} className="text-sm text-slate hover:text-ink transition-colors">
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-charcoal/50 flex flex-col md:flex-row justify-between gap-6 text-[10px] uppercase font-medium tracking-[0.2em] text-silver/30">
-          <div className="space-y-2">
-            <p>© {currentYear} Websoul Digital. Australian Owned & Operated.</p>
-            <p>Websoul Digital Pty Ltd | ABN 44 656 760 146 | Canberra, ACT</p>
-          </div>
-          <div className="flex gap-8">
-            <Link href="/privacy" className="hover:text-paper transition-colors">Privacy Policy</Link>
-            <Link href="/terms" className="hover:text-paper transition-colors">Terms of Engagement</Link>
+        <div className="pt-8 border-t border-silver flex flex-col md:flex-row justify-between gap-4 text-xs text-slate">
+          <p>© {currentYear} Websoul Digital Pty Ltd. All rights reserved.</p>
+          <div className="flex gap-6">
+            <Link href="/privacy" className="hover:text-ink">Privacy</Link>
+            <Link href="/terms" className="hover:text-ink">Terms</Link>
+            <Link href="/security" className="hover:text-ink">Security</Link>
           </div>
         </div>
       </div>

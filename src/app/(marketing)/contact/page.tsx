@@ -1,76 +1,87 @@
 'use client'
 
-import { useState } from 'react'
-import Link from 'next/link'
+import { useState, useRef, useEffect } from 'react'
 import { Container } from '@/components/ui/Container'
 import { Section } from '@/components/ui/Section'
 import { Button } from '@/components/ui/Button'
-import { Mail, MapPin, CheckCircle, AlertCircle } from 'lucide-react'
-import { useForm } from 'react-hook-form'
-import { zodResolver } from '@hookform/resolvers/zod'
-import * as z from 'zod'
+import { Mail, Phone, MapPin, CheckCircle, AlertCircle } from 'lucide-react'
 
-// Define validation schema
-const contactSchema = z.object({
-  name: z.string().min(2, { message: 'Full name must be at least 2 characters.' }),
-  email: z.string().email({ message: 'Please provide a valid professional email.' }),
-  organisation: z.string().optional(),
-  message: z.string().min(10, { message: 'Message context must be at least 10 characters.' }),
-  _gotcha: z.string().optional(),
-})
-
-type ContactFormValues = z.infer<typeof contactSchema>
-
-// Use environment variable for Formspree
-const FORMSPREE_ENDPOINT = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT
+const FORMSPREE_ENDPOINT = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT || ''
 
 export default function ContactPage() {
   const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
   const [errorMessage, setErrorMessage] = useState('')
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({})
+  const formRef = useRef<HTMLFormElement>(null)
+  const successRef = useRef<HTMLDivElement>(null)
+  const errorRef = useRef<HTMLDivElement>(null)
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm<ContactFormValues>({
-    resolver: zodResolver(contactSchema),
-  })
-
-  const onSubmit = async (data: ContactFormValues) => {
-    if (!FORMSPREE_ENDPOINT) {
-      setFormStatus('error')
-      setErrorMessage('Form configuration missing. Please email us directly at hello@websoul.com.au')
-      return
+  // Announce status changes to screen readers
+  useEffect(() => {
+    if (formStatus === 'success' && successRef.current) {
+      successRef.current.focus()
     }
+    if (formStatus === 'error' && errorRef.current) {
+      errorRef.current.focus()
+    }
+  }, [formStatus])
 
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
     setFormStatus('submitting')
+    setFieldErrors({})
     setErrorMessage('')
 
+    const formData = new FormData(e.currentTarget)
+    
+    // Validate required fields
+    const name = formData.get('name') as string
+    const email = formData.get('email') as string
+    const message = formData.get('message') as string
+    const errors: Record<string, string> = {}
+
+    if (!name?.trim()) errors.name = 'Name is required'
+    if (!email?.trim()) errors.email = 'Email is required'
+    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errors.email = 'Enter a valid email address'
+    if (!message?.trim()) errors.message = 'Message is required'
+
+    if (Object.keys(errors).length > 0) {
+      setFieldErrors(errors)
+      setFormStatus('idle')
+      return
+    }
+    
     try {
+      if (!FORMSPREE_ENDPOINT) {
+        throw new Error('Form configuration error. Please email us directly.')
+      }
+
       const response = await fetch(FORMSPREE_ENDPOINT, {
         method: 'POST',
-        body: JSON.stringify(data),
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-        },
+        body: formData,
+        headers: { 'Accept': 'application/json' },
       })
       
       if (response.ok) {
         setFormStatus('success')
-        reset()
+        e.currentTarget.reset()
+        setTimeout(() => {
+          setFormStatus('idle')
+        }, 8000)
       } else {
-        const result = await response.json()
-        throw new Error(result.error || 'Form submission failed')
+        throw new Error('Form submission failed')
       }
     } catch (error) {
       setFormStatus('error')
       setErrorMessage(
-        error instanceof Error 
-          ? error.message 
-          : 'Unable to send message. Please email us directly at hello@websoul.com.au'
+        FORMSPREE_ENDPOINT 
+          ? 'Unable to send message. Please try again or email hello@websoul.com.au'
+          : 'Please email us directly at hello@websoul.com.au'
       )
+      setTimeout(() => {
+        setFormStatus('idle')
+        setErrorMessage('')
+      }, 8000)
     }
   }
 
@@ -79,12 +90,14 @@ export default function ContactPage() {
       <Section background="mist" spacing="lg">
         <Container>
           <div className="max-w-3xl">
-            <div className="inline-block mb-4">
-              <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate/60 px-1">Enquiries</span>
-            </div>
-            <h1 className="text-h1 font-display font-bold mb-4 text-ink">Contact the Consultancy.</h1>
-            <p className="text-body-lg text-slate lg:max-w-xl">
-              Ready to discuss how Websoul Digital can support your mission? We provide the specialized capacity required to navigate secure transitions and trusted capability uplift.
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-4">
+              Contact Us
+            </h1>
+            <p className="text-lg sm:text-xl text-slate">
+              Ready to discuss how Websoul Digital can support your organisation?
+            </p>
+            <p className="text-sm text-slate mt-2">
+              A consultant will respond within 1–2 business days.
             </p>
           </div>
         </Container>
@@ -92,170 +105,192 @@ export default function ContactPage() {
 
       <Section background="paper" spacing="lg">
         <Container>
-          <div className="grid lg:grid-cols-2 gap-20">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
             {/* Contact Form */}
             <div>
-              <h2 className="text-h3 font-display font-bold mb-8 text-ink">Send a Message</h2>
+              <h2 className="text-2xl sm:text-3xl font-semibold mb-6">Send a Message</h2>
               
+              {/* Success Message */}
               {formStatus === 'success' && (
-                <div className="mb-8 p-10 bg-paper border border-ink/10 rounded-3xl animate-fade-in shadow-sm">
-                  <div className="flex items-start gap-4 mb-6">
-                    <CheckCircle className="w-6 h-6 text-ink flex-shrink-0" />
-                    <div>
-                      <p className="font-bold text-ink">Inquiry received.</p>
-                      <p className="text-sm text-slate mt-1 leading-relaxed">
-                        Thank you for reaching out. A consultant will respond within 1–2 business days.
-                      </p>
-                    </div>
-                  </div>
-                  
-                  <div className="space-y-4 pt-6 border-t border-silver">
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-slate">Next Steps</p>
-                    <div className="grid gap-3">
-                      <Link href="/capability-statement" className="text-xs font-bold text-ink hover:underline">Download Capability Statement →</Link>
-                      <Link href="/case-studies" className="text-xs font-bold text-ink hover:underline">Review Case Studies →</Link>
-                      <a href="mailto:hello@websoul.com.au" className="text-xs font-bold text-ink hover:underline">Email Urgent Inquiries →</a>
-                    </div>
+                <div 
+                  ref={successRef}
+                  className="mb-6 p-4 bg-green-50 border border-green-200 rounded-xl flex items-start gap-3"
+                  role="status"
+                  aria-live="polite"
+                  tabIndex={-1}
+                >
+                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <h3 className="font-semibold text-green-800">Message sent successfully</h3>
+                    <p className="text-sm text-green-700 mt-1">
+                      Thank you for reaching out. We&apos;ll respond within 1–2 business days.
+                    </p>
+                    <p className="text-sm text-green-700 mt-2">
+                      In the meantime, explore our <a href="/case-studies" className="underline">case studies</a> or <a href="/insights" className="underline">insights</a>.
+                    </p>
                   </div>
                 </div>
               )}
               
+              {/* Error Message */}
               {formStatus === 'error' && (
-                <div className="mb-8 p-6 bg-paper border border-red-500/10 rounded-2xl flex items-start gap-4 animate-fade-in">
-                  <AlertCircle className="w-6 h-6 text-red-600 flex-shrink-0" />
+                <div 
+                  ref={errorRef}
+                  className="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl flex items-start gap-3"
+                  role="alert"
+                  aria-live="assertive"
+                  tabIndex={-1}
+                >
+                  <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
                   <div>
-                    <p className="font-bold text-red-800">Inquiry Error</p>
+                    <h3 className="font-semibold text-red-800">Failed to send</h3>
                     <p className="text-sm text-red-700 mt-1">{errorMessage}</p>
                   </div>
                 </div>
               )}
 
-              {formStatus !== 'success' && (
-                <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
-                  <div className="grid md:grid-cols-2 gap-8">
-                    <div className="space-y-2">
-                      <label htmlFor="name" className="text-[10px] font-bold uppercase tracking-widest text-slate block px-1">
-                        Full Name *
-                      </label>
-                      <input
-                        {...register('name')}
-                        type="text"
-                        id="name"
-                        placeholder="e.g. Alex Smith"
-                        className={`w-full px-5 py-4 border ${errors.name ? 'border-red-500' : 'border-silver'} rounded-2xl bg-mist/30 text-ink focus:outline-none focus:ring-2 focus:ring-ink/5 focus:border-ink transition-all placeholder:text-slate/40`}
-                      />
-                      {errors.name && <p className="text-[10px] font-bold text-red-600 px-1">{errors.name.message}</p>}
-                    </div>
-                    
-                    <div className="space-y-2">
-                      <label htmlFor="email" className="text-[10px] font-bold uppercase tracking-widest text-slate block px-1">
-                        Professional Email *
-                      </label>
-                      <input
-                        {...register('email')}
-                        type="email"
-                        id="email"
-                        placeholder="alex@organisation.gov.au"
-                        className={`w-full px-5 py-4 border ${errors.email ? 'border-red-500' : 'border-silver'} rounded-2xl bg-mist/30 text-ink focus:outline-none focus:ring-2 focus:ring-ink/5 focus:border-ink transition-all placeholder:text-slate/40`}
-                      />
-                      {errors.email && <p className="text-[10px] font-bold text-red-600 px-1">{errors.email.message}</p>}
-                    </div>
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <label htmlFor="organisation" className="text-[10px] font-bold uppercase tracking-widest text-slate block px-1">
-                      Organisation (Optional)
-                    </label>
-                    <input
-                      {...register('organisation')}
-                      type="text"
-                      id="organisation"
-                      placeholder="Company or Government Agency"
-                      className="w-full px-5 py-4 border border-silver rounded-2xl bg-mist/30 text-ink focus:outline-none focus:ring-2 focus:ring-ink/5 focus:border-ink transition-all placeholder:text-slate/40"
-                    />
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <label htmlFor="message" className="text-[10px] font-bold uppercase tracking-widest text-slate block px-1">
-                      Message Context *
-                    </label>
-                    <textarea
-                      {...register('message')}
-                      id="message"
-                      rows={6}
-                      placeholder="Tell us about your requirements..."
-                      className={`w-full px-5 py-4 border ${errors.message ? 'border-red-500' : 'border-silver'} rounded-2xl bg-mist/30 text-ink focus:outline-none focus:ring-2 focus:ring-ink/5 focus:border-ink transition-all placeholder:text-slate/40 resize-none`}
-                    />
-                    {errors.message && <p className="text-[10px] font-bold text-red-600 px-1">{errors.message.message}</p>}
-                  </div>
-                  
-                  {/* Honeypot field */}
-                  <input {...register('_gotcha')} type="text" style={{ display: 'none' }} />
-                  
-                  <Button 
-                    type="submit" 
-                    variant="primary" 
-                    disabled={formStatus === 'submitting'}
-                    className="w-full md:w-auto h-14 px-10 text-xs tracking-widest font-bold uppercase"
-                  >
-                    {formStatus === 'submitting' ? 'Processing...' : 'Submit Inquiry'}
-                  </Button>
-                  
-                  <p className="text-[10px] font-medium text-slate/60 text-center md:text-left">
-                    By submitting, you acknowledge that your information will be handled in accordance with our <Link href="/privacy" className="text-ink underline underline-offset-4">Privacy Policy</Link>.
-                  </p>
-                </form>
-              )}
+              <form ref={formRef} onSubmit={handleSubmit} className="space-y-5" noValidate>
+                {/* Name Field */}
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-ink mb-2">
+                    Full Name <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    aria-required="true"
+                    aria-invalid={!!fieldErrors.name}
+                    aria-describedby={fieldErrors.name ? 'name-error' : undefined}
+                    className={`w-full h-12 px-4 border rounded-lg bg-paper text-ink focus:outline-none focus:ring-2 focus:ring-ink/20 focus:border-ink transition-colors ${
+                      fieldErrors.name ? 'border-red-500' : 'border-silver'
+                    }`}
+                  />
+                  {fieldErrors.name && (
+                    <p id="name-error" className="text-sm text-red-600 mt-1" role="alert">
+                      {fieldErrors.name}
+                    </p>
+                  )}
+                </div>
+                
+                {/* Email Field */}
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-ink mb-2">
+                    Email Address <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    aria-required="true"
+                    aria-invalid={!!fieldErrors.email}
+                    aria-describedby={fieldErrors.email ? 'email-error' : undefined}
+                    className={`w-full h-12 px-4 border rounded-lg bg-paper text-ink focus:outline-none focus:ring-2 focus:ring-ink/20 focus:border-ink transition-colors ${
+                      fieldErrors.email ? 'border-red-500' : 'border-silver'
+                    }`}
+                  />
+                  {fieldErrors.email && (
+                    <p id="email-error" className="text-sm text-red-600 mt-1" role="alert">
+                      {fieldErrors.email}
+                    </p>
+                  )}
+                </div>
+                
+                {/* Organisation Field */}
+                <div>
+                  <label htmlFor="organisation" className="block text-sm font-medium text-ink mb-2">
+                    Organisation (Optional)
+                  </label>
+                  <input
+                    type="text"
+                    id="organisation"
+                    name="organisation"
+                    className="w-full h-12 px-4 border border-silver rounded-lg bg-paper text-ink focus:outline-none focus:ring-2 focus:ring-ink/20 focus:border-ink transition-colors"
+                  />
+                </div>
+                
+                {/* Message Field */}
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium text-ink mb-2">
+                    Message <span className="text-red-500">*</span>
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows={5}
+                    required
+                    aria-required="true"
+                    aria-invalid={!!fieldErrors.message}
+                    aria-describedby={fieldErrors.message ? 'message-error' : undefined}
+                    className={`w-full px-4 py-2 border rounded-lg bg-paper text-ink focus:outline-none focus:ring-2 focus:ring-ink/20 focus:border-ink transition-colors resize-none ${
+                      fieldErrors.message ? 'border-red-500' : 'border-silver'
+                    }`}
+                  />
+                  {fieldErrors.message && (
+                    <p id="message-error" className="text-sm text-red-600 mt-1" role="alert">
+                      {fieldErrors.message}
+                    </p>
+                  )}
+                </div>
+                
+                {/* Honeypot */}
+                <input type="text" name="_gotcha" style={{ display: 'none' }} />
+                <input type="hidden" name="_redirect" value="https://websoul.com.au/contact" />
+                
+                <Button 
+                  type="submit" 
+                  variant="primary" 
+                  disabled={formStatus === 'submitting'}
+                  className="w-full sm:w-auto h-12 px-6 text-base font-semibold rounded-lg"
+                  aria-busy={formStatus === 'submitting'}
+                >
+                  {formStatus === 'submitting' ? 'Sending...' : 'Send Message'}
+                </Button>
+                
+                <p className="text-sm text-slate mt-4">
+                  By submitting, you agree to our <a href="/privacy" className="text-ink underline">Privacy Policy</a>.
+                </p>
+              </form>
             </div>
 
             {/* Contact Information */}
-            <div className="lg:pt-16">
-              <div className="bg-mist/30 border border-silver rounded-3xl p-10 lg:p-12">
-                <h2 className="text-h3 font-display font-bold mb-8 text-ink">Connect Directly</h2>
-                
-                <div className="space-y-10 mb-12">
-                  <div className="flex gap-6 group">
-                    <div className="w-12 h-12 rounded-2xl bg-paper border border-silver flex items-center justify-center transition-colors group-hover:border-ink/10">
-                      <Mail className="w-5 h-5 text-ink" />
-                    </div>
-                    <div>
-                      <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate mb-1">Email Protocol</h3>
-                      <a href="mailto:hello@websoul.com.au" className="text-lg font-medium text-ink hover:text-slate transition-colors">
-                        hello@websoul.com.au
-                      </a>
-                    </div>
-                  </div>
-                  
-                  <div className="flex gap-6">
-                     <div className="w-12 h-12 rounded-2xl bg-paper border border-silver flex items-center justify-center">
-                      <MapPin className="w-5 h-5 text-ink" />
-                    </div>
-                    <div>
-                      <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate mb-1">Location</h3>
-                      <p className="text-lg font-medium text-ink">Canberra, Australian Capital Territory</p>
-                    </div>
+            <div>
+              <h2 className="text-2xl sm:text-3xl font-semibold mb-6">Get in Touch</h2>
+              
+              <div className="space-y-6 mb-8">
+                <div className="flex gap-4">
+                  <Mail className="w-5 h-5 text-slate flex-shrink-0 mt-0.5" />
+                  <div>
+                    <h3 className="font-semibold text-ink mb-1">Email</h3>
+                    <a href="mailto:hello@websoul.com.au" className="text-slate hover:text-ink transition-colors break-all">
+                      hello@websoul.com.au
+                    </a>
                   </div>
                 </div>
-
-                <div className="pt-10 border-t border-silver">
-                  <h3 className="text-xs font-bold uppercase tracking-widest text-ink mb-4">Operations</h3>
-                  <div className="space-y-2">
-                    <div className="flex justify-between items-center text-sm py-1 border-b border-silver/50">
-                      <span className="text-slate">Business Hours</span>
-                      <span className="text-ink font-medium">09:00 - 17:30 AEST</span>
-                    </div>
-                    <div className="flex justify-between items-center text-sm py-1">
-                      <span className="text-slate">Response SLA</span>
-                      <span className="text-ink font-medium">Within 2 Business Days</span>
-                    </div>
+                
+                <div className="flex gap-4">
+                  <MapPin className="w-5 h-5 text-slate flex-shrink-0 mt-0.5" />
+                  <div>
+                    <h3 className="font-semibold text-ink mb-1">Location</h3>
+                    <p className="text-slate">Canberra, ACT, Australia</p>
                   </div>
                 </div>
               </div>
 
-              <div className="mt-12 px-6">
-                <p className="text-xs text-slate italic leading-relaxed">
-                  Websoul Digital operates with a secure-by-design mindset. For sensitive technical enquiries, please request a secure transmission channel in your initial message.
+              <div className="border-t border-silver pt-8">
+                <h3 className="font-semibold text-ink mb-2">Response Time</h3>
+                <p className="text-sm text-slate">
+                  We respond to all inquiries within 1–2 business days.
                 </p>
+              </div>
+
+              <div className="bg-mist rounded-xl p-6 mt-8 border border-silver">
+                <h3 className="font-semibold text-ink mb-2">Prefer to email directly?</h3>
+                <code className="block bg-paper p-3 rounded-lg border border-silver text-sm font-mono text-ink break-all">
+                  hello@websoul.com.au
+                </code>
               </div>
             </div>
           </div>
@@ -264,5 +299,3 @@ export default function ContactPage() {
     </>
   )
 }
-
-

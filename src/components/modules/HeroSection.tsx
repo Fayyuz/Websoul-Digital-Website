@@ -69,13 +69,16 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-wrap gap-4"
+            className="flex flex-col sm:flex-row gap-4"
           >
-            <Button href="/contact" variant="primary" className="h-14 px-10">
-              Consult a Specialist
+            <Button href="/contact" variant="primary" className="h-[52px] px-10 text-sm font-semibold rounded-lg w-full sm:w-auto">
+              Talk to Us
             </Button>
-            <Button href="/about" variant="secondary" className="h-14 px-10">
-              Company Profile
+            <Button href="/trust-services" variant="secondary" className="h-[52px] px-10 text-sm font-medium rounded-lg w-full sm:w-auto">
+              Explore Trust Services
+            </Button>
+            <Button href="/disp-advisory" variant="secondary" className="h-[52px] px-10 text-sm font-medium rounded-lg w-full sm:w-auto">
+              Explore DISP Advisory
             </Button>
           </motion.div>
         </div>

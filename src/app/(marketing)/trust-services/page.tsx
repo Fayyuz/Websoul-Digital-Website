@@ -8,7 +8,7 @@ export default function TrustServicesPage() {
     {
       icon: Fingerprint,
       title: 'Identity Verification',
-      description: 'Legally compliant validation of personnel identity and credentials for high-trust roles.',
+      description: 'Structured validation of personnel identity and credentials for high-trust roles.',
     },
     {
       icon: Shield,
