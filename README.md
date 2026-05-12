@@ -2,38 +2,78 @@
 
 Premium corporate website for Websoul Digital, an Australian-owned digital and cyber consultancy.
 
-## Stack
+## Tech Stack
+
 - **Framework**: Next.js 14 (App Router)
-- **Styling**: Tailwind CSS
+- **Styling**: Tailwind CSS (monochrome premium palette)
 - **Icons**: Lucide React
 - **Language**: TypeScript
+- **Hosting**: Firebase Hosting
 
-## Key Capabilities
-- **Trust Services**: Workforce integrity and screening.
-- **Digital Consultancy**: ICT strategy and cloud transformation.
-- **DISP Advisory**: Security maturity and governance.
+## Core Capabilities
+
+- **Trust Services**: Workforce integrity and screening
+- **Digital Consultancy**: ICT strategy and cloud transformation
+- **DISP Advisory**: Security maturity and governance
 
 ## Local Development
 
 ```bash
+npm install
 npm run dev
 ```
 
-## Deployment
+Visit http://localhost:3000
 
-### Google Cloud Run
-This project includes a `Dockerfile` optimized for Cloud Run.
+## Deployment (Firebase Hosting)
 
-1. Build the image:
-   ```bash
-   gcloud builds submit --tag gcr.io/[PROJECT-ID]/websoul-digital
-   ```
-2. Deploy to Cloud Run:
-   ```bash
-   gcloud run deploy websoul-digital --image gcr.io/[PROJECT-ID]/websoul-digital --platform managed
-   ```
+### Prerequisites
 
-### Firebase App Hosting
-The project is compatible with Next.js 14 SSR/SSG.
-1. Initialize Firebase: `firebase init hosting`
-2. Follow prompts for Next.js App Hosting.
+1. Install Firebase CLI: `npm install -g firebase-tools`
+2. Login to Firebase: `firebase login`
+
+### Deploy
+
+```bash
+# Build the static export
+npm run build
+
+# Deploy to Firebase Hosting
+firebase deploy
+```
+
+The site will be available at your configured Firebase Hosting URL.
+
+## Build Configuration
+
+This project is optimized for static hosting compatibility.
+
+## Design System
+
+- **Colors**: Monochrome premium palette (ink, paper, graphite, charcoal, slate, silver, mist)
+- **Typography**: Inter font family with SF Pro Display for headings
+- **Logo**: Custom geometric "W" mark (chevron-based design)
+- **Spacing**: Consistent spacing system based on architectural proportions
+
+## Pages
+
+- Homepage (Strategic sections for credibility)
+- Trust Services
+- Digital Delivery (Digital Consultancy)
+- DISP Advisory
+- About
+- Careers
+- Contact (with functional Formspree integration)
+- Privacy Policy
+- Terms of Use
+
+## Contact Form
+
+The contact form is designed for real-world use via Formspree. To configure:
+1. Create a free account at https://formspree.io/
+2. Create a new form and get your endpoint URL
+3. Replace the endpoint in `src/app/(marketing)/contact/page.tsx`
+
+## License
+
+All rights reserved. Websoul Digital.

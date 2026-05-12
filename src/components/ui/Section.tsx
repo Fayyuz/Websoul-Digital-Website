@@ -3,14 +3,15 @@ import { cn } from '@/lib/utils'
 interface SectionProps {
   children: React.ReactNode
   className?: string
-  background?: 'white' | 'mist' | 'ink'
+  background?: 'white' | 'paper' | 'mist' | 'ink'
   spacing?: 'sm' | 'md' | 'lg'
   id?: string
 }
 
-export const Section = ({ children, className, background = 'white', spacing = 'lg', id }: SectionProps) => {
+export const Section = ({ children, className, background = 'paper', spacing = 'lg', id }: SectionProps) => {
   const backgroundClasses = {
     white: 'bg-paper',
+    paper: 'bg-paper',
     mist: 'bg-mist',
     ink: 'bg-ink text-paper',
   }

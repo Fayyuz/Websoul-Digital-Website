@@ -7,63 +7,78 @@ export default function DISPAdvisoryPage() {
   const services = [
     {
       icon: TrendingUp,
-      title: 'Readiness Assessment',
-      description: 'Evaluate current security maturity against requirements.',
+      title: 'Maturity Assessments',
+      description: 'Rigorous evaluation of current security maturity against DISP and regulated standards.',
     },
     {
       icon: FileCheck,
-      title: 'Governance Uplift',
-      description: 'Develop policies and procedures for trusted environments.',
+      title: 'Governance Frameworks',
+      description: 'Developing professional security policies and procedures for trusted operations.',
     },
     {
       icon: Building2,
-      title: 'Environment Advisory',
-      description: 'Support for defence-adjacent and regulated contexts.',
+      title: 'Environment Uplift',
+      description: 'Practical support for establishing secure physical and digital operating environments.',
     },
     {
       icon: Target,
-      title: 'Uplift Pathways',
-      description: 'Practical roadmaps to achieve and maintain trusted status.',
+      title: 'Compliance Roadmaps',
+      description: 'Actionable pathways to achieve and maintain DISP accreditation and trusted status.',
     },
     {
       icon: ShieldAlert,
-      title: 'Security Planning',
-      description: 'Strategic and operational security documentation.',
+      title: 'Risk Management',
+      description: 'Strategic security risk assessments and operational mitigation planning.',
     },
     {
       icon: ClipboardCheck,
-      title: 'Audit Preparation',
-      description: 'Prepare for assurance and compliance activities.',
+      title: 'Assurance Preparation',
+      description: 'Expert preparation for formal security audits and environmental assurance reviews.',
     },
   ]
 
   return (
     <>
-      <Section background="mist" spacing="lg">
+      <Section background="mist" spacing="lg" className="border-b border-silver">
         <Container>
-          <div className="max-w-3xl">
-            <span className="text-sm font-medium text-slate uppercase mb-2 block">Core Capability</span>
-            <h1 className="text-h1 font-display font-semibold mb-4">DISP Advisory</h1>
-            <p className="text-body-lg text-slate mb-6">
-              Practical security readiness, governance uplift, and trusted-environment advisory.
-            </p>
-            <p className="text-body text-slate">
-              We help organisations navigate security readiness, governance uplift, and trusted-environment requirements with practical, actionable advisory services.
-            </p>
+          <div className="max-w-4xl">
+            <div className="inline-block mb-6">
+              <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate/60">Capability: DISP Advisory</span>
+            </div>
+            <h1 className="text-hero-mobile md:text-h1 font-display font-bold tracking-tight text-ink mb-8">
+              Accreditation with precision.
+            </h1>
+            <div className="grid md:grid-cols-2 gap-12 items-start">
+              <p className="text-body-lg text-ink font-medium leading-relaxed">
+                We facilitate the journey to formal accreditation, ensuring your organisation meets the rigorous standards required for trusted operations.
+              </p>
+              <p className="text-body text-slate leading-relaxed">
+                Operating within the Defence Industry Security Program (DISP) or similar high-trust frameworks requires a demonstrable commitment to governance and security. Our advisory provides the practical support to achieve and maintain this maturity.
+              </p>
+            </div>
           </div>
         </Container>
       </Section>
 
-      <Section background="white" spacing="lg">
+      <Section background="paper" spacing="lg">
         <Container>
+          <div className="mb-16">
+            <h2 className="text-h2 font-display font-bold text-ink mb-4">Advisory Services</h2>
+            <p className="text-body text-slate max-w-2xl">
+              Practical support for organisations navigating the complexities of trusted-environment accreditation.
+            </p>
+          </div>
+          
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => {
               const Icon = service.icon
               return (
-                <div key={index} className="border border-silver rounded-2xl p-6 hover:shadow-md transition-shadow">
-                  <Icon className="w-8 h-8 text-ink mb-4" />
-                  <h3 className="text-h3 font-semibold mb-2">{service.title}</h3>
-                  <p className="text-slate">{service.description}</p>
+                <div key={index} className="group border border-silver rounded-2xl p-8 hover:border-ink/10 hover:shadow-sm transition-all duration-300">
+                  <div className="w-12 h-12 rounded-xl bg-mist flex items-center justify-center mb-6 group-hover:bg-ink group-hover:text-paper transition-colors">
+                    <Icon className="w-6 h-6 text-ink group-hover:text-paper transition-colors" />
+                  </div>
+                  <h3 className="text-h4 font-display font-bold mb-3 text-ink">{service.title}</h3>
+                  <p className="text-sm text-slate leading-relaxed">{service.description}</p>
                 </div>
               )
             })}
@@ -73,9 +88,12 @@ export default function DISPAdvisoryPage() {
 
       <Section background="mist" spacing="lg">
         <Container>
-          <div className="text-center max-w-2xl mx-auto">
-            <h2 className="text-h2 font-display font-semibold mb-4">Ready to strengthen your security posture?</h2>
-            <Button href="/contact" variant="primary">Let&apos;s talk readiness</Button>
+          <div className="max-w-4xl mx-auto bg-paper border border-silver rounded-[2rem] p-12 md:p-16 text-center">
+            <h2 className="text-h2 font-display font-bold mb-6 text-ink">Achieve trusted status.</h2>
+            <p className="text-body text-slate mb-10 max-w-xl mx-auto leading-relaxed">
+              Talk to our advisory team about mapping your path to accreditation and establishing a compliant security posture.
+            </p>
+            <Button href="/contact" variant="primary" className="h-14 px-12">Consult an Advisor</Button>
           </div>
         </Container>
       </Section>

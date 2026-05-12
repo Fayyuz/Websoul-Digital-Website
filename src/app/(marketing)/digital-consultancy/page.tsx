@@ -7,63 +7,78 @@ export default function DigitalConsultancyPage() {
   const capabilities = [
     {
       icon: Cloud,
-      title: 'Cloud Strategy & Migration',
-      description: 'Secure, well-architected cloud adoption with governance built in.',
+      title: 'Sovereign Cloud Strategy',
+      description: 'Secure, well-architected cloud adoption with sovereignty and governance built-in.',
     },
     {
       icon: Shield,
       title: 'Cyber Security Advisory',
-      description: 'Security-aware architecture and delivery practices.',
+      description: 'Pragmatic, security-aware architecture and ICT delivery practices.',
     },
     {
       icon: GitBranch,
-      title: 'DevSecOps & Delivery',
-      description: 'Modern delivery pipelines with security integrated.',
+      title: 'Digital Delivery',
+      description: 'Modern, agile delivery pipelines with security integrated at every stage.',
     },
     {
       icon: Layers,
-      title: 'ICT Strategy',
-      description: 'Technology roadmaps aligned with business objectives.',
+      title: 'ICT Transformation',
+      description: 'Strategic technology roadmaps aligned with complex organisational objectives.',
     },
     {
       icon: Database,
-      title: 'Data & Analytics',
-      description: 'Trusted data foundations for better decisions.',
+      title: 'Data Governance',
+      description: 'Building trusted data foundations for high-confidence decision making.',
     },
     {
       icon: Lock,
-      title: 'Governance & Compliance',
-      description: 'Frameworks that enable secure innovation.',
+      title: 'Regulatory Compliance',
+      description: 'Frameworks and assurance that enable secure, compliant innovation.',
     },
   ]
 
   return (
     <>
-      <Section background="mist" spacing="lg">
+      <Section background="mist" spacing="lg" className="border-b border-silver">
         <Container>
-          <div className="max-w-3xl">
-            <span className="text-sm font-medium text-slate uppercase mb-2 block">Core Capability</span>
-            <h1 className="text-h1 font-display font-semibold mb-4">Digital Consultancy</h1>
-            <p className="text-body-lg text-slate mb-6">
-              Security-aware ICT strategy, cloud transformation, and digital delivery capability.
-            </p>
-            <p className="text-body text-slate">
-              We help organisations navigate complex digital transformation with security awareness built into every decision. From cloud strategy to delivery governance, we provide the expertise needed to modernise with confidence.
-            </p>
+          <div className="max-w-4xl">
+            <div className="inline-block mb-6">
+              <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate/60">Capability: Digital Delivery</span>
+            </div>
+            <h1 className="text-hero-mobile md:text-h1 font-display font-bold tracking-tight text-ink mb-8">
+              Engineering for excellence.
+            </h1>
+            <div className="grid md:grid-cols-2 gap-12 items-start">
+              <p className="text-body-lg text-ink font-medium leading-relaxed">
+                We design and deliver digital systems that are secure by default, resilient by design, and scalable by nature.
+              </p>
+              <p className="text-body text-slate leading-relaxed">
+                Modern digital transformation requires more than just migration; it requires a fundamental shift in how trust and security are integrated into the delivery lifecycle. Our consultancy provides the specialized expertise to navigate this complexity.
+              </p>
+            </div>
           </div>
         </Container>
       </Section>
 
-      <Section background="white" spacing="lg">
+      <Section background="paper" spacing="lg">
         <Container>
+          <div className="mb-16">
+            <h2 className="text-h2 font-display font-bold text-ink mb-4">Enterprise Capability</h2>
+            <p className="text-body text-slate max-w-2xl">
+              Specialized digital delivery and strategy for organisations operating in complex or secure domains.
+            </p>
+          </div>
+          
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {capabilities.map((capability, index) => {
               const Icon = capability.icon
               return (
-                <div key={index} className="border border-silver rounded-2xl p-6 hover:shadow-md transition-shadow">
-                  <Icon className="w-8 h-8 text-ink mb-4" />
-                  <h3 className="text-h3 font-semibold mb-2">{capability.title}</h3>
-                  <p className="text-slate">{capability.description}</p>
+                <div key={index} className="group border border-silver rounded-2xl p-8 hover:border-ink/10 hover:shadow-sm transition-all duration-300">
+                  <div className="w-12 h-12 rounded-xl bg-mist flex items-center justify-center mb-6 group-hover:bg-ink group-hover:text-paper transition-colors">
+                    <Icon className="w-6 h-6 text-ink group-hover:text-paper transition-colors" />
+                  </div>
+                  <h3 className="text-h4 font-display font-bold mb-3 text-ink">{capability.title}</h3>
+                  <p className="text-sm text-slate leading-relaxed">{capability.description}</p>
                 </div>
               )
             })}
@@ -73,11 +88,12 @@ export default function DigitalConsultancyPage() {
 
       <Section background="ink" spacing="lg">
         <Container>
-          <div className="text-center max-w-2xl mx-auto">
-            <h2 className="text-h2 font-display font-semibold mb-4 text-paper">Ready to transform with confidence?</h2>
-            <Button href="/contact" variant="primary" className="bg-paper text-ink hover:bg-silver">
-              Start the conversation
-            </Button>
+          <div className="max-w-4xl mx-auto border border-white/10 rounded-[2rem] p-12 md:p-16 text-center">
+            <h2 className="text-h2 font-display font-bold mb-6 text-paper">Build for the future.</h2>
+            <p className="text-body text-paper/60 mb-10 max-w-xl mx-auto leading-relaxed">
+              Partner with a consultancy that understands the intersection of security, trust, and digital delivery.
+            </p>
+            <Button href="/contact" variant="primary" className="bg-paper text-ink hover:bg-silver h-14 px-12">Consult with our Team</Button>
           </div>
         </Container>
       </Section>

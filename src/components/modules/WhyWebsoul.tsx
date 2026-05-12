@@ -6,49 +6,70 @@ export const WhyWebsoul = () => {
   const points = [
     {
       icon: Link2,
-      title: 'Integrated Model',
-      description: 'Three connected capabilities working together.',
+      title: 'Integrated Capability',
+      description: 'We dissolve the silos between HR, Security, and IT delivery.',
     },
     {
       icon: Shield,
-      title: 'Trust Focus',
-      description: 'Every service designed for trusted environments.',
+      title: 'Trusted Environments',
+      description: 'Specialized focus on regulated and defence-adjacent domains.',
     },
     {
       icon: Users,
-      title: 'Australian-owned',
-      description: 'Canberra-based with local expertise.',
+      title: 'Sovereign Expertise',
+      description: 'Australian-owned and Canberra-based operational knowledge.',
     },
     {
       icon: TrendUp,
-      title: 'Practical Delivery',
-      description: 'Strategic thinking with execution focus.',
+      title: 'Practical Outcomes',
+      description: 'Strategic frameworks matched with hands-on delivery velocity.',
     },
   ]
 
   return (
-    <Section background="white" spacing="lg">
+    <Section background="mist" spacing="lg" className="border-y border-silver">
       <Container>
-        <div className="text-center mb-12">
-          <h2 className="text-h1 font-display font-semibold mb-4">Why Websoul</h2>
-          <p className="text-body-lg text-slate max-w-2xl mx-auto">
-            We bring together the three capabilities organisations need to operate with confidence in high-trust environments
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-4 gap-8">
-          {points.map((point, index) => {
-            const Icon = point.icon
-            return (
-              <div key={index} className="text-center">
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-mist mb-4">
-                  <Icon className="w-6 h-6 text-ink" />
+        <div className="grid lg:grid-cols-2 gap-20 items-center">
+          <div>
+            <div className="inline-block mb-4">
+              <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate">Value Proposition</span>
+            </div>
+            <h2 className="text-h1 font-display font-bold tracking-tight text-ink mb-6">
+              The Websoul Advantage.
+            </h2>
+            <p className="text-body-lg text-slate mb-8 leading-relaxed">
+              We bring together the three pillars organisations need to operate with absolute confidence in high-trust environments. Our model is built for complexity and delivered with precision.
+            </p>
+            <div className="grid sm:grid-cols-2 gap-8">
+              {points.map((point, index) => {
+                const Icon = point.icon
+                return (
+                  <div key={index} className="space-y-3">
+                    <div className="w-10 h-10 rounded-xl bg-paper border border-silver flex items-center justify-center">
+                      <Icon className="w-5 h-5 text-ink" />
+                    </div>
+                    <h3 className="font-bold text-ink">{point.title}</h3>
+                    <p className="text-xs text-slate leading-relaxed">{point.description}</p>
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+          <div className="relative aspect-square bg-paper border border-silver rounded-[3rem] p-12 overflow-hidden shadow-sm hidden lg:flex flex-col justify-center">
+             <div className="absolute top-0 right-0 p-8">
+               <span className="text-[120px] font-display font-bold text-mist leading-none select-none">W</span>
+             </div>
+             <div className="relative z-10 space-y-8">
+                <div className="space-y-2">
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-slate/60">Operational Focus</p>
+                  <p className="text-h3 font-display font-bold text-ink">Stability, Security, and Scalable Delivery.</p>
                 </div>
-                <h3 className="font-semibold text-h4 mb-2">{point.title}</h3>
-                <p className="text-sm text-slate">{point.description}</p>
-              </div>
-            )
-          })}
+                <div className="w-20 h-px bg-ink/10" />
+                <p className="text-sm text-slate leading-relaxed">
+                  Websoul Digital provides the specialized capacity to navigate Australian regulatory environments while maintaining the velocity required of modern digital operations.
+                </p>
+             </div>
+          </div>
         </div>
       </Container>
     </Section>

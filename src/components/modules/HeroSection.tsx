@@ -6,23 +6,26 @@ import { Container } from '@/components/ui/Container'
 
 export const HeroSection = () => {
   return (
-    <section className="pt-20 pb-16 md:pt-32 md:pb-32 bg-paper relative overflow-hidden">
-      {/* Decorative gradient background element */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none opacity-[0.03]">
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-slate blur-[120px]" />
-        <div className="absolute bottom-[10%] right-[-10%] w-[30%] h-[30%] rounded-full bg-slate blur-[120px]" />
+    <section className="pt-24 pb-20 md:pt-40 md:pb-40 bg-paper relative overflow-hidden">
+      {/* Decorative architectural elements */}
+      <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden select-none">
+        <div className="absolute top-0 left-[10%] w-px h-full bg-mist/50" />
+        <div className="absolute top-0 right-[10%] w-px h-full bg-mist/50" />
+        <div className="absolute top-[20%] left-0 w-full h-px bg-mist/30" />
+        <div className="absolute bottom-[20%] left-0 w-full h-px bg-mist/30" />
       </div>
 
       <Container>
-        <div className="max-w-4xl mx-auto text-center relative z-10">
+        <div className="max-w-5xl mx-auto relative z-10">
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-block mb-6"
+            className="flex items-center gap-4 mb-8"
           >
-            <span className="text-xs font-semibold tracking-[0.3em] text-slate uppercase">
-              Websoul Digital
+            <span className="w-12 h-px bg-ink/20" />
+            <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-slate/60">
+              Operations & Strategy
             </span>
           </motion.div>
           
@@ -30,51 +33,50 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="text-hero-mobile md:text-hero font-display font-bold tracking-tight text-ink mb-8 leading-[1.05]"
+            className="text-hero-mobile md:text-hero font-display font-bold tracking-tight text-ink mb-10 leading-[0.95]"
           >
             Trusted people.
             <br />
-            Secure delivery.
+            <span className="text-slate/40">Secure delivery.</span>
             <br />
-            <span className="text-slate">Stronger organisations.</span>
+            Stronger organisations.
           </motion.h1>
           
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-body-lg text-slate max-w-2xl mx-auto mb-12"
-          >
-            Websoul Digital helps build the capability needed to operate with confidence in trusted environments.
-            We bring together three high-trust business lines under one integrated brand.
-          </motion.p>
+          <div className="grid md:grid-cols-12 gap-8 items-start mb-16">
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 0.4 }}
+              className="md:col-span-5"
+            >
+              <p className="text-body-lg text-ink font-medium leading-relaxed">
+                Websoul Digital builds the stability needed to operate with absolute confidence in secure and regulated environments.
+              </p>
+            </motion.div>
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 0.5 }}
+              className="md:col-span-6 md:col-start-7"
+            >
+              <p className="text-body text-slate leading-relaxed">
+                We integrate three specialized consultancy domains—Trust Services, Digital Delivery, and DISP Advisory—under one sovereign framework for enterprise and government.
+              </p>
+            </motion.div>
+          </div>
           
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex flex-wrap justify-center gap-4"
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="flex flex-wrap gap-4"
           >
-            <Button href="/trust-services" variant="primary" className="min-w-[200px]">
-              Explore Trust Services
+            <Button href="/contact" variant="primary" className="h-14 px-10">
+              Engage the Consultancy
             </Button>
-            <Button href="/digital-consultancy" variant="secondary" className="min-w-[200px]">
-              Explore Digital Delivery
+            <Button href="#services" variant="secondary" className="h-14 px-10">
+              Our Capabilities
             </Button>
-            <Button href="/disp-advisory" variant="secondary" className="min-w-[200px]">
-              Explore DISP Advisory
-            </Button>
-          </motion.div>
-          
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1 }}
-            className="mt-16"
-          >
-            <a href="#services" className="text-xs font-bold uppercase tracking-[0.2em] text-slate hover:text-ink transition-colors group">
-              Scroll to explore <span className="inline-block translate-y-px motion-safe:animate-bounce">↓</span>
-            </a>
           </motion.div>
         </div>
       </Container>

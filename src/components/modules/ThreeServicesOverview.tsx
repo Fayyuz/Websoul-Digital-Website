@@ -5,16 +5,23 @@ import { serviceCards } from '@/lib/constants'
 
 export const ThreeServicesOverview = () => {
   return (
-    <Section background="white" spacing="lg" id="services">
+    <Section background="paper" spacing="lg" id="services" className="border-t border-silver">
       <Container>
-        <div className="text-center mb-12">
-          <h2 className="text-h1 font-display font-semibold mb-4">Core Capabilities</h2>
-          <p className="text-body-lg text-slate max-w-2xl mx-auto">
-            Three integrated business lines delivering trust, security, and transformation
-          </p>
+        <div className="mb-16 md:mb-24">
+          <div className="inline-block mb-4">
+            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate">Business Services</span>
+          </div>
+          <div className="grid lg:grid-cols-2 gap-8 items-end">
+            <h2 className="text-h1 font-display font-bold tracking-tight text-ink">
+              Core consultancy domains.
+            </h2>
+            <p className="text-body-lg text-slate max-w-lg mb-2">
+              We bring together three high-trust business lines to deliver the stability, security, and digital capability needed for complex environments.
+            </p>
+          </div>
         </div>
         
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid lg:grid-cols-3 gap-8 md:gap-12">
           {serviceCards.map((service, index) => (
             <ServiceCard key={index} {...service} />
           ))}

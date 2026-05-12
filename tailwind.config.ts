@@ -9,17 +9,18 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ink: '#0A0A0B',
-        paper: '#FFFFFF',
-        graphite: '#1A1A1C',
-        charcoal: '#2A2A2E',
-        slate: '#6B6B7A',
-        silver: '#E8E8EC',
-        mist: '#F4F4F6',
+        // Premium monochrome palette only - NO accent colors
+        'ink': '#0A0A0B',      // Primary text (near-black)
+        'paper': '#FFFFFF',     // Background (pure white)
+        'graphite': '#1A1A1C',  // Secondary elements (dark grey)
+        'charcoal': '#2A2A2E',  // Borders/dividers (medium-dark)
+        'slate': '#6B6B7A',     // Secondary text (medium grey)
+        'silver': '#E8E8EC',    // Light backgrounds (off-white)
+        'mist': '#F4F4F6',      // Hover states (light grey)
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['SF Pro Display', 'Inter', 'system-ui'],
+        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        display: ['SF Pro Display', 'Inter', 'system-ui', 'sans-serif'],
       },
       fontSize: {
         'hero': ['4.5rem', { lineHeight: '1.1', fontWeight: '600', letterSpacing: '-0.02em' }],
@@ -34,10 +35,10 @@ const config: Config = {
         'small': ['0.75rem', { lineHeight: '1.5' }],
       },
       spacing: {
-        'section': '6rem',
-        'subsection': '4rem',
-        'component': '2rem',
-        'element': '1rem',
+        'section': '6rem',      // Major sections (96px)
+        'subsection': '4rem',   // Within sections (64px)
+        'component': '2rem',    // Component margins (32px)
+        'element': '1rem',      // Element spacing (16px)
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-out',

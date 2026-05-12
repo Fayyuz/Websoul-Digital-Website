@@ -8,66 +8,70 @@ export const TrustServicesFeature = () => {
     {
       icon: Fingerprint,
       title: 'Identity Verification',
-      description: 'Secure, compliant identity validation processes.',
+      description: 'Professional validation of personnel identity and institutional credentials.',
     },
     {
       icon: ShieldCheck,
-      title: 'Integrity Screening',
-      description: 'Trusted workforce verification and background checks.',
+      title: 'Workforce Integrity',
+      description: 'Comprehensive screening designed for security-sensitive workforces.',
     },
     {
       icon: ClipboardList,
-      title: 'Onboarding Workflows',
-      description: 'Streamlined trust-based onboarding pathways.',
+      title: 'Trusted Pathways',
+      description: 'Streamlined onboarding flows that maintain absolute security standards.',
     },
     {
       icon: UserCheck,
-      title: 'Ongoing Monitoring',
-      description: 'Continuous integrity assurance for critical roles.',
+      title: 'Continuous Assurance',
+      description: 'Ongoing verification of personnel suitability and professional standing.',
     },
   ]
 
   return (
-    <Section background="white" spacing="lg">
+    <Section background="paper" spacing="lg">
       <Container>
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <span className="text-sm font-medium tracking-wider text-slate uppercase mb-2 block">
-              Core Capability
-            </span>
-            <h2 className="text-h1 font-display font-semibold mb-4">Trust Services</h2>
-            <p className="text-body-lg text-slate mb-6">
-              We provide the verification, screening, and integrity services that organisations need to build trusted workforces and maintain secure environments.
+        <div className="grid lg:grid-cols-2 gap-20 items-center">
+          <div className="order-2 lg:order-1 relative group">
+             <div className="absolute -inset-4 bg-mist/50 rounded-[3rem] blur-2xl transition-opacity opacity-0 group-hover:opacity-100 duration-500" />
+             <div className="relative aspect-[4/3] bg-mist/30 border border-silver rounded-[2.5rem] p-12 overflow-hidden shadow-sm flex flex-col justify-end">
+                <div className="absolute top-0 left-0 p-12 opacity-5 pointer-events-none group-hover:scale-110 transition-transform duration-700">
+                  <Fingerprint className="w-40 h-40" />
+                </div>
+                <div className="space-y-6">
+                  <div className="w-12 h-1 bg-ink" />
+                  <blockquote className="text-h3 font-display font-bold text-ink leading-tight italic">
+                    &quot;Trust is the most critical asset in any secure operating environment.&quot;
+                  </blockquote>
+                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate/60">Personnel Trust Mandate</p>
+                </div>
+             </div>
+          </div>
+
+          <div className="order-1 lg:order-2 max-w-xl">
+            <div className="inline-block mb-4">
+              <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate/60 px-1">Capability Deep-Dive</span>
+            </div>
+            <h2 className="text-h1 font-display font-bold text-ink tracking-tight mb-6">Trust Services.</h2>
+            <p className="text-body-lg text-slate mb-8 leading-relaxed">
+              We provide the integrity frameworks and verification processes organisations need to build confident workforces and maintain secure transitions.
             </p>
-            <div className="space-y-4 mb-8">
+            <div className="grid sm:grid-cols-2 gap-10 mb-12">
               {features.map((feature, index) => {
                 const Icon = feature.icon
                 return (
-                  <div key={index} className="flex gap-3">
-                    <Icon className="w-5 h-5 text-ink flex-shrink-0 mt-0.5" />
-                    <div>
-                      <h3 className="font-semibold">{feature.title}</h3>
-                      <p className="text-sm text-slate">{feature.description}</p>
+                  <div key={index} className="space-y-3">
+                    <div className="flex items-center gap-3">
+                      <Icon className="w-4 h-4 text-ink" />
+                      <h3 className="font-bold text-ink text-sm uppercase tracking-wider">{feature.title}</h3>
                     </div>
+                    <p className="text-xs text-slate leading-relaxed">{feature.description}</p>
                   </div>
                 )
               })}
             </div>
-            <Button href="/trust-services" variant="secondary">
-              Learn more about Trust Services →
+            <Button href="/trust-services" variant="secondary" className="h-14 px-10">
+              Explore Trust Services
             </Button>
-          </div>
-
-          <div className="bg-mist rounded-2xl p-8 border border-silver">
-            <div className="text-center">
-              <div className="inline-block bg-ink/5 rounded-full px-4 py-1 mb-4">
-                <span className="text-sm font-medium">Trusted processes</span>
-              </div>
-              <p className="text-slate mb-4">
-                &quot;Rigorous without friction. Secure without delay.&quot;
-              </p>
-              <div className="text-xs text-slate">Trusted by organisations across regulated sectors</div>
-            </div>
           </div>
         </div>
       </Container>

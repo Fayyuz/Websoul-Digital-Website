@@ -8,61 +8,77 @@ export default function TrustServicesPage() {
     {
       icon: Fingerprint,
       title: 'Identity Verification',
-      description: 'Secure, compliant identity validation and document verification.',
+      description: 'Legally compliant validation of personnel identity and credentials for high-trust roles.',
     },
     {
       icon: Shield,
       title: 'Workforce Integrity',
-      description: 'Screening and background verification for trusted workforces.',
+      description: 'Comprehensive screening and background verification designed for critical workforces.',
     },
     {
       icon: UserCheck,
-      title: 'Onboarding Trust',
-      description: 'Streamlined pathways that maintain rigorous standards.',
+      title: 'Trusted Onboarding',
+      description: 'Standardized trust pathways that reduce operational friction without compromising security.',
     },
     {
       icon: ClipboardList,
-      title: 'Process Assurance',
-      description: 'Third-party verification and integrity assurance.',
+      title: 'Personnel Assurance',
+      description: 'Ongoing verification of professional standing and suitability for regulated environments.',
     },
     {
       icon: Clock,
-      title: 'Continuous Monitoring',
-      description: 'Ongoing integrity assurance for critical roles.',
+      title: 'Integrity Monitoring',
+      description: 'Continuous lifecycle monitoring for personnel in security-sensitive or high-risk domains.',
     },
     {
       icon: FileText,
-      title: 'Compliance Reporting',
-      description: 'Audit-ready documentation and reporting.',
+      title: 'Audit & Compliance',
+      description: 'Exhaustive documentation and reporting to meet regulatory and environmental standards.',
     },
   ]
 
   return (
     <>
-      <Section background="mist" spacing="lg">
+      <Section background="mist" spacing="lg" className="border-b border-silver">
         <Container>
-          <div className="max-w-3xl">
-            <h1 className="text-h1 font-display font-semibold mb-4">Trust Services</h1>
-            <p className="text-body-lg text-slate mb-6">
-              Trusted screening, identity verification, and integrity services for regulated environments.
-            </p>
-            <p className="text-body text-slate">
-              We provide the verification and trust processes organisations need to build confident workforces and maintain secure operations.
-            </p>
+          <div className="max-w-4xl">
+            <div className="inline-block mb-6">
+              <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate/60">Capability: Trust Services</span>
+            </div>
+            <h1 className="text-hero-mobile md:text-h1 font-display font-bold tracking-tight text-ink mb-8">
+              Verification with velocity.
+            </h1>
+            <div className="grid md:grid-cols-2 gap-12 items-start">
+              <p className="text-body-lg text-ink font-medium leading-relaxed">
+                We provide the integrity frameworks and verification processes organisations need to scale their trusted workforce with confidence.
+              </p>
+              <p className="text-body text-slate leading-relaxed">
+                In regulated environments, workforce trust is a critical capability. Our Trust Services arm simplifies the complexity of identity and integrity verification, ensuring your personnel are ready for high-security operations.
+              </p>
+            </div>
           </div>
         </Container>
       </Section>
 
-      <Section background="white" spacing="lg">
+      <Section background="paper" spacing="lg">
         <Container>
+          <div className="mb-16">
+            <h2 className="text-h2 font-display font-bold text-ink mb-4">Integrity Frameworks</h2>
+            <p className="text-body text-slate max-w-2xl">
+              Professional verification services for organisations requiring secure workforce pathways.
+            </p>
+          </div>
+          
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => {
               const Icon = service.icon
               return (
-                <div key={index} className="border border-silver rounded-2xl p-6 hover:shadow-md transition-shadow">
-                  <Icon className="w-8 h-8 text-ink mb-4" />
-                  <h3 className="text-h3 font-semibold mb-2">{service.title}</h3>
-                  <p className="text-slate">{service.description}</p>
+                <div key={index} className="group border border-silver rounded-2xl p-8 hover:border-ink/10 hover:shadow-sm transition-all duration-300">
+                  <div className="w-12 h-12 rounded-xl bg-mist flex items-center justify-center mb-6 group-hover:bg-ink group-hover:text-paper transition-colors">
+                    <Icon className="w-6 h-6 text-ink group-hover:text-paper transition-colors" />
+                  </div>
+                  <h3 className="text-h4 font-display font-bold mb-3 text-ink">{service.title}</h3>
+                  <p className="text-sm text-slate leading-relaxed">{service.description}</p>
                 </div>
               )
             })}
@@ -72,9 +88,12 @@ export default function TrustServicesPage() {
 
       <Section background="mist" spacing="lg">
         <Container>
-          <div className="text-center max-w-2xl mx-auto">
-            <h2 className="text-h2 font-display font-semibold mb-4">Ready to strengthen your trust processes?</h2>
-            <Button href="/contact" variant="primary">Talk to Us</Button>
+          <div className="max-w-4xl mx-auto bg-paper border border-silver rounded-[2rem] p-12 md:p-16 text-center">
+            <h2 className="text-h2 font-display font-bold mb-6 text-ink">Scale your trusted workforce.</h2>
+            <p className="text-body text-slate mb-10 max-w-xl mx-auto leading-relaxed">
+              Contact us to discuss your verification requirements and how we can facilitate your workforce trust pathways.
+            </p>
+            <Button href="/contact" variant="primary" className="h-14 px-12">Talk to a Specialist</Button>
           </div>
         </Container>
       </Section>
