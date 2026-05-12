@@ -49,7 +49,13 @@ export default function PrivacyPage() {
   );
 }
 
-function PrivacySection({ number, title, content }: any) {
+interface PrivacySectionProps {
+  number: string;
+  title: string;
+  content: string;
+}
+
+function PrivacySection({ number, title, content }: PrivacySectionProps) {
   return (
     <section className="border-l border-slate-200 pl-12 relative">
       <div className="absolute left-0 top-0 -translate-x-1/2 w-4 h-4 bg-white border-2 border-brand-midnight flex items-center justify-center">

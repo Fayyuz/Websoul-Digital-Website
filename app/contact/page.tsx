@@ -74,7 +74,14 @@ export default function ContactPage() {
   );
 }
 
-function ContactInfo({ icon, title, detail, href }: any) {
+interface ContactInfoProps {
+  icon: React.ReactNode;
+  title: string;
+  detail: string;
+  href?: string;
+}
+
+function ContactInfo({ icon, title, detail, href }: ContactInfoProps) {
   const Content = (
     <div className="flex gap-8 group">
       <div className="w-12 h-12 bg-white flex items-center justify-center text-brand-midnight border border-slate-100 group-hover:border-brand-midnight transition-all duration-300">

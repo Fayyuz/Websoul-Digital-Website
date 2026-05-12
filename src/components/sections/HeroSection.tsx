@@ -66,7 +66,7 @@ export default function HeroSection() {
         transition={{ duration: 2, ease: "easeOut" }}
         className="absolute right-0 top-1/2 -translate-y-1/2 w-1/3 h-full hidden lg:flex items-center justify-end pr-20 pointer-events-none"
       >
-        <svg viewBox="0 0 400 400" className="w-[600px] h-600px" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 400 400" className="w-[600px] h-[600px]" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect x="50" y="50" width="300" height="300" stroke="white" strokeWidth="1" />
           <rect x="100" y="100" width="200" height="200" stroke="white" strokeWidth="1" />
           <path d="M50 50L350 350" stroke="white" strokeWidth="0.5" strokeDasharray="10 10" />

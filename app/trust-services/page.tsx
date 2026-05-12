@@ -76,7 +76,15 @@ export default function TrustServicesPage() {
   );
 }
 
-function CapabilityCard({ icon, title, description, items, bg = 'white' }: any) {
+interface CapabilityCardProps {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+  items: string[];
+  bg?: 'white' | 'surface';
+}
+
+function CapabilityCard({ icon, title, description, items, bg = 'white' }: CapabilityCardProps) {
   return (
     <div className={`p-12 border-r border-b border-slate-100 flex flex-col transition-all duration-500 hover:shadow-2xl hover:shadow-slate-100 hover:z-10 group ${bg === 'surface' ? 'bg-[#F8FAF8]' : 'bg-white'}`}>
       <div className="w-12 h-12 bg-white flex items-center justify-center mb-12 border border-slate-100 text-brand-midnight group-hover:border-brand-midnight transition-colors">

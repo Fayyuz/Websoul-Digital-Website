@@ -119,7 +119,13 @@ export default function DISPAdvisoryPage() {
   );
 }
 
-function FeatureItem({ icon, title, desc }: any) {
+interface FeatureItemProps {
+  icon: React.ReactNode;
+  title: string;
+  desc: string;
+}
+
+function FeatureItem({ icon, title, desc }: FeatureItemProps) {
   return (
     <div className="flex gap-8 group">
       <div className="shrink-0 w-12 h-12 bg-white flex items-center justify-center text-brand-midnight border border-slate-100 group-hover:border-brand-midnight transition-all duration-300">
