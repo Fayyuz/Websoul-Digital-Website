@@ -1,86 +1,165 @@
 'use client'
 
-import React from 'react'
-import { SiteHeader } from '@/components/modules/SiteHeader'
-import { Footer } from '@/components/modules/Footer'
-import { FadeIn } from '@/components/animations/FadeIn'
-import { Badge } from '@/components/ui/Badge'
+import { useState } from 'react'
+import { Container } from '@/components/ui/Container'
+import { Section } from '@/components/ui/Section'
 import { Button } from '@/components/ui/Button'
-import { Mail, MapPin, Phone, Shield } from 'lucide-react'
-import ContactForm from '@/components/sections/ContactForm'
+import { Mail, Phone, MapPin } from 'lucide-react'
 
 export default function ContactPage() {
-  return (
-    <div className="relative min-h-screen">
-      <SiteHeader />
-      <main className="pt-32">
-        <section className="px-6 md:px-12 py-20">
-          <div className="max-w-7xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-20">
-              <FadeIn direction="right">
-                <Badge variant="premium" className="mb-6">Engagement</Badge>
-                <h1 className="text-display-2 font-bold tracking-tight mb-8">Let&apos;s engineer<br/><span className="text-accent-teal">your trust foundation.</span></h1>
-                <p className="text-body-lg text-brand-muted mb-12 leading-relaxed">
-                  Our advisors are ready to discuss your operational requirements, from DISP alignment to complex ICT transformation.
-                </p>
-                
-                <div className="space-y-10">
-                   <ContactItem 
-                      icon={Mail} 
-                      label="Briefing & Enquiries" 
-                      value="hello@websoul.digital" 
-                      href="mailto:hello@websoul.digital"
-                   />
-                   <ContactItem 
-                      icon={MapPin} 
-                      label="Sovereign Operations" 
-                      value="Nishi Building, Canberra, ACT" 
-                      href="https://maps.google.com"
-                   />
-                   <ContactItem 
-                      icon={Shield} 
-                      label="Security Liaison" 
-                      value="Available for cleared partners" 
-                   />
-                </div>
-              </FadeIn>
+  const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
+  const [errorMessage, setErrorMessage] = useState('')
 
-              <FadeIn direction="left" delay={0.2}>
-                <div className="bg-brand-pure border border-brand-silver/50 rounded-3xl p-10 shadow-2xl relative overflow-hidden">
-                   <div className="absolute inset-0 bg-noise opacity-[0.01]"></div>
-                   <ContactForm />
+  // Replace with your Formspree endpoint
+  const FORMSPREE_ENDPOINT = 'https://formspree.io/f/your-endpoint-here'
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    setFormStatus('submitting')
+    setErrorMessage('')
+
+    const formData = new FormData(e.currentTarget)
+    
+    try {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json',
+        },
+      })
+      
+      if (response.ok) {
+        setFormStatus('success')
+        e.currentTarget.reset()
+      } else {
+        throw new Error('Form submission failed')
+      }
+    } catch (error) {
+      setFormStatus('error')
+      setErrorMessage('Unable to send message. Please email us directly at contact@websoul.digital')
+    }
+  }
+
+  return (
+    <>
+      <Section background="mist" spacing="lg">
+        <Container>
+          <div className="max-w-3xl">
+            <h1 className="text-h1 font-display font-semibold mb-4">Contact Us</h1>
+            <p className="text-body-lg text-slate">
+              Ready to discuss how Websoul Digital can support your organisation?
+            </p>
+          </div>
+        </Container>
+      </Section>
+
+      <Section background="white" spacing="lg">
+        <Container>
+          <div className="grid lg:grid-cols-2 gap-12">
+            {/* Contact Form */}
+            <div>
+              <h2 className="text-h2 font-display font-semibold mb-6">Send a Message</h2>
+              
+              {formStatus === 'success' && (
+                <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
+                  <p className="text-green-800">Thank you for reaching out. We&apos;ll respond within 2 business days.</p>
                 </div>
-              </FadeIn>
+              )}
+              
+              {formStatus === 'error' && (
+                <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
+                  <p className="text-red-800">{errorMessage}</p>
+                </div>
+              )}
+
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium mb-2">
+                    Name *
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    className="w-full px-4 py-2 border border-silver rounded-lg focus:outline-none focus:ring-2 focus:ring-ink focus:border-transparent"
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium mb-2">
+                    Email *
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    className="w-full px-4 py-2 border border-silver rounded-lg focus:outline-none focus:ring-2 focus:ring-ink focus:border-transparent"
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium mb-2">
+                    Message *
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows={5}
+                    required
+                    className="w-full px-4 py-2 border border-silver rounded-lg focus:outline-none focus:ring-2 focus:ring-ink focus:border-transparent"
+                  />
+                </div>
+                
+                <input type="text" name="_gotcha" style={{ display: 'none' }} />
+                
+                <Button type="submit" variant="primary" disabled={formStatus === 'submitting'}>
+                  {formStatus === 'submitting' ? 'Sending...' : 'Send Message'}
+                </Button>
+              </form>
+            </div>
+
+            {/* Contact Info */}
+            <div>
+              <h2 className="text-h2 font-display font-semibold mb-6">Get in Touch</h2>
+              <div className="space-y-6">
+                <div className="flex gap-4">
+                  <Mail className="w-5 h-5 text-slate flex-shrink-0" />
+                  <div>
+                    <h3 className="font-semibold mb-1">Email</h3>
+                    <p className="text-slate">contact@websoul.digital</p>
+                  </div>
+                </div>
+                
+                <div className="flex gap-4">
+                  <Phone className="w-5 h-5 text-slate flex-shrink-0" />
+                  <div>
+                    <h3 className="font-semibold mb-1">Phone</h3>
+                    <p className="text-slate">+61 2 1234 5678</p>
+                  </div>
+                </div>
+                
+                <div className="flex gap-4">
+                  <MapPin className="w-5 h-5 text-slate flex-shrink-0" />
+                  <div>
+                    <h3 className="font-semibold mb-1">Location</h3>
+                    <p className="text-slate">Canberra, ACT, Australia</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-8 pt-8 border-t border-silver">
+                <h3 className="font-semibold mb-3">Response Time</h3>
+                <p className="text-sm text-slate">
+                  We respond to all inquiries within 2 business days.
+                </p>
+              </div>
             </div>
           </div>
-        </section>
-      </main>
-      <Footer />
-    </div>
-  )
-}
-
-interface ContactItemProps {
-  icon: React.ElementType;
-  label: string;
-  value: string;
-  href?: string;
-}
-
-function ContactItem({ icon: Icon, label, value, href }: ContactItemProps) {
-  return (
-    <div className="flex gap-6 group">
-      <div className="shrink-0 w-12 h-12 rounded-xl bg-brand-silver/30 flex items-center justify-center text-brand-ink group-hover:bg-brand-ink group-hover:text-brand-pure transition-all duration-300">
-        <Icon className="w-6 h-6" />
-      </div>
-      <div>
-        <p className="text-caption text-brand-muted uppercase tracking-widest font-bold mb-1">{label}</p>
-        {href ? (
-           <a href={href} className="text-xl font-bold text-brand-ink hover:text-accent-teal transition-colors">{value}</a>
-        ) : (
-           <p className="text-xl font-bold text-brand-ink">{value}</p>
-        )}
-      </div>
-    </div>
+        </Container>
+      </Section>
+    </>
   )
 }

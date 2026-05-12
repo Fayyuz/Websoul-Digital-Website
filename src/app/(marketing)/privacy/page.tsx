@@ -1,45 +1,41 @@
-'use client'
-
-import React from 'react'
-import { SiteHeader } from '@/components/modules/SiteHeader'
-import { Footer } from '@/components/modules/Footer'
-import { Section } from '@/components/ui/Section'
 import { Container } from '@/components/ui/Container'
+import { Section } from '@/components/ui/Section'
 
 export default function PrivacyPage() {
   return (
-    <div className="relative min-h-screen">
-      <SiteHeader />
-      <main className="pt-32">
-        <Section>
-          <Container>
-            <div className="max-w-4xl">
-              <h1 className="text-display-2 font-bold tracking-tight mb-12">Privacy Policy</h1>
-              <div className="prose-consulting space-y-12">
-                 <p className="text-body-lg text-brand-ink font-medium">
-                   Last Updated: May 2024. Websoul Digital is committed to protecting your professional data and personal privacy in accordance with the Australian Privacy Principles.
-                 </p>
-                 
-                 <div>
-                    <h2 className="text-heading-3 mb-6">1. Data Collection</h2>
-                    <p>We only collect information necessary to fulfill our advisory and trust screening services. This includes professional identity, contact details, and engagement briefs provided voluntarily.</p>
-                 </div>
+    <>
+      <Section background="mist" spacing="lg">
+        <Container>
+          <div className="max-w-3xl">
+            <h1 className="text-h1 font-display font-semibold mb-4">Privacy Policy</h1>
+            <p className="text-body text-slate">Last updated: May 12, 2026</p>
+          </div>
+        </Container>
+      </Section>
 
-                 <div>
-                    <h2 className="text-heading-3 mb-6">2. Data Sovereignty</h2>
-                    <p>All data handled by Websoul Digital is stored on Australian-resident sovereign infrastructure. We do not export data to foreign jurisdictions unless explicitly required by a specific international engagement brief.</p>
-                 </div>
+      <Section background="white" spacing="lg">
+        <Container>
+          <div className="max-w-3xl mx-auto prose prose-slate">
+            <h2 className="text-h2 font-semibold mb-4">1. Information We Collect</h2>
+            <p className="mb-6">We collect information you provide directly to us, such as when you contact us through our website forms or email. This may include your name, email address, phone number, and message content.</p>
 
-                 <div>
-                    <h2 className="text-heading-3 mb-6">3. Security Protcols</h2>
-                    <p>We employ multi-factor authentication, end-to-end encryption for sensitive transmissions, and regular security audits at a DISP Level 3 standard to ensure your information remains secure.</p>
-                 </div>
-              </div>
-            </div>
-          </Container>
-        </Section>
-      </main>
-      <Footer />
-    </div>
+            <h2 className="text-h2 font-semibold mb-4">2. How We Use Your Information</h2>
+            <p className="mb-6">We use the information we collect to respond to your inquiries, provide our services, and communicate with you about our offerings. We do not sell or share your personal information with third parties for marketing purposes.</p>
+
+            <h2 className="text-h2 font-semibold mb-4">3. Data Security</h2>
+            <p className="mb-6">We take reasonable measures to protect your personal information from unauthorised access, alteration, or disclosure.</p>
+
+            <h2 className="text-h2 font-semibold mb-4">4. Cookies</h2>
+            <p className="mb-6">Our website uses essential cookies for functionality. We do not use tracking or analytics cookies without your consent.</p>
+
+            <h2 className="text-h2 font-semibold mb-4">5. Your Rights</h2>
+            <p className="mb-6">You may request access to, correction of, or deletion of your personal information by contacting us.</p>
+
+            <h2 className="text-h2 font-semibold mb-4">6. Contact Us</h2>
+            <p>For privacy-related inquiries, please contact us at privacy@websoul.digital.</p>
+          </div>
+        </Container>
+      </Section>
+    </>
   )
 }

@@ -1,43 +1,48 @@
-import type { Metadata, Viewport } from 'next'
-import { GeistSans } from 'geist/font/sans'
-import { GeistMono } from 'geist/font/mono'
+import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
 import './globals.css'
+import { SiteHeader } from '@/components/layout/SiteHeader'
+import { SiteFooter } from '@/components/layout/SiteFooter'
+
+const inter = Inter({ 
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+})
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://websoul.digital'),
   title: {
-    default: 'Websoul Digital | Australian Cyber & Digital Consultancy',
+    default: 'Websoul Digital | Trusted Capability for a More Secure Australia',
     template: '%s | Websoul Digital',
   },
-  description: 'Enterprise-grade digital integrity, trust services, and DISP advisory. Australian-owned, Silicon Valley rigor.',
-  keywords: ['cyber security', 'DISP', 'trust services', 'digital consultancy', 'Australia'],
+  description: 'Websoul Digital provides Trust Services, Digital Consultancy, and DISP Advisory. Australian-owned, Canberra-based consultancy for trusted environments.',
+  keywords: ['trust services', 'digital consultancy', 'DISP advisory', 'cyber security', 'Australian consultancy'],
   authors: [{ name: 'Websoul Digital' }],
   openGraph: {
     type: 'website',
     locale: 'en_AU',
     url: 'https://websoul.digital',
     siteName: 'Websoul Digital',
-    images: ['/og-image.jpg'],
+    title: 'Websoul Digital',
+    description: 'Trusted capability for a more secure Australia.',
   },
   robots: {
     index: true,
     follow: true,
-    googleBot: { index: true, follow: true, 'max-video-preview': -1 },
   },
 }
 
-export const viewport: Viewport = {
-  themeColor: '#0A0B0D',
-  colorScheme: 'light',
-  width: 'device-width',
-  initialScale: 1,
-}
-
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   return (
-    <html lang="en-AU" className={`${GeistSans.variable} ${GeistMono.variable}`}>
-      <body className="antialiased">
-        {children}
+    <html lang="en-AU" className={inter.variable}>
+      <body className="flex flex-col min-h-screen font-sans">
+        <SiteHeader />
+        <main className="flex-grow">{children}</main>
+        <SiteFooter />
       </body>
     </html>
   )

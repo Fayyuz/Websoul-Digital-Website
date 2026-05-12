@@ -1,29 +1,28 @@
-'use client'
-
-import React from 'react'
 import { cn } from '@/lib/utils'
 
 interface SectionProps {
   children: React.ReactNode
   className?: string
+  background?: 'white' | 'mist' | 'ink'
+  spacing?: 'sm' | 'md' | 'lg'
   id?: string
-  bg?: 'pure' | 'silver' | 'ink'
 }
 
-export const Section = ({ children, className, id, bg = 'pure' }: SectionProps) => {
+export const Section = ({ children, className, background = 'white', spacing = 'lg', id }: SectionProps) => {
+  const backgroundClasses = {
+    white: 'bg-paper',
+    mist: 'bg-mist',
+    ink: 'bg-ink text-paper',
+  }
+
+  const spacingClasses = {
+    sm: 'py-12 md:py-16',
+    md: 'py-16 md:py-20',
+    lg: 'py-20 md:py-section',
+  }
+
   return (
-    <section 
-      id={id}
-      className={cn(
-        'px-6 md:px-12 py-24 md:py-30 lg:py-42',
-        {
-          'bg-brand-pure': bg === 'pure',
-          'bg-brand-silver/20': bg === 'silver',
-          'bg-brand-ink text-brand-pure': bg === 'ink',
-        },
-        className
-      )}
-    >
+    <section id={id} className={cn(backgroundClasses[background], spacingClasses[spacing], className)}>
       {children}
     </section>
   )

@@ -1,111 +1,109 @@
-"use client";
+'use client'
 
-import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { Menu, X } from 'lucide-react';
-import { LogoMark } from './LogoMark';
-import { navigation } from '@/data/navigation';
+import { useState, useEffect } from 'react'
+import Link from 'next/link'
+import { Menu, X } from 'lucide-react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { LogoMark } from '@/components/shared/LogoMark'
+import { Button } from '@/components/ui/Button'
+import { navigationItems } from '@/lib/constants'
 
-export default function SiteHeader() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const pathname = usePathname();
+export const SiteHeader = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  useEffect(() => {
-    setMobileMenuOpen(false);
-  }, [pathname]);
+      setScrolled(window.scrollY > 20)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
     <header 
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
+      className={`sticky top-0 z-50 transition-all duration-300 ${
         scrolled 
-          ? 'bg-white/95 backdrop-blur-md shadow-sm h-16 border-b border-slate-100' 
-          : 'bg-white h-20 border-b border-slate-50'
+          ? 'bg-paper/80 backdrop-blur-md border-b border-silver shadow-sm' 
+          : 'bg-paper border-b border-transparent'
       }`}
     >
-      <nav className="section-container h-full flex items-center justify-between" aria-label="Global">
-        <div className="flex lg:flex-1">
-          <Link href="/" className="transition-all duration-300 hover:opacity-70">
-            <LogoMark />
+      <div className="container-premium">
+        <div className="flex items-center justify-between h-16 md:h-20">
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-3 transition-opacity hover:opacity-80">
+            <LogoMark size="sm" />
+            <span className="font-semibold text-lg tracking-tight uppercase">Websoul Digital</span>
           </Link>
-        </div>
-        
-        <div className="flex lg:hidden">
+
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center gap-10">
+            {navigationItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="text-xs font-medium uppercase tracking-widest text-ink/70 hover:text-ink transition-colors relative group"
+              >
+                {item.label}
+                <span className="absolute -bottom-1 left-0 w-0 h-px bg-ink transition-all duration-300 group-hover:w-full" />
+              </Link>
+            ))}
+          </nav>
+
+          {/* Desktop CTA */}
+          <div className="hidden md:block">
+            <Button href="/contact" variant="primary">
+              Talk to Us
+            </Button>
+          </div>
+
+          {/* Mobile Menu Button */}
           <button
-            type="button"
-            className="p-2 text-brand-midnight"
-            onClick={() => setMobileMenuOpen(true)}
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="md:hidden p-2 text-ink"
+            aria-label="Toggle menu"
           >
-            <Menu className="h-6 w-6" aria-hidden="true" />
+            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
 
-        <div className="hidden lg:flex lg:gap-x-12">
-          {navigation.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className={`text-[10px] font-bold uppercase tracking-[0.3em] transition-all hover:text-brand-midnight pb-1 border-b border-transparent ${
-                pathname === item.href ? 'text-brand-midnight border-brand-midnight' : 'text-slate-400'
-              }`}
+        {/* Mobile Menu */}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div 
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              className="md:hidden overflow-hidden bg-paper"
             >
-              {item.name}
-            </Link>
-          ))}
-        </div>
-
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <Link href="/contact" className="btn-primary !px-6 !py-2.5 !text-[10px] !bg-brand-midnight shadow-lg shadow-brand-midnight/10 hover:shadow-xl hover:shadow-brand-midnight/20 transition-all">
-            Contact Team
-          </Link>
-        </div>
-      </nav>
-
-        {mobileMenuOpen && (
-          <div
-            className="fixed inset-0 z-50 bg-[#0A0A0F] flex flex-col p-8 transition-all duration-500"
-          >
-            <div className="flex items-center justify-between mb-20">
-              <Link href="/" onClick={() => setMobileMenuOpen(false)}>
-                <LogoMark inverse />
-              </Link>
-              <button
-                type="button"
-                className="p-2 text-white"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                <X className="h-8 w-8" aria-hidden="true" />
-              </button>
-            </div>
-            
-            <div className="space-y-8">
-              {[...navigation, { name: 'Contact', href: '/contact'}].map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="block text-4xl font-space font-medium text-white hover:text-brand-slate-light transition-colors tracking-tight"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </div>
-            
-            <div className="mt-auto pt-10 border-t border-white/[0.03]">
-               <div className="text-[10px] font-bold uppercase tracking-[0.5em] text-slate-500 mb-6">Operations</div>
-               <div className="text-white font-medium text-xs uppercase tracking-[0.2em]">Canberra • ACT • Australia</div>
-            </div>
-          </div>
-        )}
+              <nav className="flex flex-col py-8 border-t border-silver">
+                {navigationItems.map((item) => (
+                  <motion.div
+                    key={item.href}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Link
+                      href={item.href}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="text-lg font-medium text-ink/80 hover:text-ink hover:bg-mist/30 transition-all py-4 px-6 block"
+                    >
+                      {item.label}
+                    </Link>
+                  </motion.div>
+                ))}
+                <div className="pt-6 px-6">
+                  <Button href="/contact" variant="primary" className="w-full">
+                    Talk to Us
+                  </Button>
+                </div>
+              </nav>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
     </header>
-  );
+  )
 }
