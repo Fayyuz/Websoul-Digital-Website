@@ -60,12 +60,12 @@ export default function ContactForm() {
 
   if (status === 'success') {
     return (
-      <div className="bg-brand-surface border border-slate-200 p-12 md:p-16 text-center">
-        <div className="w-16 h-16 bg-brand-midnight text-white flex items-center justify-center mx-auto mb-10">
+      <div className="bg-brand-pure border border-brand-silver/30 p-12 md:p-16 text-center">
+        <div className="w-16 h-16 bg-brand-ink text-brand-pure flex items-center justify-center mx-auto mb-10 rounded-2xl">
           <div className="w-6 h-6 border-b-2 border-r-2 border-white rotate-45 -translate-y-1"></div>
         </div>
-        <h3 className="text-2xl font-space font-medium text-brand-midnight mb-6 tracking-tight">Enquiry Received</h3>
-        <p className="text-slate-500 font-sans font-light text-sm max-w-sm mx-auto mb-8">
+        <h3 className="text-2xl font-display font-bold text-brand-ink mb-6 tracking-tight">Enquiry Received</h3>
+        <p className="text-brand-muted font-sans text-sm max-w-sm mx-auto mb-8 leading-relaxed">
           Your enquiry has been successfully transmitted. Our team will review the brief and contact you shortly via your professional email.
         </p>
         <button 
@@ -73,7 +73,7 @@ export default function ContactForm() {
             setStatus(null);
             setFormData({ name: "", email: "", company: "", message: "", serviceType: "General Enquiry" });
           }} 
-          className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-500 hover:text-brand-midnight transition-colors"
+          className="text-[10px] font-bold uppercase tracking-[0.3em] text-brand-muted hover:text-brand-ink transition-colors"
         >
           Send another enquiry
         </button>
@@ -84,14 +84,14 @@ export default function ContactForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-10 group" id="contact-form">
       {status === 'error' && (
-        <div className="p-4 bg-red-50 border border-red-100 text-red-600 text-xs font-bold uppercase tracking-widest">
+        <div className="p-4 bg-red-50 border border-red-100 text-red-600 text-[10px] font-bold uppercase tracking-widest">
           {errorMessage}
         </div>
       )}
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
         <div className="space-y-3">
-          <label htmlFor="name" className="text-[10px] uppercase tracking-widest font-bold text-slate-400">Full Name</label>
+          <label htmlFor="name" className="text-[10px] uppercase tracking-widest font-bold text-brand-muted">Full Name</label>
           <input 
             type="text" 
             id="name" 
@@ -99,11 +99,11 @@ export default function ContactForm() {
             value={formData.name}
             onChange={handleChange}
             placeholder="John Citizen"
-            className="w-full bg-slate-50 border border-slate-200 px-6 py-4 text-sm font-light focus:outline-none focus:border-brand-midnight focus:bg-white transition-all font-sans"
+            className="w-full bg-brand-silver/10 border border-brand-silver/50 px-6 py-4 text-sm focus:outline-none focus:border-accent-teal focus:bg-white transition-all font-sans rounded-xl"
           />
         </div>
         <div className="space-y-3">
-          <label htmlFor="organisation" className="text-[10px] uppercase tracking-widest font-bold text-slate-400">Organisation</label>
+          <label htmlFor="organisation" className="text-[10px] uppercase tracking-widest font-bold text-brand-muted">Organisation</label>
           <input 
             type="text" 
             id="organisation" 
@@ -111,14 +111,14 @@ export default function ContactForm() {
             value={formData.company}
             onChange={handleChange}
             placeholder="Agency or Firm"
-            className="w-full bg-slate-50 border border-slate-200 px-6 py-4 text-sm font-light focus:outline-none focus:border-brand-midnight focus:bg-white transition-all font-sans"
+            className="w-full bg-brand-silver/10 border border-brand-silver/50 px-6 py-4 text-sm focus:outline-none focus:border-accent-teal focus:bg-white transition-all font-sans rounded-xl"
           />
         </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
         <div className="space-y-3">
-          <label htmlFor="email" className="text-[10px] uppercase tracking-widest font-bold text-slate-400">Professional Email</label>
+          <label htmlFor="email" className="text-[10px] uppercase tracking-widest font-bold text-brand-muted">Professional Email</label>
           <input 
             type="email" 
             id="email" 
@@ -126,16 +126,16 @@ export default function ContactForm() {
             value={formData.email}
             onChange={handleChange}
             placeholder="name@org.gov.au"
-            className="w-full bg-slate-50 border border-slate-200 px-6 py-4 text-sm font-light focus:outline-none focus:border-brand-midnight focus:bg-white transition-all font-sans"
+            className="w-full bg-brand-silver/10 border border-brand-silver/50 px-6 py-4 text-sm focus:outline-none focus:border-accent-teal focus:bg-white transition-all font-sans rounded-xl"
           />
         </div>
         <div className="space-y-3">
-          <label htmlFor="capability" className="text-[10px] uppercase tracking-widest font-bold text-slate-400">Service Interest</label>
+          <label htmlFor="capability" className="text-[10px] uppercase tracking-widest font-bold text-brand-muted">Service Interest</label>
           <select 
             id="capability" 
             value={formData.serviceType}
             onChange={handleChange}
-            className="w-full bg-slate-50 border border-slate-200 px-6 py-4 text-sm font-light focus:outline-none focus:border-brand-midnight focus:bg-white transition-all appearance-none cursor-pointer font-sans"
+            className="w-full bg-brand-silver/10 border border-brand-silver/50 px-6 py-4 text-sm focus:outline-none focus:border-accent-teal focus:bg-white transition-all appearance-none cursor-pointer font-sans rounded-xl"
           >
             <option>General Enquiry</option>
             <option>Trust Services</option>
@@ -146,7 +146,7 @@ export default function ContactForm() {
       </div>
 
       <div className="space-y-3">
-        <label htmlFor="message" className="text-[10px] uppercase tracking-widest font-bold text-slate-400">Enquiry Brief</label>
+        <label htmlFor="message" className="text-[10px] uppercase tracking-widest font-bold text-brand-muted">Enquiry Brief</label>
         <textarea 
           id="message" 
           rows={6} 
@@ -154,7 +154,7 @@ export default function ContactForm() {
           value={formData.message}
           onChange={handleChange}
           placeholder="Describe your operational requirement..."
-          className="w-full bg-slate-50 border border-slate-200 px-6 py-4 text-sm font-light focus:outline-none focus:border-brand-midnight focus:bg-white transition-all resize-none font-sans"
+          className="w-full bg-brand-silver/10 border border-brand-silver/50 px-6 py-4 text-sm focus:outline-none focus:border-accent-teal focus:bg-white transition-all resize-none font-sans rounded-xl"
         ></textarea>
       </div>
 
@@ -162,11 +162,11 @@ export default function ContactForm() {
         <button 
           type="submit" 
           disabled={status === 'submitting'}
-          className="btn-primary w-full md:w-auto !px-16 disabled:opacity-50"
+          className="w-full md:w-auto px-12 py-4 bg-brand-ink text-brand-pure rounded-full font-bold uppercase tracking-widest text-[10px] hover:bg-brand-slate transition-all disabled:opacity-50"
         >
           {status === 'submitting' ? 'Processing...' : 'Submit Engagement Request'}
         </button>
-        <p className="mt-8 text-[10px] text-slate-400 font-bold uppercase tracking-tight font-sans">
+        <p className="mt-8 text-[10px] text-brand-muted font-bold uppercase tracking-tight font-sans">
           Information provided via this form is handled in accordance with our secure privacy protocols.
         </p>
       </div>

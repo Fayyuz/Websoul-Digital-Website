@@ -1,54 +1,30 @@
-import React from 'react';
-import { cn } from '@/lib/utils';
+'use client'
+
+import React from 'react'
+import { cn } from '@/lib/utils'
 
 interface SectionProps {
-  children: React.ReactNode;
-  className?: string;
-  id?: string;
-  containerClassName?: string;
-  bg?: 'white' | 'surface' | 'midnight';
+  children: React.ReactNode
+  className?: string
+  id?: string
+  bg?: 'pure' | 'silver' | 'ink'
 }
 
-export default function Section({ 
-  children, 
-  className, 
-  id, 
-  containerClassName,
-  bg = 'white' 
-}: SectionProps) {
-  const bgStyles = {
-    white: 'bg-white',
-    surface: 'bg-[#F8FAF8]',
-    midnight: 'bg-[#0A0A0F] text-white'
-  };
-
+export const Section = ({ children, className, id, bg = 'pure' }: SectionProps) => {
   return (
     <section 
-      id={id} 
+      id={id}
       className={cn(
-        'py-32 md:py-48', 
-        bgStyles[bg],
+        'px-6 md:px-12 py-24 md:py-30 lg:py-42',
+        {
+          'bg-brand-pure': bg === 'pure',
+          'bg-brand-silver/20': bg === 'silver',
+          'bg-brand-ink text-brand-pure': bg === 'ink',
+        },
         className
       )}
     >
-      <div className={cn('section-container', containerClassName)}>
-        {children}
-      </div>
+      {children}
     </section>
-  );
-}
-
-export function SectionHeader({ title, eyebrow, subtitle, className }: { title: string, eyebrow?: string, subtitle?: string, className?: string }) {
-  return (
-    <div className={cn('mb-24 max-w-3xl', className)}>
-      {eyebrow && (
-        <div className="inline-flex items-center gap-3 mb-8">
-           <div className="w-8 h-[1px] bg-brand-midnight opacity-10"></div>
-           <div className="text-[10px] font-bold uppercase tracking-[0.4em] text-brand-slate">{eyebrow}</div>
-        </div>
-      )}
-      <h2 className="text-3xl md:text-5xl font-space font-medium text-brand-midnight mb-8 tracking-tight leading-[1.1]">{title}</h2>
-      {subtitle && <p className="text-lg font-sans font-light text-slate-500 leading-relaxed max-w-2xl">{subtitle}</p>}
-    </div>
-  );
+  )
 }

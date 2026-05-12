@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-brand-silver/30;
+  }
+  
+  html {
+    @apply scroll-smooth;
+  }
+  
+  body {
+    @apply bg-brand-pure text-brand-ink antialiased;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02";
+  }
+  
+  h1, h2, h3, h4, h5 {
+    @apply font-semibold tracking-tight;
+    letter-spacing: -0.02em;
+  }
+  
+  ::selection {
+    @apply bg-accent-teal/20 text-brand-ink;
+  }
+  
+  :focus-visible {
+    @apply outline-2 outline-accent-teal outline-offset-2 rounded-sm;
+  }
+}
+
+@layer components {
+  .prose-consulting {
+    @apply max-w-3xl text-brand-muted leading-relaxed text-body;
+  }
+  
+  .prose-consulting p {
+    @apply mb-4 last:mb-0;
+  }
+  
+  .glass-card {
+    @apply bg-brand-pure/80 backdrop-blur-sm border border-brand-silver/30;
+  }
+  
+  .stat-number {
+    @apply font-display text-5xl font-semibold tracking-tight text-brand-ink;
+  }
+  
+  .stat-label {
+    @apply text-caption uppercase tracking-wider text-brand-muted;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

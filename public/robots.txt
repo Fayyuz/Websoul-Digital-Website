@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/internal/
+Sitemap: https://websoul.digital/sitemap.xml
