@@ -1,79 +1,86 @@
-# Websoul Digital Website
+# Websoul Digital | Production Repository
 
-Premium corporate website for Websoul Digital, an Australian-owned digital and cyber consultancy.
+This repository contains the source for the Websoul Digital corporate website—a premium, sovereign Australian consultancy providing Trust Services, Digital Delivery, and DISP Advisory.
 
-## Tech Stack
+**Domain:** [websoul.com.au](https://websoul.com.au)  
+**Location:** Canberra, ACT, Australia
 
-- **Framework**: Next.js 14 (App Router)
-- **Styling**: Tailwind CSS (monochrome premium palette)
-- **Icons**: Lucide React
-- **Language**: TypeScript
-- **Hosting**: Firebase Hosting
+## Specification
+
+- **Framework:** Next.js 14 (App Router)
+- **Engine:** React 18 / TypeScript
+- **Styling:** Tailwind CSS (Custom Monochrome Architecture)
+- **Icons:** Lucide React
+- **Validation:** Zod / React Hook Form
+- **Deployment:** Google Cloud Run (Containerized Standalone)
+
+## Architectural Ethos
+
+The website is designed to the standard of a Tier-One global consultancy. It prioritizes:
+- **Trust-Oriented Hierarchy:** Logical service partitioning and clear value propositions.
+- **Sovereign Positioning:** Explicit alignment with Australian secure-domain requirements.
+- **Operational Reality:** No broken links, placeholder phone numbers, or overclaims.
 
 ## Core Capabilities
 
-- **Trust Services**: Workforce integrity and screening
-- **Digital Consultancy**: ICT strategy and cloud transformation
-- **DISP Advisory**: Security maturity and governance
+1.  **Trust Services:** Advanced workforce integrity frameworks and personnel readiness.
+2.  **Digital Delivery:** Secure-by-design engineering and ICT transformation.
+3.  **DISP Advisory:** Strategic pathways for organisational security maturity.
 
 ## Local Development
 
 ```bash
+# Install dependencies
 npm install
+
+# Start development server
 npm run dev
 ```
 
-Visit http://localhost:3000
+## Production Quality Gates
 
-## Deployment (Firebase Hosting)
-
-### Prerequisites
-
-1. Install Firebase CLI: `npm install -g firebase-tools`
-2. Login to Firebase: `firebase login`
-
-### Deploy
+Before deployment, ensure all quality gates pass:
 
 ```bash
-# Build the static export
-npm run build
-
-# Deploy to Firebase Hosting
-firebase deploy
+# Run linting, typechecking, and build
+npm run check
 ```
 
-The site will be available at your configured Firebase Hosting URL.
+## Deployment: Google Cloud Run
 
-## Build Configuration
+This project is optimized for **Google Cloud Run** using the Next.js **standalone** build output for minimal image size and maximum performance.
 
-This project is optimized for static hosting compatibility.
+### 1. Environment Configuration
+Ensure `.env` in your deployment environment contains:
+- `NEXT_PUBLIC_FORMSPREE_ENDPOINT`: Your Formspree endpoint ID.
 
-## Design System
+### 2. Containerization
+The repository includes a production-grade `Dockerfile`.
 
-- **Colors**: Monochrome premium palette (ink, paper, graphite, charcoal, slate, silver, mist)
-- **Typography**: Inter font family with SF Pro Display for headings
-- **Logo**: Custom geometric "W" mark (chevron-based design)
-- **Spacing**: Consistent spacing system based on architectural proportions
+```bash
+# Build the container
+docker build -t gcr.io/[PROJECT_ID]/websoul-website .
 
-## Pages
+# Push to Artifact Registry
+docker push gcr.io/[PROJECT_ID]/websoul-website
 
-- Homepage (Strategic sections for credibility)
-- Trust Services
-- Digital Delivery (Digital Consultancy)
-- DISP Advisory
-- About
-- Careers
-- Contact (with functional Formspree integration)
-- Privacy Policy
-- Terms of Use
+# Deploy to Cloud Run
+# Ensure to expose port 3000
+```
 
-## Contact Form
+## Integrated Components
 
-The contact form is designed for real-world use via Formspree. To configure:
-1. Create a free account at https://formspree.io/
-2. Create a new form and get your endpoint URL
-3. Replace the endpoint in `src/app/(marketing)/contact/page.tsx`
+- **Contact:** Functional Formspree integration with Zod validation.
+- **Insights:** Living content architecture for industry leadership.
+- **Case Studies:** Anonymized, evidence-led past performance.
+- **Security:** Responsible disclosure protocol for high-trust operations.
 
-## License
+## Legal Identity
 
-All rights reserved. Websoul Digital.
+Websoul Digital Pty Ltd  
+ABN 44 656 760 146  
+hello@websoul.com.au
+
+---
+
+© 2026 Websoul Digital. All rights reserved. Proprietary and Confidential.

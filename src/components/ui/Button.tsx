@@ -3,7 +3,7 @@ import { cn } from '@/lib/utils'
 
 interface ButtonProps {
   children: React.ReactNode
-  variant?: 'primary' | 'secondary' | 'ghost'
+  variant?: 'primary' | 'secondary' | 'ghost' | 'outline'
   href?: string
   onClick?: () => void
   className?: string
@@ -28,6 +28,7 @@ export const Button = ({
     {
       'bg-ink text-paper hover:bg-graphite hover:shadow-[0_4px_20px_rgba(0,0,0,0.15)] active:scale-[0.98]': variant === 'primary',
       'border border-silver bg-transparent text-ink hover:bg-mist hover:border-ink/20 active:scale-[0.98]': variant === 'secondary',
+      'border-2 border-ink bg-transparent text-ink hover:bg-ink hover:text-paper active:scale-[0.98]': variant === 'outline',
       'text-ink hover:text-ink/80 hover:bg-mist/50 active:scale-[0.98]': variant === 'ghost',
     },
     className

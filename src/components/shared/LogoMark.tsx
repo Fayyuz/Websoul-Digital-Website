@@ -26,42 +26,21 @@ export const LogoMark = ({ size = 'md', className, variant = 'dark' }: LogoMarkP
         className="w-full h-full"
         aria-hidden="true"
       >
-        {/* Outer chevron structure - represents stability/trust */}
+        {/* Precise geometric mark representing "W" and "S" union */}
         <path 
-          d="M8 20 L20 8 L32 20" 
+          d="M8 12L20 24L32 12" 
           stroke={strokeColor} 
-          strokeWidth="2.5" 
-          strokeLinecap="round" 
-          strokeLinejoin="round"
-          fill="none"
+          strokeWidth="3" 
+          strokeLinecap="square" 
+          strokeLinejoin="miter"
         />
-        
-        {/* Inner chevron - represents forward movement/progress */}
         <path 
-          d="M12 24 L20 16 L28 24" 
+          d="M8 28L20 16L32 28" 
           stroke={strokeColor} 
-          strokeWidth="2.5" 
-          strokeLinecap="round" 
-          strokeLinejoin="round"
-          fill="none"
-        />
-        
-        {/* Vertical stem - represents strength/foundation */}
-        <path 
-          d="M20 20 L20 32" 
-          stroke={strokeColor} 
-          strokeWidth="2.5" 
-          strokeLinecap="round"
-        />
-        
-        {/* Subtle accent line - represents connection/integration */}
-        <path 
-          d="M20 20 L28 28" 
-          stroke={strokeColor} 
-          strokeWidth="1.5" 
-          strokeLinecap="round"
-          strokeDasharray="2 3"
-          opacity="0.5"
+          strokeWidth="3" 
+          strokeLinecap="square" 
+          strokeLinejoin="miter"
+          opacity="0.4"
         />
       </svg>
     </div>

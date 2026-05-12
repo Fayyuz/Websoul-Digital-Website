@@ -33,17 +33,17 @@ export default function AboutPage() {
         <Container>
           <div className="max-w-4xl">
             <div className="inline-block mb-6">
-              <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate/60">Company Profile</span>
+              <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate/60">Company Capability</span>
             </div>
             <h1 className="text-hero-mobile md:text-h1 font-display font-bold tracking-tight text-ink mb-8">
-              Built for trust.
+              Sovereign capability for secure horizons.
             </h1>
             <div className="grid md:grid-cols-2 gap-12 items-start">
               <p className="text-body-lg text-ink font-medium leading-relaxed">
-                Websoul Digital is a sovereign Australian consultancy dedicated to building organizational stability in high-trust environments.
+                Websoul Digital is an Australian-owned consultancy bridging the gap between high-trust personnel requirements and secure digital delivery.
               </p>
               <p className="text-body text-slate leading-relaxed">
-                Formed with a vision to integrate workforce integrity, digital engineering, and security governance, we provide a unified capability for enterprises and government agencies operating in complex domains.
+                Headquartered in Canberra, we specialise in navigating the intersection of workforce integrity, secure-by-design engineering, and regulatory readiness for organisations operating in defence-aware and critical infrastructure environments.
               </p>
             </div>
           </div>
@@ -54,16 +54,16 @@ export default function AboutPage() {
         <Container>
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             <div>
-              <h2 className="text-h2 font-display font-bold text-ink mb-6">The Integrated Model</h2>
+              <h2 className="text-h2 font-display font-bold text-ink mb-6">A Unified Trust Ecosystem</h2>
               <div className="space-y-6">
                 <p className="text-body text-slate leading-relaxed">
-                  We believe that trust is the foundation of modern high-performance organisations. However, trust is often fragmented—siloed across HR, IT, and Security departments.
+                  In modern high-trust environments, security cannot be siloed. Traditionally, workforce screening, digital engineering, and governance readiness are treated as disparate functions, leading to operational friction and visibility gaps.
                 </p>
                 <p className="text-body text-slate leading-relaxed">
-                  Websoul Digital was built as an integrated response to this fragmentation. By uniting Trust Services, Digital Delivery, and DISP Advisory, we ensure that your people are verified, your systems are secure, and your environment is compliant.
+                  Websoul Digital provides a unified ecosystem. By integrating Trust Services, Digital Delivery, and DISP Advisory under one sovereign framework, we ensure that every layer of your organisation—from its people to its infrastructure—is aligned with established security standards.
                 </p>
                 <p className="text-body text-slate leading-relaxed">
-                  This integrated approach reduces operational friction, accelerates project velocity, and provides executive leadership with absolute confidence in their organizational capability.
+                  This integrated approach reduces delivery risk, enhances organisational integrity, and provides executive leadership with the absolute confidence required to operate in Australia&apos;s most sensitive sectors.
                 </p>
               </div>
             </div>
@@ -118,6 +118,32 @@ export default function AboutPage() {
                 </div>
               )
             })}
+          </div>
+        </Container>
+      </Section>
+
+      <Section background="mist" spacing="lg">
+        <Container>
+          <div className="mb-16">
+            <div className="inline-block mb-4">
+              <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate/60">Leadership & Advisory</span>
+            </div>
+            <h2 className="text-h2 font-display font-bold text-ink">Built on experience.</h2>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              { role: 'Principal Consultant', focus: 'Strategy & DISP Readiness', exp: '20+ Years in Federal Govt & Defence' },
+              { role: 'Technical Director', focus: 'Secure Systems & Engineering', exp: 'Expertise in high-assurance systems' },
+              { role: 'Principal Advisor', focus: 'Personnel Trust & Integrity', exp: 'Specialist in workforce security frameworks' },
+            ].map((leader, index) => (
+              <div key={index} className="p-10 bg-paper border border-silver rounded-3xl group hover:border-ink/10 transition-colors">
+                <div className="w-10 h-px bg-silver mb-8 group-hover:w-full transition-all duration-700" />
+                <h3 className="text-h4 font-display font-bold text-ink mb-2">{leader.role}</h3>
+                <p className="text-[10px] font-bold uppercase tracking-widest text-slate/60 mb-6">{leader.focus}</p>
+                <p className="text-sm text-slate leading-relaxed">{leader.exp}</p>
+              </div>
+            ))}
           </div>
         </Container>
       </Section>

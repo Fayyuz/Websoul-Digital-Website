@@ -1,9 +1,9 @@
 export const navigationItems = [
-  { label: 'Home', href: '/' },
   { label: 'Trust Services', href: '/trust-services' },
   { label: 'Digital Consultancy', href: '/digital-consultancy' },
   { label: 'DISP Advisory', href: '/disp-advisory' },
-  { label: 'About', href: '/about' },
+  { label: 'Case Studies', href: '/case-studies' },
+  { label: 'Insights', href: '/insights' },
   { label: 'Careers', href: '/careers' },
   { label: 'Contact', href: '/contact' },
 ]
@@ -26,24 +26,24 @@ export const trustIndicators = [
 export const serviceCards = [
   {
     title: 'Trust Services',
-    description: 'Trusted screening, identity verification, and integrity services for regulated environments.',
+    description: 'Trusted screening, identity verification and workforce integrity pathways for regulated and high-trust environments.',
     href: '/trust-services',
     audience: 'For organisations requiring trusted workforce pathways.',
     why: 'Reduce onboarding friction while maintaining rigorous standards.',
   },
   {
     title: 'Digital Consultancy',
-    description: 'Security-aware ICT strategy, cloud transformation, and digital delivery capability.',
+    description: 'Security-aware ICT strategy, cloud transformation, secure-by-design delivery and ISM-aligned digital capability.',
     href: '/digital-consultancy',
     audience: 'For organisations modernising with confidence.',
     why: 'Build secure, scalable systems that enable growth.',
   },
   {
     title: 'DISP Advisory',
-    description: 'Practical security readiness, governance uplift, and trusted-environment advisory.',
+    description: 'DISP readiness, Essential Eight ML2 uplift, ISM mapping and cyber assurance evidence for Defence industry suppliers and government-facing SMEs.',
     href: '/disp-advisory',
     audience: 'For organisations navigating regulated or defence-adjacent contexts.',
-    why: 'Achieve and maintain trusted status with confidence.',
+    why: 'Build a defensible security posture with practical controls, clear evidence and stronger readiness for Defence and regulated environments.',
   },
 ]
 

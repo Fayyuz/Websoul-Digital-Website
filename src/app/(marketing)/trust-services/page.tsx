@@ -50,11 +50,16 @@ export default function TrustServicesPage() {
             </h1>
             <div className="grid md:grid-cols-2 gap-12 items-start">
               <p className="text-body-lg text-ink font-medium leading-relaxed">
-                We provide the integrity frameworks and verification processes organisations need to scale their trusted workforce with confidence.
+                We provide the integrity frameworks and readiness support organisations need to scale their trusted workforce with confidence.
               </p>
-              <p className="text-body text-slate leading-relaxed">
-                In regulated environments, workforce trust is a critical capability. Our Trust Services arm simplifies the complexity of identity and integrity verification, ensuring your personnel are ready for high-security operations.
-              </p>
+              <div className="space-y-6">
+                <p className="text-body text-slate leading-relaxed">
+                  In regulated environments, workforce trust is a critical capability. Our Trust Services arm simplifies the complexity of identity and integrity readiness, ensuring your personnel are prepared for high-security operations.
+                </p>
+                <p className="text-[10px] text-slate italic leading-relaxed border-l-2 border-silver pl-4">
+                  Note: Websoul Digital provides advisory and readiness support for trust-based pathways. We are not a government vetting agency or a formal accrediting body. All formal outcomes are subject to delegate approval by the relevant authority.
+                </p>
+              </div>
             </div>
           </div>
         </Container>

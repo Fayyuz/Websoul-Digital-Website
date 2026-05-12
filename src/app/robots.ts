@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/admin/', '/api/internal/'],
     },
-    sitemap: 'https://websoul.digital/sitemap.xml',
+    sitemap: 'https://websoul.com.au/sitemap.xml',
   };
 }

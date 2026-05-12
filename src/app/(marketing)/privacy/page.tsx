@@ -7,32 +7,41 @@ export default function PrivacyPage() {
       <Section background="mist" spacing="lg">
         <Container>
           <div className="max-w-3xl">
-            <h1 className="text-h1 font-display font-semibold mb-4">Privacy Policy</h1>
-            <p className="text-body text-slate">Last updated: May 12, 2026</p>
+            <h1 className="text-h1 font-display font-bold mb-4 text-ink">Privacy Policy</h1>
+            <p className="text-body text-slate">Effective Date: May 12, 2026</p>
           </div>
         </Container>
       </Section>
 
-      <Section background="white" spacing="lg">
+      <Section background="paper" spacing="lg">
         <Container>
-          <div className="max-w-3xl mx-auto prose prose-slate">
-            <h2 className="text-h2 font-semibold mb-4">1. Information We Collect</h2>
-            <p className="mb-6">We collect information you provide directly to us, such as when you contact us through our website forms or email. This may include your name, email address, phone number, and message content.</p>
+          <div className="max-w-3xl mx-auto">
+            <div className="prose prose-sm max-w-none text-slate space-y-8">
+              <section>
+                <h2 className="text-h3 font-display font-bold text-ink mb-4">1. Collection of Information</h2>
+                <p>Websoul Digital collects personal information required to facilitate our consultancy operations and respond to mission-critical enquiries. This may include professional contact details, organisational affiliation, and information relevant to security readiness assessments.</p>
+              </section>
 
-            <h2 className="text-h2 font-semibold mb-4">2. How We Use Your Information</h2>
-            <p className="mb-6">We use the information we collect to respond to your inquiries, provide our services, and communicate with you about our offerings. We do not sell or share your personal information with third parties for marketing purposes.</p>
+              <section>
+                <h2 className="text-h3 font-display font-bold text-ink mb-4">2. Use of Data</h2>
+                <p>We use collected data strictly for service delivery, professional communication, and maintaining organisational trust. We do not engage in the sale or unauthorized sharing of personal information with third-party marketing entities.</p>
+              </section>
 
-            <h2 className="text-h2 font-semibold mb-4">3. Data Security</h2>
-            <p className="mb-6">We take reasonable measures to protect your personal information from unauthorised access, alteration, or disclosure.</p>
+              <section>
+                <h2 className="text-h3 font-display font-bold text-ink mb-4">3. Australian Privacy Principles</h2>
+                <p>We are committed to adhering to the Privacy Act 1988 (Cth) and the Australian Privacy Principles. For individuals in the EU, we ensure alignment with relevant GDPR requirements where applicable to our global operations.</p>
+              </section>
 
-            <h2 className="text-h2 font-semibold mb-4">4. Cookies</h2>
-            <p className="mb-6">Our website uses essential cookies for functionality. We do not use tracking or analytics cookies without your consent.</p>
+              <section>
+                <h2 className="text-h3 font-display font-bold text-ink mb-4">4. Secure Handling</h2>
+                <p>Given our focus on secure environments, we implement rigorous technical and organisational measures to protect data. For sensitive disclosures, we recommend using secure transmission channels facilitated by our specialists.</p>
+              </section>
 
-            <h2 className="text-h2 font-semibold mb-4">5. Your Rights</h2>
-            <p className="mb-6">You may request access to, correction of, or deletion of your personal information by contacting us.</p>
-
-            <h2 className="text-h2 font-semibold mb-4">6. Contact Us</h2>
-            <p>For privacy-related inquiries, please contact us at privacy@websoul.digital.</p>
+              <section className="pt-10 border-t border-silver">
+                <p className="text-[10px] font-bold uppercase tracking-widest">Enquiries</p>
+                <p>For privacy-related matters, please contact <a href="mailto:hello@websoul.com.au" className="text-ink font-bold hover:underline">hello@websoul.com.au</a>.</p>
+              </section>
+            </div>
           </div>
         </Container>
       </Section>

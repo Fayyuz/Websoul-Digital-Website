@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /admin/
 Disallow: /api/internal/
-Sitemap: https://websoul.digital/sitemap.xml
+Sitemap: https://websoul.com.au/sitemap.xml

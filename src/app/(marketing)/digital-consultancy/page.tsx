@@ -46,14 +46,14 @@ export default function DigitalConsultancyPage() {
               <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate/60">Capability: Digital Delivery</span>
             </div>
             <h1 className="text-hero-mobile md:text-h1 font-display font-bold tracking-tight text-ink mb-8">
-              Engineering for excellence.
+              Digital Delivery with Assurance.
             </h1>
             <div className="grid md:grid-cols-2 gap-12 items-start">
               <p className="text-body-lg text-ink font-medium leading-relaxed">
-                We design and deliver digital systems that are secure by default, resilient by design, and scalable by nature.
+                We design and deliver technical systems that are secure-by-default, resilient-by-design, and aligned with sovereign security standards.
               </p>
               <p className="text-body text-slate leading-relaxed">
-                Modern digital transformation requires more than just migration; it requires a fundamental shift in how trust and security are integrated into the delivery lifecycle. Our consultancy provides the specialized expertise to navigate this complexity.
+                Modern digital transformation requires more than just migration; it requires a fundamental commitment to integrating security into the delivery lifecycle. Our consultants provide the specialized engineering capacity required to navigate this transition in regulated domains.
               </p>
             </div>
           </div>

@@ -25,7 +25,7 @@ export const HeroSection = () => {
           >
             <span className="w-12 h-px bg-ink/20" />
             <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-slate/60">
-              Operations & Strategy
+              Sovereign Strategic Advisory
             </span>
           </motion.div>
           
@@ -50,7 +50,7 @@ export const HeroSection = () => {
               className="md:col-span-5"
             >
               <p className="text-body-lg text-ink font-medium leading-relaxed">
-                Websoul Digital builds the stability needed to operate with absolute confidence in secure and regulated environments.
+                Websoul Digital helps Australian organisations build trusted workforces, secure digital capability, and DISP-ready operating models.
               </p>
             </motion.div>
             <motion.div 
@@ -60,7 +60,7 @@ export const HeroSection = () => {
               className="md:col-span-6 md:col-start-7"
             >
               <p className="text-body text-slate leading-relaxed">
-                We integrate three specialized consultancy domains—Trust Services, Digital Delivery, and DISP Advisory—under one sovereign framework for enterprise and government.
+                We combine secure digital transformation, workforce trust pathways, and DISP readiness support under one roof, specifically for regulated and defence-aware environments.
               </p>
             </motion.div>
           </div>
@@ -72,10 +72,10 @@ export const HeroSection = () => {
             className="flex flex-wrap gap-4"
           >
             <Button href="/contact" variant="primary" className="h-14 px-10">
-              Engage the Consultancy
+              Consult a Specialist
             </Button>
-            <Button href="#services" variant="secondary" className="h-14 px-10">
-              Our Capabilities
+            <Button href="/about" variant="secondary" className="h-14 px-10">
+              Company Profile
             </Button>
           </motion.div>
         </div>

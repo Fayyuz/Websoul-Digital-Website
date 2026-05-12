@@ -7,23 +7,23 @@ export const DISPFeature = () => {
   const features = [
     {
       icon: TrendingUp,
-      title: 'Maturity Assessments',
-      description: 'Rigorous evaluation of security maturity levels against regulated standards.',
+      title: 'DISP Readiness',
+      description: 'Structured uplift across governance, personnel, physical and ICT/cyber security expectations.',
     },
     {
       icon: FileCheck,
-      title: 'Governance Frameworks',
-      description: 'Professional policies and procedures designed for high-trust environments.',
+      title: 'Essential Eight ML2',
+      description: 'Assessment, remediation planning and evidence preparation for ML2 conformance.',
     },
     {
       icon: Building2,
-      title: 'Environment Advisory',
-      description: 'Specialized support for establishung secure physical and digital contexts.',
+      title: 'ISM Traceability',
+      description: 'Mapping cyber controls to ISM-aligned evidence, owners, risks and uplift actions.',
     },
     {
       icon: Target,
-      title: 'Compliance Roadmaps',
-      description: 'Practical, actionable pathways to achieve and maintain trusted status.',
+      title: 'Assurance Evidence',
+      description: 'Executive-ready evidence packs for DISP, PSPF, audit and authorisation support.',
     },
   ]
 
@@ -40,9 +40,9 @@ export const DISPFeature = () => {
                 <div className="space-y-6">
                   <div className="w-12 h-1 bg-ink" />
                   <blockquote className="text-h3 font-display font-bold text-ink leading-tight">
-                    &quot;Compliance is not the goal; it is the evidence of a resilient security posture.&quot;
+                    &quot;Cyber maturity must be evidenced through practical controls, accountable owners and repeatable assurance.&quot;
                   </blockquote>
-                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate/60">Governance Principle</p>
+                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate/60">Assurance Principle</p>
                 </div>
              </div>
           </div>
@@ -51,9 +51,9 @@ export const DISPFeature = () => {
             <div className="inline-block mb-4">
               <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate/60 px-1">Capability Deep-Dive</span>
             </div>
-            <h2 className="text-h1 font-display font-bold text-ink tracking-tight mb-6">DISP Advisory.</h2>
+            <h2 className="text-h1 font-display font-bold text-ink tracking-tight mb-6">DISP Advisory & Cyber Assurance.</h2>
             <p className="text-body-lg text-slate mb-8 leading-relaxed">
-              We facilitate organisational readiness and environmental accreditation for partners operating in defence-adjacent and secure sectors.
+              We help Defence industry suppliers and government-facing organisations build a practical path to DISP readiness, Essential Eight ML2 uplift, ISM control mapping and continuous cyber assurance.
             </p>
             <div className="grid sm:grid-cols-2 gap-10 mb-12">
               {features.map((feature, index) => {
@@ -69,9 +69,14 @@ export const DISPFeature = () => {
                 )
               })}
             </div>
-            <Button href="/disp-advisory" variant="secondary" className="h-14 px-10">
-              Explore Advisory services
-            </Button>
+            <div className="flex flex-col gap-4">
+              <Button href="/disp-advisory" variant="secondary" className="h-14 px-10">
+                Explore DISP advisory
+              </Button>
+              <a href="/disp-advisory/essential-eight-ml2" className="text-sm font-bold text-ink hover:underline text-center">
+                Essential Eight ML2 Assurance →
+              </a>
+            </div>
           </div>
         </div>
       </Container>

@@ -46,15 +46,17 @@ export default function DISPAdvisoryPage() {
               <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate/60">Capability: DISP Advisory</span>
             </div>
             <h1 className="text-hero-mobile md:text-h1 font-display font-bold tracking-tight text-ink mb-8">
-              Accreditation with precision.
+              DISP readiness with cyber assurance discipline.
             </h1>
             <div className="grid md:grid-cols-2 gap-12 items-start">
               <p className="text-body-lg text-ink font-medium leading-relaxed">
-                We facilitate the journey to formal accreditation, ensuring your organisation meets the rigorous standards required for trusted operations.
+                Practical advisory for Defence industry suppliers and government-facing organisations seeking stronger governance, Essential Eight ML2 uplift, ISM traceability and evidence-led security maturity.
               </p>
-              <p className="text-body text-slate leading-relaxed">
-                Operating within the Defence Industry Security Program (DISP) or similar high-trust frameworks requires a demonstrable commitment to governance and security. Our advisory provides the practical support to achieve and maintain this maturity.
-              </p>
+              <div className="space-y-6">
+                <p className="text-body text-slate leading-relaxed">
+                  Navigating the Defence Industry Security Program (DISP) or similar high-trust frameworks requires a demonstrable commitment to security governance. Our advisory provides practical support to establish and maintain the maturity required for these environments.
+                </p>
+              </div>
             </div>
           </div>
         </Container>
@@ -65,36 +67,44 @@ export default function DISPAdvisoryPage() {
           <div className="mb-16">
             <h2 className="text-h2 font-display font-bold text-ink mb-4">Advisory Services</h2>
             <p className="text-body text-slate max-w-2xl">
-              Practical support for organisations navigating the complexities of trusted-environment accreditation.
+              Practical support for organisations navigating the complexities of trusted-environment accreditation and security maturity.
             </p>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => {
-              const Icon = service.icon
-              return (
-                <div key={index} className="group border border-silver rounded-2xl p-8 hover:border-ink/10 hover:shadow-sm transition-all duration-300">
-                  <div className="w-12 h-12 rounded-xl bg-mist flex items-center justify-center mb-6 group-hover:bg-ink group-hover:text-paper transition-colors">
-                    <Icon className="w-6 h-6 text-ink group-hover:text-paper transition-colors" />
-                  </div>
-                  <h3 className="text-h4 font-display font-bold mb-3 text-ink">{service.title}</h3>
-                  <p className="text-sm text-slate leading-relaxed">{service.description}</p>
-                </div>
-              )
-            })}
+            {[
+              { title: 'DISP Readiness & Maturity', description: 'Practical readiness support across governance, personnel, physical and ICT/cyber security expectations.' },
+              { title: 'Essential Eight ML2 Assurance', description: 'Assessment, uplift planning and evidence preparation for Essential Eight Maturity Level 2.', href: '/disp-advisory/essential-eight-ml2' },
+              { title: 'ISM Mapping & Traceability', description: 'Mapping Essential Eight requirements to ISM-aligned controls, evidence and owners.' },
+              { title: 'PSPF / DSPF Alignment', description: 'Aligning cyber uplift with protective security, Defence supplier assurance and organisational risk expectations.' },
+              { title: 'Risk Treatment & Exceptions', description: 'Clear risk registers, exception records, compensating control advice and executive decision support.' },
+              { title: 'Assurance Packs & ATO Support', description: 'Security documentation, residual risk summaries and evidence packs to support authorisation decisions.' },
+            ].map((service, index) => (
+              <a key={index} href={service.href || '#'} className="block group border border-silver rounded-2xl p-8 hover:border-ink/10 hover:shadow-sm transition-all duration-300">
+                <h3 className="text-h4 font-display font-bold mb-3 text-ink">{service.title}</h3>
+                <p className="text-sm text-slate leading-relaxed">{service.description}</p>
+                {service.href && <span className="inline-block mt-4 text-xs font-bold text-ink hover:underline">Explore readiness →</span>}
+              </a>
+            ))}
           </div>
         </Container>
       </Section>
 
-      <Section background="mist" spacing="lg">
+      <Section background="mist" spacing="lg" className="border-t border-silver">
         <Container>
-          <div className="max-w-4xl mx-auto bg-paper border border-silver rounded-[2rem] p-12 md:p-16 text-center">
-            <h2 className="text-h2 font-display font-bold mb-6 text-ink">Achieve trusted status.</h2>
-            <p className="text-body text-slate mb-10 max-w-xl mx-auto leading-relaxed">
-              Talk to our advisory team about mapping your path to accreditation and establishing a compliant security posture.
-            </p>
-            <Button href="/contact" variant="primary" className="h-14 px-12">Consult an Advisor</Button>
-          </div>
+            <h2 className="text-h2 font-display font-bold text-ink mb-8">Cyber assurance inside the DISP architecture.</h2>
+            <p className="text-body text-slate mb-16 max-w-3xl">DISP readiness is not only a policy exercise. For suppliers handling Defence-related information, cyber maturity must be evidenced through practical controls, accountable owners and repeatable assurance. Websoul Digital connects Essential Eight ML2, ISM mapping, PSPF/DSPF expectations and security governance into one evidence-led operating model.</p>
+            
+            <div className="flex flex-wrap items-center gap-4 text-xs font-bold uppercase tracking-widest text-ink mb-12">
+              {[ 'Governance', 'Essential Eight ML2', 'ISM Mapping', 'Evidence Pack', 'Risk Decision', 'Continuous Assurance' ].map((item, i) => (
+                 <div key={item} className="flex items-center gap-4">
+                   <div className="px-6 py-4 bg-paper border border-silver rounded-full">{item}</div>
+                   {i < 5 && <span>→</span>}
+                 </div>
+              ))}
+            </div>
+            
+            <Button href="/disp-advisory/essential-eight-ml2" variant="primary" className="h-14 px-8">Explore Essential Eight ML2 Assurance</Button>
         </Container>
       </Section>
     </>

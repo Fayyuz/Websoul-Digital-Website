@@ -7,38 +7,34 @@ export default function TermsPage() {
       <Section background="mist" spacing="lg">
         <Container>
           <div className="max-w-3xl">
-            <h1 className="text-h1 font-display font-semibold mb-4">Terms of Use</h1>
-            <p className="text-body text-slate">Last updated: May 12, 2026</p>
+            <h1 className="text-h1 font-display font-bold mb-4 text-ink">Terms of Engagement</h1>
+            <p className="text-body text-slate">Effective Date: May 12, 2026</p>
           </div>
         </Container>
       </Section>
 
-      <Section background="white" spacing="lg">
+      <Section background="paper" spacing="lg">
         <Container>
-          <div className="max-w-3xl mx-auto prose prose-slate">
-            <h2 className="text-h2 font-semibold mb-4">1. Acceptance of Terms</h2>
-            <p className="mb-6">By accessing and using this website, you accept and agree to be bound by these Terms of Use.</p>
+          <div className="max-w-3xl mx-auto prose prose-sm max-w-none text-slate space-y-8">
+            <section>
+              <h2 className="text-h3 font-display font-bold text-ink mb-4">1. Consultancy Framework</h2>
+              <p>These terms govern the access to information provided by Websoul Digital. Formal consultancy engagements are governed by specific Master Services Agreements (MSA) or Statements of Work (SOW).</p>
+            </section>
 
-            <h2 className="text-h2 font-semibold mb-4">2. Use of Website</h2>
-            <p className="mb-6">You agree to use this website only for lawful purposes and in a manner that does not infringe the rights of, restrict, or inhibit anyone else&apos;s use of the website.</p>
+            <section>
+              <h2 className="text-h3 font-display font-bold text-ink mb-4">2. Intellectual Property</h2>
+              <p>The methodologies, frameworks, and content provided on this website are the intellectual property of Websoul Digital Pty Ltd. Unauthorised reproduction or distribution is strictly prohibited.</p>
+            </section>
 
-            <h2 className="text-h2 font-semibold mb-4">3. Intellectual Property</h2>
-            <p className="mb-6">All content on this website, including text, graphics, logos, and code, is the property of Websoul Digital and is protected by intellectual property laws.</p>
+            <section>
+              <h2 className="text-h3 font-display font-bold text-ink mb-4">3. Governing Law</h2>
+              <p>These terms and any engagement through this platform are governed by the laws of the Australian Capital Territory (ACT), Australia.</p>
+            </section>
 
-            <h2 className="text-h2 font-semibold mb-4">4. Disclaimer</h2>
-            <p className="mb-6">The information on this website is provided for general informational purposes only. We make no representations or warranties about the accuracy or completeness of the information.</p>
-
-            <h2 className="text-h2 font-semibold mb-4">5. Limitation of Liability</h2>
-            <p className="mb-6">To the fullest extent permitted by law, Websoul Digital shall not be liable for any damages arising out of or in connection with the use of this website.</p>
-
-            <h2 className="text-h2 font-semibold mb-4">6. Changes to Terms</h2>
-            <p className="mb-6">We may modify these Terms at any time. Your continued use of the website constitutes acceptance of the modified terms.</p>
-
-            <h2 className="text-h2 font-semibold mb-4">7. Governing Law</h2>
-            <p className="mb-6">These Terms are governed by the laws of the Australian Capital Territory, Australia.</p>
-
-            <h2 className="text-h2 font-semibold mb-4">8. Contact</h2>
-            <p>For questions about these Terms, please contact us at legal@websoul.digital.</p>
+            <section className="pt-10 border-t border-silver">
+              <p className="text-[10px] font-bold uppercase tracking-widest">Legal Contact</p>
+              <p>For legal enquiries, please contact <a href="mailto:hello@websoul.com.au" className="text-ink font-bold hover:underline">hello@websoul.com.au</a>.</p>
+            </section>
           </div>
         </Container>
       </Section>

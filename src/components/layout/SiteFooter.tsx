@@ -32,6 +32,7 @@ export const SiteFooter = () => {
                 <li><Link href="/trust-services" className="text-sm text-silver/60 hover:text-paper transition-colors">Trust Services</Link></li>
                 <li><Link href="/digital-consultancy" className="text-sm text-silver/60 hover:text-paper transition-colors">Digital Delivery</Link></li>
                 <li><Link href="/disp-advisory" className="text-sm text-silver/60 hover:text-paper transition-colors">DISP Advisory</Link></li>
+                <li><Link href="/case-studies" className="text-sm text-silver/60 hover:text-paper transition-colors">Case Studies</Link></li>
               </ul>
             </div>
             
@@ -39,6 +40,7 @@ export const SiteFooter = () => {
               <p className="text-xs font-semibold uppercase tracking-widest text-silver/40">Company</p>
               <ul className="space-y-4">
                 <li><Link href="/about" className="text-sm text-silver/60 hover:text-paper transition-colors">About</Link></li>
+                <li><Link href="/insights" className="text-sm text-silver/60 hover:text-paper transition-colors">Insights</Link></li>
                 <li><Link href="/careers" className="text-sm text-silver/60 hover:text-paper transition-colors">Careers</Link></li>
                 <li><Link href="/contact" className="text-sm text-silver/60 hover:text-paper transition-colors">Contact</Link></li>
               </ul>
@@ -47,10 +49,11 @@ export const SiteFooter = () => {
             <div className="space-y-6 col-span-2 md:col-span-1">
               <p className="text-xs font-semibold uppercase tracking-widest text-silver/40">Direct</p>
               <ul className="space-y-4">
-                <li><a href="mailto:contact@websoul.digital" className="text-sm text-silver/60 hover:text-paper transition-colors">contact@websoul.digital</a></li>
+                <li><a href="mailto:hello@websoul.com.au" className="text-sm text-silver/60 hover:text-paper transition-colors">hello@websoul.com.au</a></li>
+                <li><Link href="/security" className="text-sm text-silver/60 hover:text-paper transition-colors">Security Disclosure</Link></li>
                 <li>
                   <div className="pt-2">
-                    <span className="inline-block px-3 py-1 bg-charcoal rounded text-[10px] uppercase tracking-widest text-silver/80 border border-charcoal">DISP Accredited</span>
+                    <span className="inline-block px-3 py-1 bg-charcoal rounded text-[10px] uppercase tracking-widest text-silver/80 border border-charcoal">Sovereign Advisory</span>
                   </div>
                 </li>
               </ul>
@@ -60,7 +63,10 @@ export const SiteFooter = () => {
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-charcoal/50 flex flex-col md:flex-row justify-between gap-6 text-[10px] uppercase font-medium tracking-[0.2em] text-silver/30">
-          <p>© {currentYear} Websoul Digital. Australian Owned & Operated.</p>
+          <div className="space-y-2">
+            <p>© {currentYear} Websoul Digital. Australian Owned & Operated.</p>
+            <p>Websoul Digital Pty Ltd | ABN 44 656 760 146 | Canberra, ACT</p>
+          </div>
           <div className="flex gap-8">
             <Link href="/privacy" className="hover:text-paper transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-paper transition-colors">Terms of Engagement</Link>
