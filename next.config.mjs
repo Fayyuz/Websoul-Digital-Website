@@ -3,8 +3,6 @@ const nextConfig = {
   // CRITICAL: Static export for Cloudflare Pages
   output: 'export',
   
-  // Transpile packages that might have ESM/CJS compatibility issues
-  transpilePackages: ['framer-motion', 'lucide-react'],
 
   // Optional: Optimize images (using unoptimized for static export)
   images: {

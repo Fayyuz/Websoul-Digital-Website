@@ -1,71 +1,13 @@
 'use client'
 
-import { useState } from 'react'
-import { useForm } from 'react-hook-form'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { contactSchema, type ContactFormData } from '@/lib/validations/contact'
+import { useForm, ValidationError } from '@formspree/react'
 import { Container } from '@/components/ui/Container'
 import { Section } from '@/components/ui/Section'
 import { Button } from '@/components/ui/Button'
-import { Mail, MapPin, CheckCircle, AlertCircle } from 'lucide-react'
-
-const FORMSPREE_ENDPOINT = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT || ''
+import { Mail, MapPin, CheckCircle } from 'lucide-react'
 
 export default function ContactPage() {
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
-  const [errorMessage, setErrorMessage] = useState('')
-
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors, isSubmitting },
-  } = useForm<ContactFormData>({
-    resolver: zodResolver(contactSchema),
-    defaultValues: {
-      name: '',
-      email: '',
-      organisation: '',
-      message: '',
-    },
-  })
-
-  const onSubmit = async (data: ContactFormData) => {
-    setSubmitStatus('submitting')
-    setErrorMessage('')
-
-    if (!FORMSPREE_ENDPOINT) {
-      setSubmitStatus('error')
-      setErrorMessage('Form configuration error. Please email hello@websoul.com.au directly.')
-      return
-    }
-
-    try {
-      const formData = new FormData()
-      formData.append('name', data.name)
-      formData.append('email', data.email)
-      formData.append('organisation', data.organisation || '')
-      formData.append('message', data.message)
-
-      const response = await fetch(FORMSPREE_ENDPOINT, {
-        method: 'POST',
-        body: formData,
-        headers: { 'Accept': 'application/json' },
-      })
-
-      if (response.ok) {
-        setSubmitStatus('success')
-        reset()
-        setTimeout(() => setSubmitStatus('idle'), 8000)
-      } else {
-        throw new Error('Submission failed')
-      }
-    } catch {
-      setSubmitStatus('error')
-      setErrorMessage('Unable to send message. Please email hello@websoul.com.au')
-      setTimeout(() => setSubmitStatus('idle'), 8000)
-    }
-  }
+  const [state, handleSubmit] = useForm('mdabjgjq')
 
   return (
     <>
@@ -86,7 +28,7 @@ export default function ContactPage() {
             <div>
               <h2 className="text-2xl sm:text-3xl font-semibold mb-6">Send a Message</h2>
 
-              {submitStatus === 'success' && (
+              {state.succeeded && (
                 <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-xl flex items-start gap-3" role="status" aria-live="polite">
                   <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
                   <div>
@@ -96,31 +38,19 @@ export default function ContactPage() {
                 </div>
               )}
 
-              {submitStatus === 'error' && (
-                <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl flex items-start gap-3" role="alert">
-                  <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <p className="font-semibold text-red-800">Failed to send</p>
-                    <p className="text-sm text-red-700 mt-1">{errorMessage}</p>
-                  </div>
-                </div>
-              )}
-
-              <form onSubmit={handleSubmit(onSubmit)} className="space-y-5" noValidate>
+              <form onSubmit={handleSubmit} className="space-y-5">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-ink mb-2">
                     Full Name <span className="text-red-500">*</span>
                   </label>
                   <input
                     id="name"
+                    name="name"
                     type="text"
-                    {...register('name')}
-                    aria-invalid={!!errors.name}
-                    className={`w-full h-12 px-4 border rounded-lg bg-paper text-ink focus:outline-none focus:ring-2 focus:ring-ink/20 ${
-                      errors.name ? 'border-red-500' : 'border-silver'
-                    }`}
+                    required
+                    className="w-full h-12 px-4 border border-silver rounded-lg bg-paper text-ink focus:outline-none focus:ring-2 focus:ring-ink/20"
                   />
-                  {errors.name && <p className="text-sm text-red-600 mt-1">{errors.name.message}</p>}
+                  <ValidationError prefix="Name" field="name" errors={state.errors} className="text-sm text-red-600 mt-1" />
                 </div>
 
                 <div>
@@ -129,14 +59,12 @@ export default function ContactPage() {
                   </label>
                   <input
                     id="email"
+                    name="email"
                     type="email"
-                    {...register('email')}
-                    aria-invalid={!!errors.email}
-                    className={`w-full h-12 px-4 border rounded-lg bg-paper text-ink focus:outline-none focus:ring-2 focus:ring-ink/20 ${
-                      errors.email ? 'border-red-500' : 'border-silver'
-                    }`}
+                    required
+                    className="w-full h-12 px-4 border border-silver rounded-lg bg-paper text-ink focus:outline-none focus:ring-2 focus:ring-ink/20"
                   />
-                  {errors.email && <p className="text-sm text-red-600 mt-1">{errors.email.message}</p>}
+                  <ValidationError prefix="Email" field="email" errors={state.errors} className="text-sm text-red-600 mt-1" />
                 </div>
 
                 <div>
@@ -145,8 +73,8 @@ export default function ContactPage() {
                   </label>
                   <input
                     id="organisation"
+                    name="organisation"
                     type="text"
-                    {...register('organisation')}
                     className="w-full h-12 px-4 border border-silver rounded-lg bg-paper text-ink focus:outline-none focus:ring-2 focus:ring-ink/20"
                   />
                 </div>
@@ -157,21 +85,16 @@ export default function ContactPage() {
                   </label>
                   <textarea
                     id="message"
+                    name="message"
                     rows={5}
-                    {...register('message')}
-                    aria-invalid={!!errors.message}
-                    className={`w-full px-4 py-2 border rounded-lg bg-paper text-ink focus:outline-none focus:ring-2 focus:ring-ink/20 resize-none ${
-                      errors.message ? 'border-red-500' : 'border-silver'
-                    }`}
+                    required
+                    className="w-full px-4 py-2 border border-silver rounded-lg bg-paper text-ink focus:outline-none focus:ring-2 focus:ring-ink/20 resize-none"
                   />
-                  {errors.message && <p className="text-sm text-red-600 mt-1">{errors.message.message}</p>}
+                  <ValidationError prefix="Message" field="message" errors={state.errors} className="text-sm text-red-600 mt-1" />
                 </div>
 
-                <input type="text" name="_gotcha" style={{ display: 'none' }} />
-                <input type="hidden" name="_redirect" value="https://websoul.com.au/contact" />
-
-                <Button type="submit" variant="primary" disabled={isSubmitting} className="w-full sm:w-auto h-12 px-6">
-                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                <Button type="submit" variant="primary" disabled={state.submitting} className="w-full sm:w-auto h-12 px-6">
+                  {state.submitting ? 'Sending...' : 'Send Message'}
                 </Button>
 
                 <p className="text-xs text-slate mt-4">
