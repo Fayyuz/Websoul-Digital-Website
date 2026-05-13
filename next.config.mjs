@@ -22,6 +22,11 @@ const nextConfig = {
   
   // Disable x-powered-by header for security
   poweredByHeader: false,
+
+  // Fix for package imports and potential moduleId errors
+  experimental: {
+    optimizePackageImports: ['lucide-react', 'framer-motion'],
+  },
 }
 
 export default nextConfig

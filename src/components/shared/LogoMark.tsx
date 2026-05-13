@@ -30,13 +30,17 @@ export const LogoMark = ({ size = 'md', variant = 'dark', className }: LogoMarkP
       >
         {/* WD Monogram based on user-provided logo */}
         <g fill="currentColor">
-          {/* Left Slanted Bar */}
-          <path d="M 15 20 L 30 20 L 50 80 L 35 80 Z" />
+          {/* First Slanted Bar */}
+          <path d="M 12 22 L 28 22 L 48 78 L 32 78 Z" />
           
-          {/* Merged Right Bar (Stem) + D Curve */}
-          <path d="M 40 20 L 55 20 
-                   C 95 20, 115 80, 75 80 
-                   L 58 80 L 40 20 Z" />
+          {/* Second Slanted Bar (Stem of D) */}
+          <path d="M 38 22 L 54 22 L 74 78 L 58 78 Z" />
+          
+          {/* D Loop - Attached to the second bar and reflecting the slant */}
+          <path d="M 54 22 
+                   C 85 22, 105 78, 74 78 
+                   L 58 78 L 38 22 L 54 22 Z" 
+                className="opacity-90" />
         </g>
       </svg>
     </div>
