@@ -34,9 +34,16 @@ export const SiteFooter = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
           {/* Brand Column */}
           <div className="lg:col-span-2">
-            <div className="flex items-center gap-3 mb-4">
-              <LogoMark size="md" variant="dark" />
-              <span className="font-semibold text-lg tracking-tight">Websoul Digital</span>
+            <div className="flex items-center gap-4 mb-6">
+              <LogoMark size="lg" variant="dark" />
+              <div className="flex flex-col">
+                <span className="font-bold text-[11px] tracking-[0.5em] text-ink uppercase leading-tight">Websoul Digital</span>
+                <div className="flex items-center gap-2 mt-1">
+                  <div className="h-[1px] w-4 bg-silver" />
+                  <span className="text-[8px] font-bold tracking-[0.6em] text-slate/60 uppercase">Australia</span>
+                  <div className="h-[1px] w-4 bg-silver" />
+                </div>
+              </div>
             </div>
             <p className="text-sm text-slate max-w-md">
               Trusted capability for a more secure Australia.

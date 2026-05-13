@@ -55,8 +55,8 @@ export const SiteHeader = () => {
             className="flex shrink-0 items-center gap-2 md:gap-3 group"
             aria-label="Websoul Digital Home"
           >
-            <LogoMark size="md" variant="dark" />
-            <span className="text-base md:text-lg font-semibold tracking-tight text-ink whitespace-nowrap">
+            <LogoMark size="md" variant="dark" className="md:w-9 md:h-9" />
+            <span className="text-[9px] md:text-[10px] font-bold tracking-[0.5em] text-ink uppercase whitespace-nowrap pt-1">
               Websoul Digital
             </span>
           </Link>
