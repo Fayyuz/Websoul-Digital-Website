@@ -5,17 +5,8 @@ import Link from 'next/link'
 import { Menu, X } from 'lucide-react'
 import { LogoMark } from '@/components/shared/LogoMark'
 import { Button } from '@/components/ui/Button'
+import { navigationItems } from '@/lib/constants'
 import { cn } from '@/lib/utils'
-
-const navigationItems = [
-  { label: 'Trust Services', href: '/trust-services' },
-  { label: 'Digital Consultancy', href: '/digital-consultancy' },
-  { label: 'DISP Advisory', href: '/disp-advisory' },
-  { label: 'Case Studies', href: '/case-studies' },
-  { label: 'Insights', href: '/insights' },
-  { label: 'Careers', href: '/careers' },
-  { label: 'Contact', href: '/contact' },
-]
 
 export const SiteHeader = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)

@@ -10,7 +10,7 @@ import {
   Wrench, 
   FileCheck, 
   Activity,
-  CheckCircle2,
+  CircleCheck,
   FileText,
   Layers
 } from 'lucide-react'

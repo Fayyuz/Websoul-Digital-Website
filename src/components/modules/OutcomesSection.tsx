@@ -1,6 +1,6 @@
 import { Container } from '@/components/ui/Container'
 import { Section } from '@/components/ui/Section'
-import { CheckCircle2 } from 'lucide-react'
+import { CircleCheck } from 'lucide-react'
 import { outcomesList } from '@/lib/constants'
 
 export const OutcomesSection = () => {
@@ -14,7 +14,7 @@ export const OutcomesSection = () => {
                   {outcomesList.map((outcome, index) => (
                     <div key={index} className="flex items-start gap-4 group">
                       <div className="w-6 h-6 rounded-full bg-ink/5 border border-ink/10 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-ink group-hover:text-paper transition-colors duration-300">
-                        <CheckCircle2 className="w-3.5 h-3.5" />
+                        <CircleCheck className="w-3.5 h-3.5" />
                       </div>
                       <p className="text-sm font-medium text-ink leading-relaxed underline decoration-silver underline-offset-[6px] decoration-1 transition-all group-hover:decoration-ink/30">
                         {outcome}

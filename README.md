@@ -12,7 +12,7 @@ Premium corporate website for Websoul Digital, an Australian-owned digital and c
 - **Styling**: Tailwind CSS (Custom Monochrome Architecture)
 - **Icons**: Lucide React
 - **Validation**: Zod / React Hook Form
-- **Deployment**: Google Cloud Run (Containerized Standalone)
+- **Deployment**: Firebase Hosting (Static Frontend Only)
 
 ## Core Capabilities
 
@@ -34,30 +34,21 @@ npm run dev
 npm run check  # Runs lint, typecheck, and build
 ```
 
-## Deployment: Google Cloud Run
+## Deployment: Firebase Hosting
 
-This project is optimized for Google Cloud Run using Next.js standalone output.
+This project is configured as a static front-end suitable for Firebase Hosting.
 
-### Environment Configuration
-
-Set in Cloud Run environment variables:
-
-`NEXT_PUBLIC_FORMSPREE_ENDPOINT`: Your Formspree endpoint ID
-
-### Deploy
+### Build and Deploy
 
 ```bash
-# Build container
-docker build -t gcr.io/[PROJECT-ID]/websoul-website .
+# Build the static export
+npm run build
 
-# Push to Artifact Registry
-docker push gcr.io/[PROJECT-ID]/websoul-website
+# Login to Firebase
+firebase login
 
-# Deploy to Cloud Run (port 8080)
-gcloud run deploy websoul-website \
-  --image gcr.io/[PROJECT-ID]/websoul-website \
-  --port 8080 \
-  --platform managed
+# Deploy to Firebase Hosting
+firebase deploy --only hosting
 ```
 
 ## Accessibility

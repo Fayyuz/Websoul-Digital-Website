@@ -17,10 +17,9 @@ export const LogoMark = ({ size = 'md', variant = 'dark', className }: LogoMarkP
   }
 
   const strokeColor = variant === 'dark' ? '#0A0A0B' : '#FFFFFF'
-  const accentColor = variant === 'dark' ? '#6B6B7A' : '#D1D1D6'
 
   return (
-    <div className={cn('relative', sizes[size], className)}>
+    <div className={cn('relative', sizes[size], className)} style={{ color: strokeColor }}>
       <svg 
         viewBox="0 0 48 48" 
         fill="none" 
@@ -28,52 +27,18 @@ export const LogoMark = ({ size = 'md', variant = 'dark', className }: LogoMarkP
         className="w-full h-full"
         aria-label="Websoul Digital logo mark"
         role="img"
+        stroke="currentColor"
       >
-        {/* W structure - outer frame representing stability and trust */}
-        <path 
-          d="M8 24 L16 12 L32 12 L40 24" 
-          stroke={strokeColor} 
-          strokeWidth="2.5" 
-          strokeLinecap="square"
-          strokeLinejoin="miter"
-          fill="none"
-        />
-        
-        {/* Inner chevron - representing forward movement and delivery */}
-        <path 
-          d="M13 28 L24 16 L35 28" 
-          stroke={strokeColor} 
-          strokeWidth="2.5" 
-          strokeLinecap="square"
-          strokeLinejoin="miter"
-          fill="none"
-        />
-        
-        {/* Central pillar - representing strength and foundation */}
-        <path 
-          d="M24 16 L24 36" 
-          stroke={strokeColor} 
-          strokeWidth="2.5" 
-          strokeLinecap="square"
-        />
-        
-        {/* Node points - representing digital systems architecture */}
-        <circle cx="16" cy="12" r="2" fill={strokeColor} />
-        <circle cx="32" cy="12" r="2" fill={strokeColor} />
-        <circle cx="24" cy="16" r="2" fill={strokeColor} />
-        <circle cx="24" cy="36" r="2" fill={strokeColor} />
-        <circle cx="13" cy="28" r="1.5" fill={accentColor} />
-        <circle cx="35" cy="28" r="1.5" fill={accentColor} />
-        
-        {/* Subtle connection line - representing integration */}
-        <path 
-          d="M24 24 L32 32" 
-          stroke={accentColor} 
-          strokeWidth="1.5" 
-          strokeLinecap="square"
-          strokeDasharray="3 3"
-          opacity="0.6"
-        />
+        {/* Outer framework - stability */}
+        <path d="M8 20 L16 10 L32 10 L40 20" strokeWidth="2.5" stroke="currentColor"/>
+        {/* Inner pathway - workflow */}
+        <path d="M14 26 L24 14 L34 26" strokeWidth="2.5" stroke="currentColor"/>
+        {/* Central pillar - strength */}
+        <path d="M24 14 L24 38" strokeWidth="2.5" stroke="currentColor"/>
+        {/* Node points - three capabilities */}
+        <circle cx="16" cy="10" r="2.5" fill="currentColor"/>
+        <circle cx="32" cy="10" r="2.5" fill="currentColor"/>
+        <circle cx="24" cy="38" r="2.5" fill="currentColor"/>
       </svg>
     </div>
   )

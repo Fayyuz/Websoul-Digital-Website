@@ -1,29 +1,27 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'standalone', // CRITICAL for Cloud Run
+  // CRITICAL: Static export for Firebase Hosting
+  // output: 'export',
+  
+  // Transpile packages that might have ESM/CJS compatibility issues in Next.js 14
+  transpilePackages: ['framer-motion', 'lucide-react'],
+
+  // Optional: Optimize images (using unoptimized for static export)
   images: {
-    unoptimized: true, // Cloud Run optimization
-    formats: ['image/avif', 'image/webp'],
+    unoptimized: true,
   },
-  compress: true,
-  poweredByHeader: false,
+  
+  // Trailing slashes for Firebase compatibility
+  trailingSlash: false,
+  
+  // React strict mode for development
   reactStrictMode: true,
+  
+  // SWC minification for faster builds
   swcMinify: true,
   
-  async headers() {
-    return [
-      {
-        source: '/(.*)',
-        headers: [
-          { key: 'X-Frame-Options', value: 'DENY' },
-          { key: 'X-Content-Type-Options', value: 'nosniff' },
-          { key: 'X-XSS-Protection', value: '1; mode=block' },
-          { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
-          { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
-        ],
-      },
-    ]
-  },
+  // Disable x-powered-by header for security
+  poweredByHeader: false,
 }
 
 export default nextConfig

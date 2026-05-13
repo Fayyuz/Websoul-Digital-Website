@@ -26,10 +26,10 @@ export const Button = ({
     'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2',
     'disabled:opacity-50 disabled:cursor-not-allowed',
     {
-      'bg-ink text-paper hover:bg-graphite hover:shadow-[0_4px_20px_rgba(0,0,0,0.15)] active:scale-[0.98]': variant === 'primary',
-      'border border-silver bg-transparent text-ink hover:bg-mist hover:border-ink/20 active:scale-[0.98]': variant === 'secondary',
+      'bg-ink text-paper hover:bg-graphite active:scale-[0.98] shadow-sm hover:shadow-md': variant === 'primary',
+      'border border-ink bg-transparent text-ink hover:bg-mist active:scale-[0.98]': variant === 'secondary',
       'border-2 border-ink bg-transparent text-ink hover:bg-ink hover:text-paper active:scale-[0.98]': variant === 'outline',
-      'text-ink hover:text-ink/80 hover:bg-mist/50 active:scale-[0.98]': variant === 'ghost',
+      'text-ink hover:text-graphite hover:bg-mist/50 active:scale-[0.98]': variant === 'ghost',
     },
     className
   )

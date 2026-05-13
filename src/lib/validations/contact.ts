@@ -1,11 +1,10 @@
 import { z } from "zod";
 
 export const contactSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters"),
-  email: z.string().email("Invalid email address"),
-  company: z.string().min(2, "Company must be at least 2 characters"),
-  message: z.string().min(10, "Message must be at least 10 characters"),
-  serviceType: z.enum(["Trust Services", "Digital Consultancy", "DISP Advisory", "Other"]),
+  name: z.string().min(1, "Name is required"),
+  email: z.string().min(1, "Email is required").email("Invalid email address"),
+  organisation: z.string().optional(),
+  message: z.string().min(1, "Message is required"),
 });
 
-export type ContactInput = z.infer<typeof contactSchema>;
+export type ContactFormData = z.infer<typeof contactSchema>;

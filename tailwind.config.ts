@@ -17,6 +17,7 @@ const config: Config = {
         'slate': '#6B6B7A',     // Secondary text (medium grey)
         'silver': '#E8E8EC',    // Light backgrounds (off-white)
         'mist': '#F4F4F6',      // Hover states (light grey)
+        'navy': '#1B2A4A',     // Deep trust accent - 5% of UI max
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],

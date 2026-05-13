@@ -1,14 +1,21 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter } from 'next/font/google'
+import { Inter, Outfit } from 'next/font/google'
 import './globals.css'
 import { SiteHeader } from '@/components/layout/SiteHeader'
 import { SiteFooter } from '@/components/layout/SiteFooter'
 import { SkipLink } from '@/components/ui/SkipLink'
+import { cn } from '@/lib/utils'
 
 const inter = Inter({ 
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-inter',
+})
+
+const outfit = Outfit({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-outfit',
 })
 
 export const metadata: Metadata = {
@@ -17,20 +24,6 @@ export const metadata: Metadata = {
     template: '%s | Websoul Digital',
   },
   description: 'Websoul Digital provides Trust Services, Digital Consultancy, and DISP Advisory. Australian-owned, Canberra-based consultancy for trusted environments.',
-  keywords: ['trust services', 'digital consultancy', 'DISP advisory', 'cyber security', 'Australian consultancy', 'Essential Eight', 'ISM'],
-  authors: [{ name: 'Websoul Digital Pty Ltd' }],
-  openGraph: {
-    type: 'website',
-    locale: 'en_AU',
-    url: 'https://websoul.com.au',
-    siteName: 'Websoul Digital',
-    title: 'Websoul Digital',
-    description: 'Trusted capability for a more secure Australia.',
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
 }
 
 export const viewport: Viewport = {
@@ -46,8 +39,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en-AU" className={inter.variable}>
-      <body className="flex flex-col min-h-screen">
+    <html lang="en-AU" className={cn(inter.variable, outfit.variable)}>
+      <body className="flex flex-col min-h-screen bg-paper text-ink font-sans">
         <SkipLink />
         <SiteHeader />
         <main id="main-content" className="flex-grow" tabIndex={-1}>

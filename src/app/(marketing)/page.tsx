@@ -16,9 +16,32 @@ import { FinalCTA } from '@/components/modules/FinalCTA'
 export default function Home() {
   return (
     <div className="animate-fade-in">
-      <HeroSection />
-      <TrustBand />
-      <ProofSection />
+      <HeroSection
+        eyebrow="Websoul Digital"
+        heading={"Trusted people.\nSecure delivery.\nStronger organisations."}
+        supportingText="Websoul Digital brings together Trust Services, Digital Consultancy, and DISP Advisory to help organisations operate with confidence in high-trust environments."
+        trustStripItems={[
+          'Australian-owned',
+          'Canberra-based',
+          'High-trust environments',
+          'Secure delivery mindset',
+          'Modern consultancy'
+        ]}
+        primaryCta={{
+          label: 'Explore Trust Services',
+          href: '/trust-services'
+        }}
+        secondaryCtas={[
+          { label: 'Explore Digital Consultancy', href: '/digital-consultancy' },
+          { label: 'Explore DISP Advisory', href: '/disp-advisory' }
+        ]}
+        ghostCta={{
+          label: 'Talk to Us →',
+          href: '/contact'
+        }}
+      />
+      <TrustBand variant="default" />
+      
       <ThreeServicesOverview />
       <DigitalConsultancyFeature />
       <TrustServicesFeature />

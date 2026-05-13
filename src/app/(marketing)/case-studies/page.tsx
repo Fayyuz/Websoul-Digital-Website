@@ -1,7 +1,7 @@
 import { Container } from '@/components/ui/Container'
 import { Section } from '@/components/ui/Section'
 import { Button } from '@/components/ui/Button'
-import { CheckCircle2, ShieldCheck, Zap } from 'lucide-react'
+import { CircleCheck, ShieldCheck, Zap } from 'lucide-react'
 
 const caseStudies = [
   {
@@ -26,7 +26,7 @@ const caseStudies = [
     challenge: 'Scaling a specialized engineering workforce requiring high-integrity onboarding and screening.',
     solution: 'Implemented a streamlined trust framework that reduced screening latency without compromising integrity or privacy standards.',
     result: 'Onboarding time reduced by 30% for specialist roles.',
-    icon: CheckCircle2
+    icon: CircleCheck
   }
 ]
 
