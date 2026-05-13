@@ -1,3 +1,5 @@
+'use client'
+
 import { Container } from '@/components/ui/Container'
 import { Section } from '@/components/ui/Section'
 import { Link2, Shield, Users, TrendingUp as TrendUp } from 'lucide-react'
