@@ -1,9 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // CRITICAL: Static export for Firebase Hosting
-  // output: 'export',
+  // CRITICAL: Static export for Cloudflare Pages
+  output: 'export',
   
-  // Transpile packages that might have ESM/CJS compatibility issues in Next.js 14
+  // Transpile packages that might have ESM/CJS compatibility issues
   transpilePackages: ['framer-motion', 'lucide-react'],
 
   // Optional: Optimize images (using unoptimized for static export)
@@ -11,12 +11,12 @@ const nextConfig = {
     unoptimized: true,
   },
   
-  // Trailing slashes for Firebase compatibility
+  // Trailing slashes for compatibility
   trailingSlash: false,
   
   // React strict mode for development
   reactStrictMode: true,
-  
+
   // SWC minification for faster builds
   swcMinify: true,
   
