@@ -18,13 +18,13 @@ export const WhyWebsoul = () => {
     },
     {
       icon: Users,
-      title: 'Sovereign Expertise',
-      description: 'Australian-owned and Canberra-based operational knowledge.',
+      title: 'Australian Experience',
+      description: 'Australian-owned and Canberra-based government ICT delivery knowledge.',
     },
     {
       icon: TrendUp,
-      title: 'Practical Outcomes',
-      description: 'Strategic frameworks matched with hands-on delivery velocity.',
+      title: 'Practical Focus',
+      description: 'Strategic frameworks matched with hands-on regulated sector execution.',
     },
   ]
 
@@ -34,13 +34,13 @@ export const WhyWebsoul = () => {
         <div className="grid lg:grid-cols-2 gap-20 items-center">
           <div>
             <div className="inline-block mb-4">
-              <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate">Value Proposition</span>
+              <span className="text-base font-bold uppercase tracking-[0.3em] text-slate">Value Proposition</span>
             </div>
             <h2 className="text-h1 font-display font-bold tracking-tight text-ink mb-6">
-              The Websoul Advantage.
+              Australian-owned delivery experience.
             </h2>
             <p className="text-body-lg text-slate mb-8 leading-relaxed">
-              We bring together the three pillars organisations need to operate with absolute confidence in high-trust environments. Our model is built for complexity and delivered with precision.
+              We combine government ICT delivery experience, cyber assurance discipline and practical commercial execution to support organisations operating in regulated high-trust environments.
             </p>
             <div className="grid sm:grid-cols-2 gap-8">
               {points.map((point, index) => {
@@ -51,7 +51,7 @@ export const WhyWebsoul = () => {
                       <Icon className="w-5 h-5 text-ink" />
                     </div>
                     <h3 className="font-bold text-ink">{point.title}</h3>
-                    <p className="text-xs text-slate leading-relaxed">{point.description}</p>
+                    <p className="text-base text-slate leading-relaxed">{point.description}</p>
                   </div>
                 )
               })}
@@ -63,11 +63,11 @@ export const WhyWebsoul = () => {
              </div>
              <div className="relative z-10 space-y-8">
                 <div className="space-y-2">
-                  <p className="text-[10px] font-bold uppercase tracking-widest text-slate/60">Operational Focus</p>
+                  <p className="text-base font-bold uppercase tracking-widest text-slate/60">Operational Focus</p>
                   <p className="text-h3 font-display font-bold text-ink">Stability, Security, and Scalable Delivery.</p>
                 </div>
                 <div className="w-20 h-px bg-ink/10" />
-                <p className="text-sm text-slate leading-relaxed">
+                <p className="text-base text-slate leading-relaxed">
                   Websoul Digital provides the specialized capacity to navigate Australian regulatory environments while maintaining the velocity required of modern digital operations.
                 </p>
              </div>

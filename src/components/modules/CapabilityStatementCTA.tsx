@@ -1,3 +1,5 @@
+'use client'
+
 import { Container } from '@/components/ui/Container'
 import { Section } from '@/components/ui/Section'
 import { Button } from '@/components/ui/Button'
@@ -14,17 +16,17 @@ export const CapabilityStatementCTA = () => {
             </div>
             <div>
               <h2 className="text-h4 font-display font-bold text-ink mb-2">Websoul Capability Statement</h2>
-              <p className="text-sm text-slate max-w-md leading-relaxed">
-                Download our detailed capability statement for an exhaustive overview of our services, past performance, and sovereign qualifications.
+              <p className="text-base text-slate max-w-md leading-relaxed">
+                Receive a concise overview of our services, experience and delivery approach for Australian organisations.
               </p>
             </div>
           </div>
           <Button 
             href="/capability-statement" 
             variant="primary" 
-            className="flex items-center gap-3 h-12 px-8 uppercase tracking-widest text-[10px] font-bold whitespace-nowrap"
+            className="flex items-center gap-3 h-12 px-8 uppercase tracking-widest text-base font-bold whitespace-nowrap"
           >
-            Request Statement <ArrowRight className="w-4 h-4" />
+            Request Capability Statement <ArrowRight className="w-4 h-4" />
           </Button>
         </div>
       </Container>

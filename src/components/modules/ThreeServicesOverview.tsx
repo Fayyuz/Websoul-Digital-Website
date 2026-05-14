@@ -54,7 +54,7 @@ const ServiceCard = ({
         </h3>
 
         {/* Description */}
-        <p className="text-slate text-sm md:text-base leading-relaxed mb-4">
+        <p className="text-slate text-base leading-relaxed mb-4">
           {description}
         </p>
 
@@ -63,7 +63,7 @@ const ServiceCard = ({
           <span className="text-xs font-semibold uppercase tracking-wide text-ink/60">
             Who it&apos;s for
           </span>
-          <p className="text-sm text-slate mt-1">{audience}</p>
+          <p className="text-base text-slate mt-1">{audience}</p>
         </div>
 
         {/* Value - why it matters */}
@@ -71,18 +71,18 @@ const ServiceCard = ({
           <span className="text-xs font-semibold uppercase tracking-wide text-ink/60">
             Why it matters
           </span>
-          <p className="text-sm text-slate mt-1">{value}</p>
+          <p className="text-base text-slate mt-1">{value}</p>
         </div>
 
         {/* CTA - clean, professional */}
-        <Link
-          href={href}
-          className={cn(
-            'inline-flex items-center gap-2 text-sm font-medium transition-all duration-200',
-            'group-hover:gap-3',
-            isFeatured ? 'text-ink' : 'text-slate hover:text-ink'
-          )}
-        >
+          <Link
+            href={href}
+            className={cn(
+              'inline-flex items-center gap-2 text-base font-medium transition-all duration-200',
+              'group-hover:gap-3',
+              isFeatured ? 'text-ink' : 'text-slate hover:text-ink'
+            )}
+          >
           Explore {title}
           <ArrowRight className="w-4 h-4" />
         </Link>
@@ -95,7 +95,7 @@ export const ThreeServicesOverview = () => {
   const services = [
     {
       title: 'Trust Services',
-      description: 'Workforce integrity, screening, and verification frameworks for regulated environments.',
+      description: 'Workforce trust advisory, identity-readiness support and integrity pathway design for regulated and high-trust environments.',
       audience: 'Organisations requiring trusted workforce pathways and personnel assurance.',
       value: 'Reduce onboarding friction while maintaining rigorous integrity standards.',
       href: '/trust-services',
@@ -104,7 +104,7 @@ export const ThreeServicesOverview = () => {
     },
     {
       title: 'Digital Consultancy',
-      description: 'Security-aware ICT strategy, cloud transformation, and secure-by-design delivery.',
+      description: 'Secure ICT strategy, cloud transformation and delivery governance for Australian organisations modernising critical services.',
       audience: 'Organisations modernising with confidence in high-trust contexts.',
       value: 'Build secure, scalable systems that enable growth without compromising assurance.',
       href: '/digital-consultancy',
@@ -113,7 +113,7 @@ export const ThreeServicesOverview = () => {
     },
     {
       title: 'DISP Advisory',
-      description: 'Practical security readiness, governance uplift, and trusted-environment advisory.',
+      description: 'DISP readiness, Essential Eight uplift, ISM control mapping and assurance evidence for Defence-facing suppliers.',
       audience: 'Organisations navigating regulated or defence-adjacent environments.',
       value: 'Achieve and maintain trusted status with defensible evidence and clear pathways.',
       href: '/disp-advisory',
@@ -123,13 +123,13 @@ export const ThreeServicesOverview = () => {
   ]
 
   return (
-    <Section background="paper" spacing="lg">
+    <Section background="paper" spacing="lg" id="capabilities" className="scroll-mt-20">
       <Container>
         {/* Section Header */}
         <div className="text-center mb-10 md:mb-12 lg:mb-16">
           <div className="inline-flex items-center gap-2 mb-3">
             <div className="w-8 h-px bg-slate/40" />
-            <span className="text-[11px] md:text-xs font-medium tracking-[0.2em] text-slate uppercase">
+            <span className="text-base font-medium tracking-[0.2em] text-slate uppercase">
               Core Capabilities
             </span>
             <div className="w-8 h-px bg-slate/40" />
@@ -154,7 +154,7 @@ export const ThreeServicesOverview = () => {
 
         {/* Integrated Model Note - reinforces the "why" */}
         <div className="mt-12 pt-8 text-center border-t border-silver/60">
-          <div className="inline-flex items-center gap-2 text-sm text-slate">
+          <div className="inline-flex items-center gap-2 text-base text-slate">
             <CircleCheck className="w-4 h-4 text-ink/60" />
             <span>
               Trust Services + Digital Consultancy + DISP Advisory — working together

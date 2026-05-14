@@ -30,7 +30,7 @@ const CapabilityCard = ({ icon, title, description }: CapabilityCardProps) => {
         </div>
         <div>
           <h3 className="font-semibold text-ink mb-1">{title}</h3>
-          <p className="text-sm text-slate leading-relaxed">{description}</p>
+          <p className="text-base text-slate leading-relaxed">{description}</p>
         </div>
       </div>
     </div>
@@ -78,7 +78,7 @@ export const DigitalConsultancyFeature = () => {
         <div className="max-w-3xl mb-10 md:mb-12 lg:mb-16">
           <div className="inline-flex items-center gap-2 mb-4">
             <div className="w-8 h-px bg-ink/30" />
-            <span className="text-[11px] md:text-xs font-medium tracking-[0.2em] text-ink/70 uppercase">
+            <span className="text-base font-medium tracking-[0.2em] text-ink/70 uppercase">
               Flagship Capability
             </span>
             <div className="w-8 h-px bg-ink/30" />
@@ -113,7 +113,7 @@ export const DigitalConsultancyFeature = () => {
             ].map((item, index) => (
               <div key={index} className="flex items-center gap-2">
                 <CircleCheck className="w-4 h-4 text-ink/60 flex-shrink-0" />
-                <span className="text-sm text-slate">{item}</span>
+                <span className="text-base text-slate">{item}</span>
               </div>
             ))}
           </div>
@@ -125,14 +125,14 @@ export const DigitalConsultancyFeature = () => {
             <h3 className="text-lg font-semibold text-ink mb-1">
               Part of a larger capability
             </h3>
-            <p className="text-sm text-slate">
+            <p className="text-base text-slate">
               Digital Consultancy works alongside our Trust Services and DISP Advisory arms to provide 
               complete, integrated support for high-trust environments.
             </p>
           </div>
           <Link 
             href="/digital-consultancy" 
-            className="inline-flex items-center gap-2 text-sm font-semibold text-ink whitespace-nowrap group hover:gap-3 transition-all"
+            className="inline-flex items-center gap-2 text-base font-semibold text-ink whitespace-nowrap group hover:gap-3 transition-all"
           >
             Explore Digital Consultancy
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />

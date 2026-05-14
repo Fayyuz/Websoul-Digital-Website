@@ -1,3 +1,5 @@
+'use client'
+
 import { Container } from '@/components/ui/Container'
 import { Section } from '@/components/ui/Section'
 import { Link2, Mail, ShieldCheck } from 'lucide-react'
@@ -39,7 +41,7 @@ export default function SecurityPage() {
             <div className="space-y-12">
               <div className="space-y-6">
                 <h2 className="text-h3 font-display font-bold text-ink">Disclosure Policy</h2>
-                <div className="prose prose-sm max-w-none text-slate space-y-4">
+                <div className="prose max-w-none text-slate space-y-4">
                   <p>When reporting a potential vulnerability, we ask that you:</p>
                   <ul className="list-disc pl-5 space-y-2">
                     <li>Allow us a reasonable amount of time to resolve the issue before making it public.</li>

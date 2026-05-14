@@ -15,12 +15,12 @@ export const TrustServicesFeature = () => {
     {
       icon: ShieldCheck,
       title: 'Workforce Integrity',
-      description: 'Comprehensive screening designed for security-sensitive workforces.',
+      description: 'Integrity pathway design and suitability frameworks for security-sensitive workforces.',
     },
     {
       icon: ClipboardList,
       title: 'Trusted Pathways',
-      description: 'Streamlined onboarding flows that maintain absolute security standards.',
+      description: 'Streamlined onboarding advisory that maintains absolute security standards.',
     },
     {
       icon: UserCheck,
@@ -44,18 +44,25 @@ export const TrustServicesFeature = () => {
                   <blockquote className="text-h3 font-display font-bold text-ink leading-tight italic">
                     &quot;Trust is the most critical asset in any secure operating environment.&quot;
                   </blockquote>
-                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate/60">Personnel Trust Mandate</p>
+                  <p className="text-base font-bold uppercase tracking-[0.2em] text-slate/60">Personnel Trust Mandate</p>
                 </div>
              </div>
           </div>
 
           <div className="order-1 lg:order-2 max-w-xl">
             <div className="inline-block mb-4">
-              <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate/60 px-1">Capability Deep-Dive</span>
+              <span className="text-base font-bold uppercase tracking-[0.3em] text-slate/60 px-1">Capability Deep-Dive</span>
             </div>
             <h2 className="text-h1 font-display font-bold text-ink tracking-tight mb-6">Trust Services.</h2>
+            
+            {/* Compliance Disclaimer - Task 5 */}
+            <div className="bg-amber-50 border-l-4 border-amber-500 p-4 mb-8 text-base text-amber-900 rounded-r-lg">
+              <p className="font-semibold mb-1">Compliance Disclaimer</p>
+              Certain screening, checking or verification services may be delivered subject to accreditation, partner arrangements, customer requirements and applicable regulatory approvals.
+            </div>
+
             <p className="text-body-lg text-slate mb-8 leading-relaxed">
-              We provide the integrity frameworks and verification processes organisations need to build confident workforces and maintain secure transitions.
+              We provide workforce trust advisory, identity-readiness support and integrity pathway design for regulated and high-trust environments.
             </p>
             <div className="grid sm:grid-cols-2 gap-10 mb-12">
               {features.map((feature, index) => {
@@ -64,9 +71,9 @@ export const TrustServicesFeature = () => {
                   <div key={index} className="space-y-3">
                     <div className="flex items-center gap-3">
                       <Icon className="w-4 h-4 text-ink" />
-                      <h3 className="font-bold text-ink text-sm uppercase tracking-wider">{feature.title}</h3>
+                      <h3 className="font-bold text-ink text-base uppercase tracking-wider">{feature.title}</h3>
                     </div>
-                    <p className="text-xs text-slate leading-relaxed">{feature.description}</p>
+                    <p className="text-base text-slate leading-relaxed">{feature.description}</p>
                   </div>
                 )
               })}

@@ -1,3 +1,5 @@
+'use client'
+
 import Link from 'next/link'
 import { Container } from '@/components/ui/Container'
 import { Section } from '@/components/ui/Section'
@@ -41,7 +43,7 @@ export default function InsightsPage() {
         <Container>
           <div className="max-w-3xl">
             <div className="inline-block mb-4">
-              <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate/60 px-1">Knowledge Leadership</span>
+              <span className="text-base font-bold uppercase tracking-[0.3em] text-slate/60 px-1">Knowledge Leadership</span>
             </div>
             <h1 className="text-h1 font-display font-bold mb-4 text-ink">Modern perspective.</h1>
             <p className="text-body-lg text-slate lg:max-w-xl">
@@ -62,10 +64,10 @@ export default function InsightsPage() {
               >
                 <div className="md:col-span-3 lg:col-span-2">
                   <div className="flex flex-col gap-2">
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-ink/40">
+                    <span className="text-base font-bold uppercase tracking-widest text-ink/40">
                       {article.date}
                     </span>
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-slate/60">
+                    <span className="text-base font-bold uppercase tracking-widest text-slate/60">
                       {article.category}
                     </span>
                   </div>
@@ -74,12 +76,12 @@ export default function InsightsPage() {
                   <h2 className="text-h3 font-display font-bold text-ink mb-4 group-hover:text-slate transition-colors leading-tight">
                     {article.title}
                   </h2>
-                  <p className="text-sm text-slate leading-relaxed">
+                  <p className="text-base text-slate leading-relaxed">
                     {article.summary}
                   </p>
                 </div>
                 <div className="md:col-span-12 lg:col-span-3 flex items-center lg:justify-end">
-                  <div className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-widest text-ink md:opacity-0 group-hover:opacity-100 transition-opacity">
+                  <div className="flex items-center gap-3 text-base font-bold uppercase tracking-widest text-ink md:opacity-0 group-hover:opacity-100 transition-opacity">
                     Request Analysis
                     <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                   </div>
@@ -97,7 +99,7 @@ export default function InsightsPage() {
             </div>
             <Link 
               href="/contact" 
-              className="px-8 py-4 border border-ink text-[10px] font-bold uppercase tracking-widest text-ink hover:bg-ink hover:text-paper transition-all"
+              className="px-8 py-4 border border-ink text-base font-bold uppercase tracking-widest text-ink hover:bg-ink hover:text-paper transition-all"
             >
               Enquire about Briefings
             </Link>

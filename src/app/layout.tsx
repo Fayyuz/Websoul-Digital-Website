@@ -39,7 +39,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en-AU" className={cn(inter.variable, outfit.variable)}>
+    <html lang="en-AU" className={cn(inter.variable, outfit.variable)} suppressHydrationWarning>
       <body className="flex flex-col min-h-screen bg-paper text-ink font-sans">
         <SkipLink />
         <SiteHeader />

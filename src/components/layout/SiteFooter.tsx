@@ -1,3 +1,6 @@
+'use client'
+
+import React from 'react'
 import Link from 'next/link'
 import { LogoMark } from '@/components/shared/LogoMark'
 
@@ -26,7 +29,11 @@ const footerLinks = {
 }
 
 export const SiteFooter = () => {
-  const currentYear = new Date().getFullYear()
+  const [currentYear, setCurrentYear] = React.useState<number | null>(null)
+
+  React.useEffect(() => {
+    setCurrentYear(new Date().getFullYear())
+  }, [])
 
   return (
     <footer className="border-t border-silver bg-paper">
@@ -37,23 +44,18 @@ export const SiteFooter = () => {
             <div className="flex items-center gap-4 mb-6">
               <LogoMark size="lg" variant="dark" />
               <div className="flex flex-col">
-                <span className="font-bold text-[11px] tracking-[0.5em] text-ink uppercase leading-tight">Websoul Digital</span>
-                <div className="flex items-center gap-2 mt-1">
-                  <div className="h-[1px] w-4 bg-silver" />
-                  <span className="text-[8px] font-bold tracking-[0.6em] text-slate/60 uppercase">Australia</span>
-                  <div className="h-[1px] w-4 bg-silver" />
-                </div>
+                <span className="font-semibold text-lg tracking-normal text-ink leading-tight">Websoul Digital</span>
               </div>
             </div>
-            <p className="text-sm text-slate max-w-md">
-              Trusted capability for a more secure Australia.
+            <p className="text-base text-slate max-w-md">
+              Secure digital delivery, workforce trust pathways and DISP readiness support for Australian organisations operating in high-trust environments.
             </p>
-            <div className="mt-4 text-xs text-slate space-y-1">
+            <div className="mt-4 text-base text-slate space-y-1">
               <p>Websoul Digital Pty Ltd</p>
               <p>ABN 44 656 760 146</p>
               <p>Canberra, ACT, Australia</p>
               <p>
-                <a href="mailto:hello@websoul.com.au" className="hover:text-ink transition-colors">
+                <a href="mailto:hello@websoul.com.au" className="hover:text-ink transition-colors font-medium">
                   hello@websoul.com.au
                 </a>
               </p>
@@ -62,11 +64,11 @@ export const SiteFooter = () => {
 
           {/* Services Links */}
           <div>
-            <h3 className="font-semibold text-ink mb-4">Services</h3>
+            <h3 className="font-semibold text-ink text-lg mb-4">Services</h3>
             <ul className="space-y-2">
               {footerLinks.services.map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="text-sm text-slate hover:text-ink transition-colors">
+                  <Link href={item.href} className="text-base text-slate hover:text-ink transition-colors">
                     {item.label}
                   </Link>
                 </li>
@@ -76,11 +78,11 @@ export const SiteFooter = () => {
 
           {/* Resources Links */}
           <div>
-            <h3 className="font-semibold text-ink mb-4">Resources</h3>
+            <h3 className="font-semibold text-ink text-lg mb-4">Resources</h3>
             <ul className="space-y-2">
               {footerLinks.resources.map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="text-sm text-slate hover:text-ink transition-colors">
+                  <Link href={item.href} className="text-base text-slate hover:text-ink transition-colors">
                     {item.label}
                   </Link>
                 </li>
@@ -90,18 +92,18 @@ export const SiteFooter = () => {
 
           {/* Legal Links */}
           <div>
-            <h3 className="font-semibold text-ink mb-4">Legal</h3>
+            <h3 className="font-semibold text-ink text-lg mb-4">Legal</h3>
             <ul className="space-y-2">
               {footerLinks.company.map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="text-sm text-slate hover:text-ink transition-colors">
+                  <Link href={item.href} className="text-base text-slate hover:text-ink transition-colors">
                     {item.label}
                   </Link>
                 </li>
               ))}
               {footerLinks.legal.map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="text-sm text-slate hover:text-ink transition-colors">
+                  <Link href={item.href} className="text-base text-slate hover:text-ink transition-colors">
                     {item.label}
                   </Link>
                 </li>
@@ -111,8 +113,8 @@ export const SiteFooter = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-silver flex flex-col md:flex-row justify-between gap-4 text-xs text-slate">
-          <p>© {currentYear} Websoul Digital Pty Ltd. All rights reserved.</p>
+        <div className="pt-8 border-t border-silver flex flex-col md:flex-row justify-between gap-4 text-base text-slate">
+          <p suppressHydrationWarning>© {currentYear || 2026} Websoul Digital Pty Ltd.</p>
           <div className="flex gap-6">
             <Link href="/privacy" className="hover:text-ink">Privacy</Link>
             <Link href="/terms" className="hover:text-ink">Terms</Link>

@@ -21,7 +21,7 @@ export const Button = ({
   disabled
 }: ButtonProps) => {
   const baseStyles = cn(
-    'inline-flex items-center justify-center px-8 py-3.5 text-xs font-bold uppercase tracking-widest transition-all duration-300',
+    'inline-flex items-center justify-center px-8 py-3.5 text-base font-bold uppercase tracking-widest transition-all duration-300',
     'rounded-full',
     'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2',
     'disabled:opacity-50 disabled:cursor-not-allowed',

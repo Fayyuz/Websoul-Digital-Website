@@ -1,3 +1,6 @@
+'use client'
+
+import React from 'react'
 import { Container } from '@/components/ui/Container'
 import { Section } from '@/components/ui/Section'
 import { Button } from '@/components/ui/Button'
@@ -33,7 +36,7 @@ export default function AboutPage() {
         <Container>
           <div className="max-w-4xl">
             <div className="inline-block mb-6">
-              <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate/60">Company Capability</span>
+              <span className="text-base font-bold uppercase tracking-[0.3em] text-slate/60">Company Capability</span>
             </div>
             <h1 className="text-hero-mobile md:text-h1 font-display font-bold tracking-tight text-ink mb-8">
               Sovereign capability for secure horizons.
@@ -43,7 +46,7 @@ export default function AboutPage() {
                 Websoul Digital is an Australian-owned consultancy bridging the gap between high-trust personnel requirements and secure digital delivery.
               </p>
               <p className="text-body text-slate leading-relaxed">
-                Headquartered in Canberra, we specialise in navigating the intersection of workforce integrity, secure-by-design engineering, and regulatory readiness for organisations operating in defence-aware and critical infrastructure environments.
+                Headquartered in Canberra, we specialise in navigating the intersection of workforce integrity, secure-by-design engineering, and regulatory readiness for organisations operating in Defence-aware and critical infrastructure environments.
               </p>
             </div>
           </div>
@@ -70,24 +73,24 @@ export default function AboutPage() {
             <div className="bg-mist rounded-[2rem] p-12 aspect-square flex flex-col justify-center border border-silver">
               <div className="space-y-8">
                 <div className="flex gap-6 items-start">
-                  <div className="w-10 h-10 rounded-full bg-ink text-paper flex items-center justify-center flex-shrink-0 font-bold text-xs uppercase tracking-tighter">01</div>
+                  <div className="w-10 h-10 rounded-full bg-ink text-paper flex items-center justify-center flex-shrink-0 font-bold text-base uppercase tracking-tighter">01</div>
                   <div>
                     <h3 className="font-bold text-ink mb-1">Verify Personnel</h3>
-                    <p className="text-sm text-slate">Establishing identity and integrity foundations.</p>
+                    <p className="text-base text-slate">Establishing identity and integrity foundations.</p>
                   </div>
                 </div>
                 <div className="flex gap-6 items-start">
-                  <div className="w-10 h-10 rounded-full bg-ink text-paper flex items-center justify-center flex-shrink-0 font-bold text-xs uppercase tracking-tighter">02</div>
+                  <div className="w-10 h-10 rounded-full bg-ink text-paper flex items-center justify-center flex-shrink-0 font-bold text-base uppercase tracking-tighter">02</div>
                   <div>
                     <h3 className="font-bold text-ink mb-1">Secure Delivery</h3>
-                    <p className="text-sm text-slate">Building resilient digital infrastructure and systems.</p>
+                    <p className="text-base text-slate">Building resilient digital infrastructure and systems.</p>
                   </div>
                 </div>
                 <div className="flex gap-6 items-start">
-                  <div className="w-10 h-10 rounded-full bg-ink text-paper flex items-center justify-center flex-shrink-0 font-bold text-xs uppercase tracking-tighter">03</div>
+                  <div className="w-10 h-10 rounded-full bg-ink text-paper flex items-center justify-center flex-shrink-0 font-bold text-base uppercase tracking-tighter">03</div>
                   <div>
                     <h3 className="font-bold text-ink mb-1">Assure Environment</h3>
-                    <p className="text-sm text-slate">Maintaining compliance and environmental readiness.</p>
+                    <p className="text-base text-slate">Maintaining compliance and environmental readiness.</p>
                   </div>
                 </div>
               </div>
@@ -114,7 +117,7 @@ export default function AboutPage() {
                     <Icon className="w-5 h-5 text-ink" />
                   </div>
                   <h3 className="font-bold text-ink mb-2">{value.title}</h3>
-                  <p className="text-xs text-slate leading-relaxed">{value.description}</p>
+                  <p className="text-base text-slate leading-relaxed">{value.description}</p>
                 </div>
               )
             })}
@@ -126,7 +129,7 @@ export default function AboutPage() {
         <Container>
           <div className="mb-16">
             <div className="inline-block mb-4">
-              <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate/60">Leadership & Advisory</span>
+              <span className="text-base font-bold uppercase tracking-[0.3em] text-slate/60">Leadership & Advisory</span>
             </div>
             <h2 className="text-h2 font-display font-bold text-ink">Built on experience.</h2>
           </div>
@@ -140,8 +143,8 @@ export default function AboutPage() {
               <div key={index} className="p-10 bg-paper border border-silver rounded-3xl group hover:border-ink/10 transition-colors">
                 <div className="w-10 h-px bg-silver mb-8 group-hover:w-full transition-all duration-700" />
                 <h3 className="text-h4 font-display font-bold text-ink mb-2">{leader.role}</h3>
-                <p className="text-[10px] font-bold uppercase tracking-widest text-slate/60 mb-6">{leader.focus}</p>
-                <p className="text-sm text-slate leading-relaxed">{leader.exp}</p>
+                <p className="text-base font-bold uppercase tracking-widest text-slate/60 mb-6">{leader.focus}</p>
+                <p className="text-base text-slate leading-relaxed">{leader.exp}</p>
               </div>
             ))}
           </div>

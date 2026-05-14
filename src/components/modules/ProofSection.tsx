@@ -31,7 +31,7 @@ export const ProofSection = () => {
         <div className="grid lg:grid-cols-2 gap-20 items-end mb-20">
           <div>
             <div className="inline-block mb-4">
-              <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate/60">Proof of Capability</span>
+              <span className="text-base font-bold uppercase tracking-[0.3em] text-slate/60">Proof of Capability</span>
             </div>
             <h2 className="text-h1 font-display font-bold tracking-tight text-ink mb-6">
               Proven in complex<br />operating contexts.
@@ -48,13 +48,13 @@ export const ProofSection = () => {
           {proofPoints.map((point, index) => (
             <div key={index} className="bg-paper p-10 flex flex-col justify-between h-full group hover:bg-mist/30 transition-colors duration-500">
               <div className="space-y-6">
-                <span className="text-[10px] font-bold uppercase tracking-widest text-slate/40 block">
+                <span className="text-base font-bold uppercase tracking-widest text-slate/40 block">
                   {point.metric}
                 </span>
                 <h3 className="text-h3 font-display font-bold text-ink leading-tight">
                   {point.title}
                 </h3>
-                <p className="text-sm text-slate leading-relaxed">
+                <p className="text-base text-slate leading-relaxed">
                   {point.description}
                 </p>
               </div>
@@ -62,7 +62,7 @@ export const ProofSection = () => {
           ))}
         </div>
 
-        <div className="mt-20 pt-10 border-t border-silver flex flex-wrap justify-between items-center gap-8 text-[10px] font-bold uppercase tracking-[0.4em] text-slate/30">
+        <div className="mt-20 pt-10 border-t border-silver flex flex-wrap justify-between items-center gap-8 text-base font-bold uppercase tracking-[0.4em] text-slate/30">
           <span>ASD ISM Alignment</span>
           <span>PSPF Frameworks</span>
           <span>Essential Eight Readiness</span>

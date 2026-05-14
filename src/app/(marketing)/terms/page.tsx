@@ -1,3 +1,5 @@
+'use client'
+
 import { Container } from '@/components/ui/Container'
 import { Section } from '@/components/ui/Section'
 
@@ -15,7 +17,7 @@ export default function TermsPage() {
 
       <Section background="paper" spacing="lg">
         <Container>
-          <div className="max-w-3xl mx-auto prose prose-sm max-w-none text-slate space-y-8">
+          <div className="max-w-3xl mx-auto prose max-w-none text-slate space-y-8">
             <section>
               <h2 className="text-h3 font-display font-bold text-ink mb-4">1. Consultancy Framework</h2>
               <p>These terms govern the access to information provided by Websoul Digital. Formal consultancy engagements are governed by specific Master Services Agreements (MSA) or Statements of Work (SOW).</p>

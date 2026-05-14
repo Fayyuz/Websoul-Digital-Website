@@ -1,35 +1,73 @@
 
+'use client'
+
 import React from 'react';
 import Link from 'next/link';
-import { Section } from '@/components/ui/Section';
-import { Container } from '@/components/ui/Container';
 
 export default function NotFound() {
   return (
-    <Section className="min-h-[70vh] flex flex-col items-center justify-center text-center">
-      <Container>
-        <div className="inline-flex items-center gap-3 mb-10">
-          <div className="w-8 h-[1px] bg-ink opacity-10"></div>
-          <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-slate">Operational Error 404</span>
-        </div>
-        
-        <h1 className="text-5xl md:text-7xl font-display font-medium text-ink mb-10 tracking-tighter">
-          Resource not found.
-        </h1>
-        
-        <p className="text-slate font-sans text-lg leading-relaxed max-w-md mx-auto mb-16 font-light">
-          The requested operational path could not be resolved. It may have been moved, renamed, or is currently restricted.
-        </p>
-        
-        <div className="flex flex-col sm:flex-row gap-8 justify-center">
-          <Link href="/" className="px-8 py-3 bg-ink text-paper rounded-full font-bold uppercase tracking-widest text-[10px] hover:bg-graphite transition-all">
-            Return to HQ
-          </Link>
-          <Link href="/contact" className="px-8 py-3 border-2 border-ink text-ink rounded-full font-bold uppercase tracking-widest text-[10px] hover:bg-ink hover:text-paper transition-all">
-            Contact Advisory
-          </Link>
-        </div>
-      </Container>
-    </Section>
+    <div style={{
+      minHeight: '100vh',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      flexDirection: 'column',
+      padding: '2rem',
+      textAlign: 'center',
+      backgroundColor: '#FAFAFA'
+    }}>
+      <div style={{
+        display: 'inline-flex',
+        alignItems: 'center',
+        gap: '0.75rem',
+        marginBottom: '2.5rem'
+      }}>
+        <div style={{ width: '2rem', height: '1px', backgroundColor: '#1A1A1A', opacity: 0.1 }}></div>
+        <span style={{ fontSize: '1rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.4em', color: '#64748B' }}>Operational Error 404</span>
+      </div>
+      
+      <h1 style={{ fontSize: 'clamp(2.25rem, 5vw, 4rem)', fontWeight: 600, color: '#1A1A1A', marginBottom: '2.5rem', letterSpacing: '-0.02em' }}>
+        Resource not found.
+      </h1>
+      
+      <p style={{ fontSize: '1.125rem', color: '#64748B', maxWidth: '400px', marginBottom: '4rem', lineHeight: 1.6 }}>
+        The requested operational path could not be resolved. It may have been moved, renamed, or is currently restricted.
+      </p>
+      
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+        <Link 
+          href="/" 
+          style={{
+            padding: '0.75rem 2.5rem',
+            backgroundColor: '#1A1A1A',
+            color: '#FFFFFF',
+            textDecoration: 'none',
+            borderRadius: '9999px',
+            fontWeight: 700,
+            textTransform: 'uppercase',
+            letterSpacing: '0.1em',
+            fontSize: '1rem'
+          }}
+        >
+          Return to HQ
+        </Link>
+        <Link 
+          href="/contact" 
+          style={{
+            padding: '0.75rem 2.5rem',
+            border: '2px solid #1A1A1A',
+            color: '#1A1A1A',
+            textDecoration: 'none',
+            borderRadius: '9999px',
+            fontWeight: 700,
+            textTransform: 'uppercase',
+            letterSpacing: '0.1em',
+            fontSize: '1rem'
+          }}
+        >
+          Contact Advisory
+        </Link>
+      </div>
+    </div>
   );
 }

@@ -3,7 +3,7 @@
 import { Container } from '@/components/ui/Container'
 import { Section } from '@/components/ui/Section'
 import { Button } from '@/components/ui/Button'
-import { TrendingUp, FileCheck, Building2, Target } from 'lucide-react'
+import { TrendingUp, FileCheck, Building2, Target, CircleCheck } from 'lucide-react'
 
 export const DISPFeature = () => {
   const features = [
@@ -44,19 +44,44 @@ export const DISPFeature = () => {
                   <blockquote className="text-h3 font-display font-bold text-ink leading-tight">
                     &quot;Cyber maturity must be evidenced through practical controls, accountable owners and repeatable assurance.&quot;
                   </blockquote>
-                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate/60">Assurance Principle</p>
+                  <p className="text-base font-bold uppercase tracking-[0.2em] text-slate/60">Assurance Principle</p>
                 </div>
              </div>
           </div>
-
           <div className="order-1 lg:order-2 max-w-xl">
             <div className="inline-block mb-4">
-              <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate/60 px-1">Capability Deep-Dive</span>
+              <span className="text-base font-bold uppercase tracking-[0.3em] text-slate/60 px-1">Capability Deep-Dive</span>
             </div>
             <h2 className="text-h1 font-display font-bold text-ink tracking-tight mb-6">DISP Advisory & Cyber Assurance.</h2>
             <p className="text-body-lg text-slate mb-8 leading-relaxed">
               We help Defence industry suppliers and government-facing organisations build a practical path to DISP readiness, Essential Eight ML2 uplift, ISM control mapping and continuous cyber assurance.
             </p>
+            
+            <div className="mb-10 bg-paper/50 p-6 rounded-2xl border border-silver/50">
+              <h3 className="font-bold text-ink text-base uppercase tracking-wider mb-4 flex items-center gap-2">
+                <CircleCheck className="w-4 h-4 text-emerald-600" />
+                Practical Buyer Outcomes
+              </h3>
+              <ul className="space-y-3 text-base text-slate">
+                <li className="flex items-start gap-3">
+                  <span className="text-emerald-600 font-bold mt-0.5">✓</span>
+                  Evidence packs for audits and customer assurance
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-emerald-600 font-bold mt-0.5">✓</span>
+                  Mapped controls across DISP, PSPF, ISM and Essential Eight
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-emerald-600 font-bold mt-0.5">✓</span>
+                  Practical uplift roadmap with owners, risks and priorities
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-emerald-600 font-bold mt-0.5">✓</span>
+                  Security governance artefacts suitable for Defence-facing SMEs
+                </li>
+              </ul>
+            </div>
+
             <div className="grid sm:grid-cols-2 gap-10 mb-12">
               {features.map((feature, index) => {
                 const Icon = feature.icon
@@ -64,9 +89,9 @@ export const DISPFeature = () => {
                   <div key={index} className="space-y-3">
                     <div className="flex items-center gap-3">
                       <Icon className="w-4 h-4 text-ink" />
-                      <h3 className="font-bold text-ink text-sm uppercase tracking-wider">{feature.title}</h3>
+                      <h3 className="font-bold text-ink text-base uppercase tracking-wider">{feature.title}</h3>
                     </div>
-                    <p className="text-xs text-slate leading-relaxed">{feature.description}</p>
+                    <p className="text-base text-slate leading-relaxed">{feature.description}</p>
                   </div>
                 )
               })}
@@ -75,7 +100,7 @@ export const DISPFeature = () => {
               <Button href="/disp-advisory" variant="secondary" className="h-14 px-10">
                 Explore DISP advisory
               </Button>
-              <a href="/disp-advisory/essential-eight-ml2" className="text-sm font-bold text-ink hover:underline text-center">
+              <a href="/disp-advisory/essential-eight-ml2" className="text-base font-bold text-ink hover:underline text-center">
                 Essential Eight ML2 Assurance →
               </a>
             </div>

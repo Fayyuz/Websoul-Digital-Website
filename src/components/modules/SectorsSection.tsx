@@ -8,7 +8,7 @@ export const SectorsSection = () => {
       <Container>
         <div className="flex flex-col md:flex-row items-center md:items-start gap-12">
           <div className="md:w-1/3">
-            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate/60 mb-2 block">Environment Experience</span>
+            <span className="text-base font-bold uppercase tracking-[0.3em] text-slate/60 mb-2 block">Environment Experience</span>
             <h2 className="text-h2 font-display font-bold text-ink tracking-tight">Sectors We Support.</h2>
           </div>
           <div className="md:w-2/3">
@@ -16,7 +16,7 @@ export const SectorsSection = () => {
               {sectorsList.map((sector, index) => (
                 <div key={index} className="space-y-4">
                   <div className="w-8 h-px bg-slate/20" />
-                  <span className="text-xs font-semibold tracking-tight text-slate block leading-snug">
+                  <span className="text-base font-semibold tracking-tight text-slate block leading-snug">
                     {sector}
                   </span>
                 </div>

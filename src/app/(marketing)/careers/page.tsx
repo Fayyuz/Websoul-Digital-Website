@@ -1,3 +1,5 @@
+'use client'
+
 import Link from 'next/link'
 import { Container } from '@/components/ui/Container'
 import { Section } from '@/components/ui/Section'
@@ -51,7 +53,7 @@ export default function CareersPage() {
 
               <div>
                 <h2 className="text-h3 font-display font-bold text-ink mb-6">Why Websoul?</h2>
-                <div className="prose prose-sm text-slate space-y-4 max-w-none">
+                <div className="prose text-slate space-y-4 max-w-none">
                   <p>Working with Websoul Digital means engaging with high-impact, sovereign-focused work that matters to Australia&apos;s security and resilience.</p>
                   <ul className="list-disc pl-5">
                     <li>Mission-critical projects in regulated and secure environments.</li>

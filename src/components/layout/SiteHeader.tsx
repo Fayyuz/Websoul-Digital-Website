@@ -56,7 +56,7 @@ export const SiteHeader = () => {
             aria-label="Websoul Digital Home"
           >
             <LogoMark size="md" variant="dark" className="md:w-9 md:h-9" />
-            <span className="text-[9px] md:text-[10px] font-bold tracking-[0.5em] text-ink uppercase whitespace-nowrap pt-1">
+            <span className="text-base md:text-lg font-semibold tracking-normal text-ink whitespace-nowrap">
               Websoul Digital
             </span>
           </Link>
@@ -70,7 +70,7 @@ export const SiteHeader = () => {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-sm font-medium text-slate hover:text-ink transition-colors duration-200 whitespace-nowrap"
+                className="text-base font-normal text-slate hover:text-ink transition-colors duration-200 whitespace-nowrap"
               >
                 {item.label}
               </Link>
@@ -82,7 +82,7 @@ export const SiteHeader = () => {
             <Button 
               href="/contact" 
               variant="primary" 
-              className="h-11 px-6 text-sm font-semibold rounded-lg"
+              className="h-11 px-6 text-base font-medium rounded-lg"
             >
               Talk to Us
             </Button>

@@ -1,3 +1,5 @@
+'use client'
+
 import { Container } from '@/components/ui/Container'
 import { Section } from '@/components/ui/Section'
 import { Button } from '@/components/ui/Button'
@@ -7,33 +9,33 @@ export default function TrustServicesPage() {
   const services = [
     {
       icon: Fingerprint,
-      title: 'Identity Verification',
-      description: 'Structured validation of personnel identity and credentials for high-trust roles.',
+      title: 'Identity Readiness',
+      description: 'Support for identity verification process design and readiness for high-trust roles.',
     },
     {
       icon: Shield,
       title: 'Workforce Integrity',
-      description: 'Comprehensive screening and background verification designed for critical workforces.',
+      description: 'Integrity pathway design and suitability frameworks for security-sensitive workforces.',
     },
     {
       icon: UserCheck,
-      title: 'Trusted Onboarding',
-      description: 'Standardized trust pathways that reduce operational friction without compromising security.',
+      title: 'Trusted Pathways',
+      description: 'Standardized integrity pathways that reduce operational friction without compromising security.',
     },
     {
       icon: ClipboardList,
       title: 'Personnel Assurance',
-      description: 'Ongoing verification of professional standing and suitability for regulated environments.',
+      description: 'Ongoing verification of professional standing and suitability processes for regulated environments.',
     },
     {
       icon: Clock,
       title: 'Integrity Monitoring',
-      description: 'Continuous lifecycle monitoring for personnel in security-sensitive or high-risk domains.',
+      description: 'Process design for continuous lifecycle monitoring for personnel in high-risk domains.',
     },
     {
       icon: FileText,
       title: 'Audit & Compliance',
-      description: 'Exhaustive documentation and reporting to meet regulatory and environmental standards.',
+      description: 'Exhaustive documentation and assurance evidence to meet regulatory and environmental standards.',
     },
   ]
 
@@ -46,18 +48,22 @@ export default function TrustServicesPage() {
               <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate/60">Capability: Trust Services</span>
             </div>
             <h1 className="text-hero-mobile md:text-h1 font-display font-bold tracking-tight text-ink mb-8">
-              Verification with velocity.
+              Trust with velocity.
             </h1>
             <div className="grid md:grid-cols-2 gap-12 items-start">
-              <p className="text-body-lg text-ink font-medium leading-relaxed">
-                We provide the integrity frameworks and readiness support organisations need to scale their trusted workforce with confidence.
-              </p>
+              <div className="space-y-6">
+                <p className="text-body-lg text-ink font-medium leading-relaxed">
+                  We provide workforce trust advisory, identity-readiness support and integrity pathway design for regulated and high-trust environments.
+                </p>
+                {/* Task 5 Disclaimer */}
+                <div className="bg-amber-50 border-l-4 border-amber-500 p-5 text-base text-amber-900 rounded-r-xl shadow-sm">
+                  <p className="font-bold mb-2">Important Compliance Note</p>
+                  Certain screening, checking or verification services may be delivered subject to accreditation, partner arrangements, customer requirements and applicable regulatory approvals.
+                </div>
+              </div>
               <div className="space-y-6">
                 <p className="text-body text-slate leading-relaxed">
-                  In regulated environments, workforce trust is a critical capability. Our Trust Services arm simplifies the complexity of identity and integrity readiness, ensuring your personnel are prepared for high-security operations.
-                </p>
-                <p className="text-[10px] text-slate italic leading-relaxed border-l-2 border-silver pl-4">
-                  Note: Websoul Digital provides advisory and readiness support for trust-based pathways. We are not a government vetting agency or a formal accrediting body. All formal outcomes are subject to delegate approval by the relevant authority.
+                  In regulated environments, workforce trust is a core capability. Our Trust Services simplify the complexity of identity and integrity readiness, ensuring your personnel meet the standards required for high-assurance operations.
                 </p>
               </div>
             </div>

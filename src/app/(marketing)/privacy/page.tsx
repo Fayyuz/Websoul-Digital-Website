@@ -1,3 +1,5 @@
+'use client'
+
 import { Container } from '@/components/ui/Container'
 import { Section } from '@/components/ui/Section'
 
@@ -16,7 +18,7 @@ export default function PrivacyPage() {
       <Section background="paper" spacing="lg">
         <Container>
           <div className="max-w-3xl mx-auto">
-            <div className="prose prose-sm max-w-none text-slate space-y-8">
+            <div className="prose max-w-none text-slate space-y-8">
               <section>
                 <h2 className="text-h3 font-display font-bold text-ink mb-4">1. Collection of Information</h2>
                 <p>Websoul Digital collects personal information required to facilitate our consultancy operations and respond to mission-critical enquiries. This may include professional contact details, organisational affiliation, and information relevant to security readiness assessments.</p>

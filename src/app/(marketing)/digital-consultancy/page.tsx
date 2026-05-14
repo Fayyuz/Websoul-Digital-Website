@@ -1,3 +1,5 @@
+'use client'
+
 import { Container } from '@/components/ui/Container'
 import { Section } from '@/components/ui/Section'
 import { Button } from '@/components/ui/Button'
@@ -43,17 +45,17 @@ export default function DigitalConsultancyPage() {
         <Container>
           <div className="max-w-4xl">
             <div className="inline-block mb-6">
-              <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate/60">Capability: Digital Delivery</span>
+              <span className="text-base font-bold uppercase tracking-[0.3em] text-slate/60">Capability: Digital Delivery</span>
             </div>
             <h1 className="text-hero-mobile md:text-h1 font-display font-bold tracking-tight text-ink mb-8">
-              Digital Delivery with Assurance.
+              Digital Consultancy.
             </h1>
             <div className="grid md:grid-cols-2 gap-12 items-start">
               <p className="text-body-lg text-ink font-medium leading-relaxed">
-                We design and deliver technical systems that are secure-by-default, resilient-by-design, and aligned with sovereign security standards.
+                Secure ICT strategy, cloud transformation and delivery governance for Australian organisations modernising critical services.
               </p>
               <p className="text-body text-slate leading-relaxed">
-                Modern digital transformation requires more than just migration; it requires a fundamental commitment to integrating security into the delivery lifecycle. Our consultants provide the specialized engineering capacity required to navigate this transition in regulated domains.
+                Modern digital transformation requires more than just migration; it requires a fundamental commitment to integrating security and governance into the delivery lifecycle. Our consultants provide the specialized engineering capacity required to navigate this transition in regulated and high-trust domains.
               </p>
             </div>
           </div>
@@ -78,7 +80,7 @@ export default function DigitalConsultancyPage() {
                     <Icon className="w-6 h-6 text-ink group-hover:text-paper transition-colors" />
                   </div>
                   <h3 className="text-h4 font-display font-bold mb-3 text-ink">{capability.title}</h3>
-                  <p className="text-sm text-slate leading-relaxed">{capability.description}</p>
+                  <p className="text-base text-slate leading-relaxed">{capability.description}</p>
                 </div>
               )
             })}
